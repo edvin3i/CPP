@@ -19,27 +19,7 @@ int main()
 		} else if (prompt == "SEARCH") {
 			pb.searchContact();
 		} else if (prompt == "ADD") {
-			std::string firstname;
-			std::cout << std::setw(15) << "First Name: ";
-			std::cin >> firstname;
-			std::string lastname;
-			std::cout << std::setw(15) << "Last Name: ";
-			std::cin >> lastname;
-			std::string nickname;
-			std::cout << std::setw(15) << "Nickname: ";
-			std::cin >> nickname;
-			std::string phonenumber;
-			std::cout << std::setw(15) << "Phone Number: ";
-			std::cin >> phonenumber;
-			std::string dearkestsecret;
-			std::cout << std::setw(15) << "Darkest Secret: ";
-			std::cin >> dearkestsecret;
-
-			pb.addContact(firstname, \
-							lastname, \
-							nickname, \
-							phonenumber, \
-							dearkestsecret);
+			pb.addContact();
 		}
 	}
 	return 0;

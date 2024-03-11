@@ -11,18 +11,30 @@ PhoneBook::~PhoneBook() {
 
 }
 
-void PhoneBook::addContact(std::string firstname,
-					std::string lastname,
-					std::string nickname,
-					std::string phonenumber,
-					std::string darkestsecret) {
+void PhoneBook::addContact() {
+
+	std::string firstname;
+	std::cout << std::setw(17) << "First Name: ";
+	std::cin >> firstname;
+	std::string lastname;
+	std::cout << std::setw(17) << "Last Name: ";
+	std::cin >> lastname;
+	std::string nickname;
+	std::cout << std::setw(17) << "Nickname: ";
+	std::cin >> nickname;
+	std::string phonenumber;
+	std::cout << std::setw(17) << "Phone Number: ";
+	std::cin >> phonenumber;
+	std::string dearkestsecret;
+	std::cout << std::setw(17) << "Darkest Secret: ";
+	std::cin >> dearkestsecret;
 
 	if (currentSize < maxSize) {
 		contacts[currentSize].setFirstName(firstname);
 		contacts[currentSize].setLastName(lastname);
 		contacts[currentSize].setNickname(nickname);
 		contacts[currentSize].setPhoneNumber(phonenumber);
-		contacts[currentSize].setDarkestSecret(darkestsecret);
+		contacts[currentSize].setDarkestSecret(dearkestsecret);
 		currentSize++;
 	} else {
 		return ;

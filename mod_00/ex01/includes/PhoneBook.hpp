@@ -8,11 +8,7 @@ public:
 	PhoneBook();
 	~PhoneBook();
 
-	void addContact(std::string firstname,
-					std::string lastname,
-					std::string nickname,
-					std::string phonenumber,
-					std::string darkestsecret);
+	void addContact();
 	void searchContact();
 	void exit();
 
@@ -23,6 +19,7 @@ private:
 
 	Contact contacts[maxSize];
 
+	//void askFieldValue(int w, std::string *field, std::string msg);
 	void displayContacts();
 };
 
