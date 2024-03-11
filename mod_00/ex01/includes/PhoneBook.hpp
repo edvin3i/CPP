@@ -19,7 +19,7 @@ private:
 
 	Contact contacts[maxSize];
 
-	//void askFieldValue(int w, std::string *field, std::string msg);
+	void askFieldValue(int w, std::string *field, std::string msg);
 	void displayContacts();
 };
 

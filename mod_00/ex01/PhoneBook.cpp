@@ -11,30 +11,39 @@ PhoneBook::~PhoneBook() {
 
 }
 
+void PhoneBook::askFieldValue(int w, std::string *field, std::string msg) {
+
+	while (!field || *field == "") {
+		std::cout << std::setw(w) << msg;
+		std::cin >> *field;
+	}
+}
+
 void PhoneBook::addContact() {
 
+	int fwidth = 17;
+
 	std::string firstname;
-	std::cout << std::setw(17) << "First Name: ";
-	std::cin >> firstname;
+	askFieldValue(fwidth, &firstname, "First Name: ");
+
 	std::string lastname;
-	std::cout << std::setw(17) << "Last Name: ";
-	std::cin >> lastname;
+	askFieldValue(fwidth, &lastname, "Last Name: ");
+
 	std::string nickname;
-	std::cout << std::setw(17) << "Nickname: ";
-	std::cin >> nickname;
+	askFieldValue(fwidth, &nickname, "Nickname: ");
+
 	std::string phonenumber;
-	std::cout << std::setw(17) << "Phone Number: ";
-	std::cin >> phonenumber;
-	std::string dearkestsecret;
-	std::cout << std::setw(17) << "Darkest Secret: ";
-	std::cin >> dearkestsecret;
+	askFieldValue(fwidth, &phonenumber, "Phone Number: ");
+
+	std::string darkestsecret;
+	askFieldValue(fwidth, &darkestsecret, "Darkest Secret: ");
 
 	if (currentSize < maxSize) {
 		contacts[currentSize].setFirstName(firstname);
 		contacts[currentSize].setLastName(lastname);
 		contacts[currentSize].setNickname(nickname);
 		contacts[currentSize].setPhoneNumber(phonenumber);
-		contacts[currentSize].setDarkestSecret(dearkestsecret);
+		contacts[currentSize].setDarkestSecret(darkestsecret);
 		currentSize++;
 	} else {
 		return ;
