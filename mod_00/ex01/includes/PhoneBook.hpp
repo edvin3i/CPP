@@ -22,6 +22,8 @@ private:
 	static const int maxSize = 8;
 
 	Contact contacts[maxSize];
+
+	void displayContacts();
 };
 
 #endif

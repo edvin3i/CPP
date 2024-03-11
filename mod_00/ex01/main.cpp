@@ -14,13 +14,16 @@ int main()
 	string darkestsecret;
 
 	PhoneBook pb;
-
+/*
 	cin >> firstname;
 	cin >> lastname;
 	cin >> nickname;
 	cin >> phonenumber;
 	cin >> darkestsecret;
 
-	pb.addContact(firstname, lastname, nickname, phonenumber, darkestsecret);
+	pb.addContact(firstname, lastname, nickname, phonenumber, darkestsecret);*/
+
+	pb.searchContact();
+
 	return 0;
 }

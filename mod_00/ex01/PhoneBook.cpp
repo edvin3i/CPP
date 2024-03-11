@@ -1,4 +1,5 @@
 #include "includes/PhoneBook.hpp"
+#include <iostream>
 
 
 PhoneBook::PhoneBook(): currentSize(0) {
@@ -24,5 +25,28 @@ void PhoneBook::addContact(std::string firstname,
 		currentSize++;
 	} else {
 		return ;
+	}
+}
+
+void PhoneBook::searchContact() {
+	displayContacts();
+
+}
+
+void PhoneBook::displayContacts() {
+	std::cout << "-------------------------------------------" << std::endl;
+	std::cout << "|";
+	std::cout << "     Index" << "|";
+	std::cout << " FirstName" << "|";
+	std::cout << "  LastName" << "|";
+	std::cout << "  Nickname" << "|" << std::endl;
+	std::cout << "-------------------------------------------" << std::endl;
+
+	for (int index = 0; index < maxSize; ++index)
+	{
+		std::cout << "|" << index << "|";
+		std::cout << std::endl;
+		std::cout << "-------------------------------------------" << std::endl;
+
 	}
 }
