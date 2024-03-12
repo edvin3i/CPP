@@ -22,9 +22,11 @@ int main() {
 		else if (prompt == "ADD") {
 			pb.addContact();
 		}
-		else if (prompt == "TEST") {
+		/*
+		  else if (prompt == "TEST") {
 			pb.addTestContacts();
 		}
+		 */
 		else {
 			std::cout << "Command not found!" << std::endl;
 			continue ;

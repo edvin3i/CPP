@@ -141,6 +141,7 @@ void PhoneBook::displayContactsAll() {
 }
 
 /* Test methods */
+/*
 
 void PhoneBook::addContact(const Contact &newContact) {
 
@@ -172,3 +173,4 @@ void PhoneBook::addTestContacts() {
 		addContact(newContact);
 	}
 }
+*/

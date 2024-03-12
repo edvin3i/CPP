@@ -12,9 +12,10 @@ public:
 	void searchContact();
 
  /* Test */
+ /*
 	void addContact(const Contact &newContact);
 	void addTestContacts();
-
+*/
 private:
 
 	int					current_size;
