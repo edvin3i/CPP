@@ -10,6 +10,7 @@ public:
 
 	void addContact();
 	void searchContact();
+
  /* Test */
 	void addContact(const Contact &newContact);
 	void addTestContacts();

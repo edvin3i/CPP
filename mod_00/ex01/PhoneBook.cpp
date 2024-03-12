@@ -44,9 +44,7 @@ void PhoneBook::addContact() {
 	contacts[next_index].setPhoneNumber(phone_number);
 	contacts[next_index].setDarkestSecret(darkest_secret);
 
-	if (current_size < max_size) {
-		current_size++;
-	}
+	current_size++;
 }
 
 int PhoneBook::askContactIndex() {
@@ -117,9 +115,6 @@ void PhoneBook::displayContactsAll() {
 	for (int index = 0; index < max_size; ++index)
 	{
 		std::cout << "|" << std::setw(10) << index << "|";
-
-
-
 		std::string first_name = contacts[index].getFirstName();
 		std::string last_name = contacts[index].getLastName();
 		std::string nickname = contacts[index].getNickname();
@@ -145,17 +140,16 @@ void PhoneBook::displayContactsAll() {
 	}
 }
 
-
 /* Test methods */
 
 void PhoneBook::addContact(const Contact &newContact) {
+
 	if (current_size < max_size) {
 		contacts[current_size++] = newContact;
 	} else {
 		return ;
 	}
 }
-
 
 void PhoneBook::addTestContacts() {
 
@@ -165,9 +159,10 @@ void PhoneBook::addTestContacts() {
 	std::string testPhoneNumbers[] = {"123-456-789", "987-654-321", "555-555-555", "111-222-333", "444-555-666", "777-888-999", "000-111-222", "333-444-555"};
 	std::string testDarkestSecrets[] = {"I love C++", "I use tabs over spaces", "I don't like pizza", "I never finished 'Hello World'", "I dream in code", "I prefer Python", "I like dark mode", "I use light mode"};
 
-
 	for (int i = 0; i < 8; ++i) {
+
 		Contact newContact;
+
 		newContact.setFirstName(testFirstNames[i]);
 		newContact.setLastName(testLastNames[i]);
 		newContact.setNickname(testNicknames[i]);
