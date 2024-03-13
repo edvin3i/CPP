@@ -82,7 +82,7 @@ int PhoneBook::askContactIndex() {
 	return index;
 }
 
-void PhoneBook::displayContact(int index) {
+void PhoneBook::displayContact(int index) const {
 
 	int fld_width = 17;
 
@@ -103,7 +103,7 @@ void PhoneBook::searchContact() {
 
 }
 
-void PhoneBook::displayContactsAll() {
+void PhoneBook::displayContactsAll() const {
 	std::cout << "---------------------------------------------" << std::endl;
 	std::cout << "|";
 	std::cout << std::setw(10) << "Index" << "|";

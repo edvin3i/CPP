@@ -1,3 +1,4 @@
+#pragma once
 #ifndef	PHONEBOOK_HPP
 #define PHONEBOOK_HPP
 #include "Contact.hpp"
@@ -25,8 +26,8 @@ private:
 
 	int askContactIndex();
 	void askFieldValue(int w, std::string *field, std::string msg);
-	void displayContactsAll();
-	void displayContact(int index);
+	void displayContactsAll() const;
+	void displayContact(int index) const;
 };
 
 #endif
