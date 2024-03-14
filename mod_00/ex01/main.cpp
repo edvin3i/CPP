@@ -7,6 +7,10 @@ int main() {
 
 	PhoneBook pb;
 
+	/* Test data init
+	 * pb.addTestContacts();
+	 */
+
 	while(flag) {
 
 		std::cout << "Enter command (ADD, SEARCH or EXIT): ";
@@ -22,11 +26,6 @@ int main() {
 		else if (prompt == "ADD") {
 			pb.addContact();
 		}
-		/*
-		  else if (prompt == "TEST") {
-			pb.addTestContacts();
-		}
-		 */
 		else {
 			std::cout << "Command not found!" << std::endl;
 			continue ;

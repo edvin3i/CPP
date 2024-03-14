@@ -12,17 +12,20 @@ public:
 	void addContact();
 	void searchContact();
 
- /* Test */
- /*
+	/* Test methods */
+/*
+
 	void addContact(const Contact &newContact);
 	void addTestContacts();
 */
+
+
 private:
 
-	int					current_size;
-	static const int	max_size = 8;
+	int					_current_size;
+	static const int	_max_size = 8;
 
-	Contact				contacts[max_size];
+	Contact				contacts[_max_size];
 
 	int askContactIndex();
 	void askFieldValue(int w, std::string *field, std::string msg);

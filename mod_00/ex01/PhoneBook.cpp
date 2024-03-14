@@ -1,6 +1,6 @@
 #include "includes/PhoneBook.hpp"
 
-PhoneBook::PhoneBook(): current_size(0) {
+PhoneBook::PhoneBook(): _current_size(0) {
 
 }
 
@@ -21,7 +21,7 @@ void PhoneBook::askFieldValue(int w, std::string *field, std::string msg) {
 void PhoneBook::addContact() {
 
 	int fld_width = 17;
-	int next_index = current_size % max_size;
+	int next_index = _current_size % _max_size;
 
 	std::string first_name;
 	askFieldValue(fld_width, &first_name, "First Name: ");
@@ -44,7 +44,7 @@ void PhoneBook::addContact() {
 	contacts[next_index].setPhoneNumber(phone_number);
 	contacts[next_index].setDarkestSecret(darkest_secret);
 
-	current_size++;
+	_current_size++;
 }
 
 int PhoneBook::askContactIndex() {
@@ -112,7 +112,7 @@ void PhoneBook::displayContactsAll() const {
 	std::cout << std::setw(10) << "Nickname" << "|" << std::endl;
 	std::cout << "---------------------------------------------" << std::endl;
 
-	for (int index = 0; index < max_size; ++index)
+	for (int index = 0; index < _max_size; ++index)
 	{
 		std::cout << "|" << std::setw(10) << index << "|";
 		std::string first_name = contacts[index].getFirstName();
@@ -141,12 +141,13 @@ void PhoneBook::displayContactsAll() const {
 }
 
 /* Test methods */
+
 /*
 
 void PhoneBook::addContact(const Contact &newContact) {
 
-	if (current_size < max_size) {
-		contacts[current_size++] = newContact;
+	if (_current_size < _max_size) {
+		contacts[_current_size++] = newContact;
 	} else {
 		return ;
 	}
