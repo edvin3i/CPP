@@ -2,7 +2,7 @@
 #                            Name                                            #
 #############################################################################
 
-NAME        =   horde
+NAME        =   brain
 
 #############################################################################
 #                            Directories                                     #
@@ -16,7 +16,7 @@ OBJDIR      =   .obj/
 #                            Files                                           #
 #############################################################################
 
-MFLS        =   Zombie.cpp zombieHorde.cpp main.cpp
+MFLS        =   main.cpp
 MSRC        =   $(addprefix $(MDIR), $(MFLS))
 MOBJS       =   $(MSRC:.cpp=.o)
 MOBJS       :=  $(addprefix $(OBJDIR), $(notdir $(MOBJS)))
