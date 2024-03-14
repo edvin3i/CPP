@@ -26,7 +26,7 @@ MOBJS		:=	$(addprefix $(OBJDIR), $(notdir $(MOBJS)))
 #############################################################################
 
 CC			=	c++
-CFLAGS		=	-Wall -Werror -Wextra -std=c++98 -g
+CFLAGS		=	-Wall -Werror -Wextra -std=c++98 -MMD -MP # -g
 CFLAGS		+=	-I$(INCDIR)
 
 #############################################################################
