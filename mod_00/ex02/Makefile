@@ -1,47 +1,59 @@
 #############################################################################
-#							Name											#
+#                            Name                                            #
 #############################################################################
 
-NAME		=	account
+NAME        =   account
 
 #############################################################################
-#							Directories										#
+#                            Directories                                     #
 #############################################################################
 
-MDIR		=
-INCDIR		=	/includes
+MDIR        =
+INCDIR      =   includes
 OBJDIR      =   .obj/
 
 #############################################################################
-#							Files											#
+#                            Files                                           #
 #############################################################################
 
-MFLS		=	Account.cpp tests.cpp
-MSRC		=	$(addprefix $(MDIR), $(MFLS))
-MOBJS		=	$(MSRC:.cpp=.o)
-MOBJS		:=	$(addprefix $(OBJDIR), $(notdir $(MOBJS)))
+MFLS        =   Account.cpp tests.cpp
+MSRC        =   $(addprefix $(MDIR), $(MFLS))
+MOBJS       =   $(MSRC:.cpp=.o)
+MOBJS       :=  $(addprefix $(OBJDIR), $(notdir $(MOBJS)))
 
 #############################################################################
-#							Compiler settings								#
+#                            Compiler settings                              #
 #############################################################################
 
-CC			=	c++
-CFLAGS		=	-Wall -Werror -Wextra -std=c++98 -g
-CFLAGS		+=	-I$(INCDIR)
+CC          =   c++
+CFLAGS      =   -Wall -Werror -Wextra -std=c++98 -MMD -MP # -g
+CFLAGS      +=  -I$(INCDIR)
 
 #############################################################################
-#							Clean up										#
+#                            Makefile Dependency                            #
 #############################################################################
 
-RM			=	rm -rf
+MKFL		=   Makefile
 
-all:			$(NAME)
+#############################################################################
+#                            Clean up                                       #
+#############################################################################
 
-$(OBJDIR)%.o:	%.cpp
+RM          =   rm -rf
+
+#############################################################################
+#                            Rules                                          #
+#############################################################################
+
+all:            $(NAME)
+
+-include $(MOBJS:.o=.d)
+
+$(OBJDIR)%.o:   %.cpp
 				@mkdir -p $(OBJDIR)
 				@$(CC) $(CFLAGS) -c $< -o $@
 
-$(NAME):		$(MOBJS)
+$(NAME):        $(MOBJS) $(MKFL)
 				@echo "\e[35mCompiling\e[0m $(*F)"
 				@$(CC) $(MOBJS) -o $(NAME)
 				@echo "\e[32mDone!\e[0m"
@@ -49,9 +61,9 @@ $(NAME):		$(MOBJS)
 clean:
 				@$(RM) $(OBJDIR)
 
-fclean:			clean
+fclean:         clean
 				@$(RM) $(NAME)
 
-re:				fclean all
+re:             fclean all
 
-.PHONY:			all clean fclean re
+.PHONY:         all clean fclean re
