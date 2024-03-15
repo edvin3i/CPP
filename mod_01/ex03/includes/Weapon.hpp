@@ -4,15 +4,12 @@
 
 #include <iostream>
 
-
 class Weapon {
-
-	Weapon(void);
-	~Weapon(void);
-
 
 public:
 
+	Weapon(std::string w_type);
+	~Weapon(void);
 	void setType(std::string new_type);
 
 	const std::string &getType(void) const;

@@ -5,11 +5,11 @@
 #include "Weapon.hpp"
 
 class HumanB {
-	HumanB(std::string bname);
-	~HumanB(void);
 
 public:
-	void setWeapon(std::string w_type);
+	HumanB(std::string b_name);
+	~HumanB(void);
+	void setWeapon(Weapon &new_weapon);
 	void attack(void);
 
 private:
