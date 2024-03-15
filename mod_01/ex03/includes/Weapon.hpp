@@ -7,7 +7,6 @@
 class Weapon {
 
 public:
-
 	Weapon(std::string w_type);
 	~Weapon(void);
 	void setType(std::string new_type);

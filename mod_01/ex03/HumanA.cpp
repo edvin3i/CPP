@@ -7,7 +7,6 @@ HumanA::~HumanA(void) {
 }
 
 void HumanA::attack(void) {
-
 	std::cout << name;
 	std::cout << " attacks with their ";
 	std::cout << weapon.getType();
