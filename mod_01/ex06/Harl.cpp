@@ -1,5 +1,4 @@
 #include "includes/Harl.hpp"
-#include <iomanip>
 
 Harl::Harl(void) {
 }
