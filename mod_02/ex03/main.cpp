@@ -1,7 +1,9 @@
+#include <iostream>
 #include "includes/Point.hpp"
 
 #define GREEN "\033[32m"
 #define RED "\033[31m"
+#define BLUE "\033[34m"
 #define RESET "\033[0m"
 
 int main() {
@@ -18,57 +20,43 @@ int main() {
 	Point const a3(-5.0f, -5.0f);
 	Point const b3(5.0f, -5.0f);
 	Point const c3(0.0f, 5.0f);
+	// Set of points
+	Point const outside1(-11.0f, -11.0f);
+	Point const outside2(15.0f, 15.0f);
+	Point const outside3(5.0f, -1.0f);
+	Point const outside4(0.0f, 20.0f);
+	Point const outside5(-20.0f, 0.0f);
+	Point const outside6(0.0f, -11.0f);
+	Point const inside1(-5.0f, -5.0f);
+	Point const inside2(3.0f, 2.0f);
+	Point const inside3(1.0f, -2.0f);
+	Point const inside4(-5.0f, 0.0f);
+	Point const inside5(2.5f, 1.0f);
+	Point const inside6(0.5f, 1.0f);
+	Point const onSide1(0.0f, -10.0f);
+	Point const onSide2(7.5f, 4.0f);
+	Point const onSide3(0.0f, -5.0f);
+	// Set of tests
+	std::cout << BLUE "Testing Triangle 1:" RESET << std::endl;
+	std::cout << "Outside1 (expected false): " << (bsp(a1, b1, c1, outside1) ? GREEN "inside" RESET : RED "outside" RESET) << std::endl;
+	std::cout << "Inside1 (expected true): " << (bsp(a1, b1, c1, inside1) ? GREEN "inside" RESET : RED "outside" RESET) << std::endl;
+	std::cout << "Inside4 (expected true): " << (bsp(a1, b1, c1, inside4) ? GREEN "inside" RESET : RED "outside" RESET) << std::endl;
+	std::cout << "OnSide1(expected false): " << (bsp(a1, b1, c1, onSide1) ? GREEN "inside" RESET : RED "outside" RESET) << std::endl;
+	std::cout << "Outside3 (expected false): " << (bsp(a1, b1, c1, outside3) ? GREEN "inside" RESET : RED "outside" RESET) << std::endl;
 
+	std::cout << BLUE "\nTesting Triangle 2:" RESET << std::endl;
+	std::cout << "Inside2 (expected true): " << (bsp(a2, b2, c2, inside2) ? GREEN "inside" RESET : RED "outside" RESET) << std::endl;
+	std::cout << "Inside5 (expected true): " << (bsp(a2, b2, c2, inside5) ? GREEN "inside" RESET : RED "outside" RESET) << std::endl;
+	std::cout << "OnSide2 (expected false): " << (bsp(a2, b2, c2, onSide2) ? GREEN "inside" RESET : RED "outside" RESET) << std::endl;
+	std::cout << "Outside2 (expected false): " << (bsp(a2, b2, c2, outside2) ? GREEN "inside" RESET : RED "outside" RESET) << std::endl;
+	std::cout << "Outside4 (expected false): " << (bsp(a2, b2, c2, outside4) ? GREEN "inside" RESET : RED "outside" RESET) << std::endl;
 
-	Point const outside1(-11.0f, -11.0f); // Должен быть вне всех треугольников
-	Point const outside2(15.0f, 15.0f);   // Должен быть вне всех треугольников
-	Point const outside3(5.0f, -6.0f);    // Должен быть вне треугольников 2 и 3
-
-	Point const inside1(-5.0f, -5.0f);    // Должен быть внутри треугольника 1
-	Point const inside2(3.0f, 2.0f);      // Должен быть внутри треугольника 2
-	Point const inside3(1.0f, -2.0f);     // Должен быть внутри треугольника 3
-
-	// Точки, которые предполагается находятся вне треугольников
-	Point const outside4(0.0f, 20.0f); // Должен быть вне всех треугольников
-	Point const outside5(-20.0f, 0.0f); // Должен быть вне всех треугольников
-
-	// Точки, которые могут быть внутри определенных треугольников
-	Point const inside4(-5.0f, 0.0f); // Внутри треугольника 1
-	Point const inside5(2.5f, 4.0f);  // Внутри треугольника 2
-	Point const inside6(0.5f, 1.0f);  // Внутри треугольника 3
-	Point const onEdge1(0.0f, -10.0f); // На границе треугольника 1, должен вернуть false
-	Point const onEdge2(7.5f, 4.0f);  // На границе треугольника 2, должен вернуть false
-	Point const onEdge3(-2.5f, -2.5f); // На границе треугольника 3, должен вернуть false
-
-	// Тесты для треугольника 1
-	std::cout << "Testing Triangle 1:" << std::endl;
-	std::cout << "Outside4 (expected false): " << (bsp(a1, b1, c1, outside4) ? "inside" : "outside") << std::endl;
-	std::cout << "Outside5 (expected false): " << (bsp(a1, b1, c1, outside5) ? "inside" : "outside") << std::endl;
-	std::cout << "Inside4 (expected true): " << (bsp(a1, b1, c1, inside4) ? "inside" : "outside") << std::endl;
-	std::cout << "OnEdge1 (expected false): " << (bsp(a1, b1, c1, onEdge1) ? "inside" : "outside") << std::endl;
-	std::cout << std::endl;
-
-// Тесты для треугольника 2
-	std::cout << "Testing Triangle 2:" << std::endl;
-	std::cout << "Inside5 (expected true): " << (bsp(a2, b2, c2, inside5) ? "inside" : "outside") << std::endl;
-	std::cout << "OnEdge2 (expected false): " << (bsp(a2, b2, c2, onEdge2) ? "inside" : "outside") << std::endl;
-	std::cout << std::endl;
-
-// Тесты для треугольника 3
-	std::cout << "Testing Triangle 3:" << std::endl;
-	std::cout << "Inside6 (expected true): " << (bsp(a3, b3, c3, inside6) ? "inside" : "outside") << std::endl;
-	std::cout << "OnEdge3 (expected false): " << (bsp(a3, b3, c3, onEdge3) ? "inside" : "outside") << std::endl;
-	std::cout << std::endl;
-
-// Дополнительные тесты для всех треугольников
-	std::cout << "Additional Tests:" << std::endl;
-	std::cout << "Outside1 for Triangle 1 (expected false): " << (bsp(a1, b1, c1, outside1) ? "inside" : "outside") << std::endl;
-	std::cout << "Outside2 for Triangle 2 (expected false): " << (bsp(a2, b2, c2, outside2) ? "inside" : "outside") << std::endl;
-	std::cout << "Outside3 for Triangle 3 (expected false): " << (bsp(a3, b3, c3, outside3) ? "inside" : "outside") << std::endl;
-	std::cout << "Inside1 for Triangle 1 (expected true): " << (bsp(a1, b1, c1, inside1) ? "inside" : "outside") << std::endl;
-	std::cout << "Inside2 for Triangle 2 (expected true): " << (bsp(a2, b2, c2, inside2) ? "inside" : "outside") << std::endl;
-	std::cout << "Inside3 for Triangle 3 (expected true): " << (bsp(a3, b3, c3, inside3) ? "inside" : "outside") << std::endl;
-
+	std::cout << BLUE "\nTesting Triangle 3:" RESET << std::endl;
+	std::cout << "Inside3 (expected true): " << (bsp(a3, b3, c3, inside3) ? GREEN "inside" RESET : RED "outside" RESET) << std::endl;
+	std::cout << "Inside6 (expected true): " << (bsp(a3, b3, c3, inside6) ? GREEN "inside" RESET : RED "outside" RESET) << std::endl;
+	std::cout << "OnSide3 (expected false): " << (bsp(a3, b3, c3, onSide3) ? GREEN "inside" RESET : RED "outside" RESET) << std::endl;
+	std::cout << "Outside5 (expected false): " << (bsp(a3, b3, c3, outside5) ? GREEN "inside" RESET : RED "outside" RESET) << std::endl;
+	std::cout << "Outside6 (expected false): " << (bsp(a3, b3, c3, outside6) ? GREEN "inside" RESET : RED "outside" RESET) << std::endl;
 
 	return 0;
 }

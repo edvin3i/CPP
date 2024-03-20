@@ -18,10 +18,10 @@ public:
 	Fixed(const Fixed &other_obj);
 	// Operators overloads
 	Fixed &operator=(const Fixed &other_obj);
-	Fixed operator+(const Fixed &other_obj);
-	Fixed operator-(const Fixed &other_obj);
-	Fixed operator*(const Fixed &other_obj);
-	Fixed operator/(const Fixed &other_obj);
+	Fixed operator+(const Fixed &other_obj) const;
+	Fixed operator-(const Fixed &other_obj) const;
+	Fixed operator*(const Fixed &other_obj) const;
+	Fixed operator/(const Fixed &other_obj) const;
 
 	bool operator>(const Fixed &other_obj) const;
 	bool operator<(const Fixed &other_obj) const;

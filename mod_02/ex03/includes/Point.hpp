@@ -25,6 +25,6 @@ private:
 };
 
 bool bsp(const Point &A, const Point &B, \
-							const Point &C, const Point &P);
+			const Point &C, const Point &P);
 
 #endif

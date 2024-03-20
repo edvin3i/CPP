@@ -75,20 +75,20 @@ bool Fixed::operator!=(const Fixed &other_obj) const {
 
 // Arithmetic operators overload
 
-Fixed Fixed::operator+(const Fixed &other_obj) {
+Fixed Fixed::operator+(const Fixed &other_obj) const {
 	Fixed result;
 	result.setRawBits(this->num_val + other_obj.num_val);
 	return result;
 
 }
 
-Fixed Fixed::operator-(const Fixed &other_obj) {
+Fixed Fixed::operator-(const Fixed &other_obj) const {
 	Fixed result;
 	result.setRawBits(this->num_val - other_obj.num_val);
 	return result;
 }
 
-Fixed Fixed::operator*(const Fixed &other_obj) {
+Fixed Fixed::operator*(const Fixed &other_obj) const {
 	Fixed result;
 	float a = this->toFloat();
 	float b = other_obj.toFloat();
@@ -96,7 +96,7 @@ Fixed Fixed::operator*(const Fixed &other_obj) {
 	return result;
 }
 
-Fixed Fixed::operator/(const Fixed &other_obj) {
+Fixed Fixed::operator/(const Fixed &other_obj) const {
 	Fixed result;
 	float a = this->toFloat();
 	float b = other_obj.toFloat();
