@@ -49,7 +49,7 @@ public:
 	int getRawBits(void) const;
 	// setter
 	void setRawBits(int const raw);
-	// additional methods
+	// convert methods
 	float toFloat(void) const;
 	int toInt(void) const;
 
