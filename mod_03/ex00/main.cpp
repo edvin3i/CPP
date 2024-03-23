@@ -5,7 +5,7 @@ int main() {
 	ClapTrap davin("Davin");
 	ClapTrap bob("Bob");
 
-	std::cout << "Starting points\n";
+	std::cout << "\nStarting points\n";
 	std::cout << davin.getName() << ":\n";
 	std::cout << "HP = " << davin.getHitPoints() << "; ";
 	std::cout << "EP = " << davin.getEnergyPoints() << "; ";

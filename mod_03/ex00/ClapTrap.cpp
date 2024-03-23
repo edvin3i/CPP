@@ -4,21 +4,25 @@ ClapTrap::ClapTrap() : _nickName("DefaultBot"), \
 						_hitPoints(10), \
 						_energyPoints(10), \
 						_attackDamage(0) {
+	std::cout << "Default constructor is called (w/o name)" << std::endl;
 }
 
 ClapTrap::ClapTrap(const std::string name) : _nickName(name), \
 										_hitPoints(10), \
 										_energyPoints(10), \
 										_attackDamage(0) {
+	std::cout << "Constructor is called with name "<< this->_nickName << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &other) : _nickName(other._nickName), \
 											_hitPoints(other._hitPoints), \
 											_energyPoints(other._energyPoints),
 											_attackDamage(other._attackDamage) {
+	std::cout << "Copy constructor is called" << std::endl;
 }
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &other) {
+	std::cout << "Assignment operator overload constructor is called" << std::endl;
 	if (this != &other) {
 		this->setHitPoints(other._hitPoints);
 		this->setEnergyPoints(other._energyPoints);
@@ -28,6 +32,7 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &other) {
 }
 
 ClapTrap::~ClapTrap() {
+	std::cout << "Destructor is called" << std::endl;
 }
 
 void ClapTrap::attack(const std::string &target) {
