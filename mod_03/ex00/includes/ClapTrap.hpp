@@ -3,12 +3,13 @@
 #define EX00_CLAPTRAP_HPP
 
 #include <string>
+#include <iostream>
 
 class ClapTrap {
 
 public:
-	ClapTrap(std::string name);
-	//ClapTrap(std::string name, int hit_pts, int enrg_pts, int attk_dmg);
+	ClapTrap(void); // default constructor with default name
+	ClapTrap(const std::string name);
 	ClapTrap &operator=(const ClapTrap& other);
 	ClapTrap(const ClapTrap &other);
 	~ClapTrap();
@@ -17,13 +18,15 @@ public:
 	void takeDamage(unsigned int amount);
 	void beRepaired(unsigned int amount);
 
+	void setName(std::string name);
 	void setHitPoints(unsigned int pts);
 	void setEnergyPoints(unsigned int pts);
 	void setAttackDamage(unsigned int pts);
 
-	unsigned int getHitPoints();
-	unsigned int getEnergyPoints();
-	unsigned int getAttackDamage();
+	std::string getName(void) const;
+	unsigned int getHitPoints(void) const;
+	unsigned int getEnergyPoints(void) const;
+	unsigned int getAttackDamage(void) const;
 
 private:
 	std::string _nickName;
