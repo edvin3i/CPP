@@ -4,9 +4,9 @@ FragTrap::FragTrap() : ClapTrap() {
 }
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name) {
-	setHitPoints(100);
-	setEnergyPoints(100);
-	setAttackDamage(30);
+	setHitPoints(7);
+	setEnergyPoints(34);
+	setAttackDamage(67);
 }
 
 FragTrap::FragTrap(const FragTrap &other) : ClapTrap(other) {
