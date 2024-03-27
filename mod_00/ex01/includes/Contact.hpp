@@ -1,10 +1,11 @@
-#pragma once
 #ifndef	CONTACT_HPP
 #define	CONTACT_HPP
 
 #include <string>
 #include <iomanip>
 #include <iostream>
+#include <sstream>
+#include <limits>
 
 class Contact {
 public:

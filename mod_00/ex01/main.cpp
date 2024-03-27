@@ -7,9 +7,10 @@ int main() {
 
 	PhoneBook pb;
 
-	/* Test data init
-	 * pb.addTestContacts();
-	 */
+	/* Test data init */
+/*
+	pb.addTestContacts();
+*/
 
 	while(flag) {
 

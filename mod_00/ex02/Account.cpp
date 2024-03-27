@@ -50,7 +50,7 @@ void Account::displayAccountsInfos( void ) {
 
 void Account::_displayTimestamp( void ) {
 
-	std::time_t rawtime = std::time(nullptr);
+	std::time_t rawtime = std::time(NULL);
 	std::tm* timeinfo = std::localtime(&rawtime);
 	char buffer[20];
 	strftime(buffer, sizeof(buffer), "%Y%m%d_%H%M%S", timeinfo);

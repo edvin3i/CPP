@@ -47,6 +47,14 @@ void PhoneBook::addContact() {
 	_current_size++;
 }
 
+bool isDigit(const std::string &str) {
+	for (size_t i = 0; i < str.length(); ++i) {
+		if (!isdigit(str[i]))
+			return false;
+	}
+	return true;
+}
+
 int PhoneBook::askContactIndex() {
 
 	int index = -1;
@@ -56,28 +64,25 @@ int PhoneBook::askContactIndex() {
 
 		std::cout << "Enter the contact's index (0 - 7): ";
 		std::cin >> input;
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
-		if (std::all_of(input.begin(), input.end(), ::isdigit)) {
-
-			index = std::stoi(input);
+		if (isDigit(input)) {
+			std::istringstream iss(input);
+			iss >> index;
 
 			if (index < 0 || index > 7) {
 
 				std::cout << "Index out of range!" << std::endl;
-				continue ;
+				continue;
 
+			} else {
+				break;
 			}
-			else {
-				break ;
-			}
-		}
-		else {
+		} else {
 			std::cout << "Invalid input!" << std::endl;
 		}
 	}
-
-	std::cout << index;
-	std::cout << std::endl;
+	std::cout << index << std::endl;
 
 	return index;
 }
