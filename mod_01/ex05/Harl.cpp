@@ -1,5 +1,5 @@
 #include "includes/Harl.hpp"
-#include <iomanip>
+
 
 Harl::Harl(void) {
 }
@@ -31,7 +31,6 @@ void Harl::complain(std::string level) {
 		}
 	}
 	std::cout << "The level of complaint is not recognised." << std::endl;
-
 
 }
 
