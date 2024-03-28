@@ -20,13 +20,15 @@ FragTrap &FragTrap::operator=(const FragTrap &other) {
 }
 
 FragTrap::~FragTrap() {
-	std::cout << "FragTrap " << this->getName();
-	std::cout << " destructor is called";
+	std::cout << BRIGHT_WHITE <<  "FragTrap " << RESET;
+	std::cout << BRIGHT_CYAN << this->getName() << RESET;
+	std::cout << BRIGHT_WHITE << " destructor is called" << RESET;
 	std::cout << std::endl;
 }
 
 void FragTrap::highFivesGuys() {
-	std::cout << "FragTrap " << this->getName();
-	std::cout << " request high five!";
+	std::cout << BRIGHT_BLUE <<  "FragTrap " << RESET;
+	std::cout << BRIGHT_CYAN << this->getName() << RESET;
+	std::cout << BRIGHT_BLUE << " request high five!" << RESET;
 	std::cout << std::endl;
 }
