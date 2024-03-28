@@ -1,4 +1,3 @@
-#include <iostream>
 #include "includes/Point.hpp"
 
 #define GREEN "\033[32m"

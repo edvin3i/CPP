@@ -1,6 +1,5 @@
-#pragma once
-#ifndef EX00_FIXED_HPP
-#define EX00_FIXED_HPP
+#ifndef FIXED_HPP
+#define FIXED_HPP
 
 #include <iostream>
 

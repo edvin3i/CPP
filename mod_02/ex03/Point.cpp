@@ -4,7 +4,8 @@
 Point::Point() : x(0), y(0) {
 }
 
-Point::Point(const float init_x, const float init_y) : x(Fixed(init_x)), y(Fixed(init_y)) {
+Point::Point(const float init_x, const float init_y) : x(Fixed(init_x)), \
+																						y(Fixed(init_y)) {
 }
 
 Point::Point(const Point &other) : x(other.x), y(other.y) {

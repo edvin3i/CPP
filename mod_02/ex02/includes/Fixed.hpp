@@ -1,6 +1,5 @@
-#pragma once
-#ifndef EX00_FIXED_HPP
-#define EX00_FIXED_HPP
+#ifndef FIXED_HPP
+#define FIXED_HPP
 
 #include <cmath>
 #include <iostream>
@@ -16,35 +15,36 @@ public:
 	Fixed(const float init_val);
 	// copy constructor
 	Fixed(const Fixed &other_obj);
+	// destructor
+	~Fixed();
+
 	// Operators overloads
 	Fixed &operator=(const Fixed &other_obj);
 	Fixed operator+(const Fixed &other_obj);
 	Fixed operator-(const Fixed &other_obj);
 	Fixed operator*(const Fixed &other_obj);
-	Fixed operator/(const Fixed &other_obj);
 
+	Fixed operator/(const Fixed &other_obj);
 	bool operator>(const Fixed &other_obj) const;
 	bool operator<(const Fixed &other_obj) const;
 	bool operator>=(const Fixed &other_obj) const;
 	bool operator<=(const Fixed &other_obj) const;
 	bool operator==(const Fixed &other_obj) const;
-	bool operator!=(const Fixed &other_obj) const;
 
+	bool operator!=(const Fixed &other_obj) const;
 	Fixed operator++();
 	Fixed operator++(int);
 	Fixed operator--();
-	Fixed operator--(int);
 
+	Fixed operator--(int);
 	// min methods
 	static Fixed &min(Fixed &a, Fixed &b);
-	static const Fixed &min(const Fixed &a, const Fixed &b);
 
+	static const Fixed &min(const Fixed &a, const Fixed &b);
 	// max methods
 	static Fixed &max(Fixed &a, Fixed &b);
-	static const Fixed &max(const Fixed &a, const Fixed &b);
 
-	// destructor
-	~Fixed();
+	static const Fixed &max(const Fixed &a, const Fixed &b);
 	// getter
 	int getRawBits(void) const;
 	// setter

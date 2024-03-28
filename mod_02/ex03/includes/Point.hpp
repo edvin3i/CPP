@@ -1,6 +1,5 @@
-#pragma once
-#ifndef EX03_POINT_HPP
-#define EX03_POINT_HPP
+#ifndef POINT_HPP
+#define POINT_HPP
 
 #include "Fixed.hpp"
 
