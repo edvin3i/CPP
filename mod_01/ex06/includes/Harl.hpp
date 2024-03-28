@@ -1,8 +1,8 @@
-#pragma once
-#ifndef EX05_HARL_HPP
-#define EX05_HARL_HPP
+#ifndef HARL_HPP
+#define HARL_HPP
 
 #include <string>
+#include <iomanip>
 #include <iostream>
 
 class Harl {

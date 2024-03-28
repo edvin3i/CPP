@@ -19,8 +19,9 @@ int main(int argc, char **argv) {
 
 	if (argc == 1)
 	{
-		std::cerr << "Pass as an arguments a filename and two strings" << std::endl;
-		std::cerr << "Usage: " << argv[0] << " <filename> <old_str> <new_str>" << std::endl;
+		std::cerr << "Pass as an arguments a filename and two strings\n";
+		std::cerr << "Usage: " << argv[0] << " <filename> <old_str> <new_str>";
+		std::cerr << std::endl;
 		return 1;
 	}
 	else if (argc != 4)
@@ -34,7 +35,8 @@ int main(int argc, char **argv) {
 
 	std::ifstream in_file(filename.c_str(), std::ifstream::in);
 	if (!in_file.is_open()) {
-		std::cerr << "Error opening file: " << filename << "!" << std::endl;
+		std::cerr << "Error opening file: " << filename;
+		std::cerr << "!" << std::endl;
 		return 1;
 	}
 
@@ -45,9 +47,12 @@ int main(int argc, char **argv) {
 
 	std::string replaced_content = myReplace(content, old_str, new_str);
 
-	std::ofstream out_file(filename.append(".replace").c_str(), std::ofstream::out | std::ofstream::trunc);
+	std::ofstream out_file(
+			filename.append(".replace").c_str(),
+			std::ofstream::out | std::ofstream::trunc);
 	if (!out_file.is_open()) {
-		std::cerr << "Error creating file: " << filename.append(".replace") << "!" << std::endl;
+		std::cerr << "Error creating file: " << filename.append(".replace");
+		std::cerr << "!" << std::endl;
 		return 1;
 	}
 	out_file << replaced_content;
