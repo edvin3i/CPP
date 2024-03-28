@@ -1,14 +1,14 @@
 #include "includes/ClapTrap.hpp"
 
 ClapTrap::ClapTrap() : _nickName("DefaultBot"), \
-						_hitPoints(10), \
+						_hitPoints(100), \
 						_energyPoints(10), \
 						_attackDamage(0) {
 	std::cout << "Default constructor is called (w/o name)" << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name) : _nickName(name), \
-										_hitPoints(10), \
+										_hitPoints(100), \
 										_energyPoints(10), \
 										_attackDamage(0) {
 	std::cout << "Constructor is called with name "<< this->_nickName << std::endl;

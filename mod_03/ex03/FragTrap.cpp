@@ -4,9 +4,9 @@ FragTrap::FragTrap() : ClapTrap() {
 }
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name) {
-	setHitPoints(7);
-	setEnergyPoints(34);
-	setAttackDamage(67);
+	setHitPoints(ClapTrap::getHitPoints());
+	setEnergyPoints(100);
+	setAttackDamage(30);
 }
 
 FragTrap::FragTrap(const FragTrap &other) : ClapTrap(other) {
@@ -20,13 +20,15 @@ FragTrap &FragTrap::operator=(const FragTrap &other) {
 }
 
 FragTrap::~FragTrap() {
-	std::cout << "FragTrap " << this->getName();
-	std::cout << " destructor is called";
+	std::cout << BRIGHT_WHITE <<  "FragTrap " << RESET;
+	std::cout << BRIGHT_CYAN << this->getName() << RESET;
+	std::cout << BRIGHT_WHITE << " destructor is called" << RESET;
 	std::cout << std::endl;
 }
 
 void FragTrap::highFivesGuys() {
-	std::cout << "FragTrap " << this->getName();
-	std::cout << " request high five!";
+	std::cout << BRIGHT_BLUE <<  "FragTrap " << RESET;
+	std::cout << BRIGHT_CYAN << this->getName() << RESET;
+	std::cout << BRIGHT_BLUE << " request high five!" << RESET;
 	std::cout << std::endl;
 }

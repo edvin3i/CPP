@@ -1,6 +1,5 @@
-#pragma once
-#ifndef EX00_CLAPTRAP_HPP
-#define EX00_CLAPTRAP_HPP
+#ifndef CLAPTRAP_HPP
+#define CLAPTRAP_HPP
 
 #include <string>
 #include <iostream>

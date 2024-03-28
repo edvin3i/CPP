@@ -4,7 +4,7 @@ ScavTrap::ScavTrap() : ClapTrap() {
 }
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name) {
-	setHitPoints(100);
+	setHitPoints(ClapTrap::getHitPoints());
 	setEnergyPoints(50);
 	setAttackDamage(20);
 }

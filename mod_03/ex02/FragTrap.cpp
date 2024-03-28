@@ -4,7 +4,7 @@ FragTrap::FragTrap() : ClapTrap() {
 }
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name) {
-	setHitPoints(100);
+	setHitPoints(ClapTrap::getHitPoints());
 	setEnergyPoints(100);
 	setAttackDamage(30);
 }
