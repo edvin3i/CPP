@@ -100,5 +100,6 @@ int main() {
 	std::cout << MAGENTA << "AD = " << emile.getAttackDamage() << RESET << ".\n";
 	std::cout << std::endl;
 	std::cout << '\n' <<  BG_BRIGHT_BLACK << "Destructors" << RESET << std::endl;
+
 	return 0;
 }

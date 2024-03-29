@@ -34,8 +34,8 @@ void ScavTrap::guardGate() {
 }
 
 void ScavTrap::attack(const std::string &target) {
-	if (this->_energyPoints > 0) {
-		this->_energyPoints -= 1;
+	if (this->getEnergyPoints() > 0) {
+		this->setEnergyPoints(this->getEnergyPoints() - 1);
 		std::cout << BRIGHT_MAGENTA << "ScavTrap " << RESET;
 		std::cout << BRIGHT_CYAN << this->getName() << RESET;
 		std::cout << BRIGHT_MAGENTA << " attacks " << RESET;

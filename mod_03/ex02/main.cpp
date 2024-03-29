@@ -5,94 +5,80 @@
 int main() {
 	// Creating ClapTrap objects
 	ClapTrap davin("Davin");
-	ClapTrap bob("Bob");
 
-	std::cout << "\nStarting points for ClapTrap\n";
-	std::cout << davin.getName() << ":\n";
-	std::cout << "HP = " << davin.getHitPoints() << "; ";
-	std::cout << "EP = " << davin.getEnergyPoints() << "; ";
-	std::cout << "AD = " << davin.getAttackDamage() << ".\n";
-	std::cout << bob.getName() << ":\n";
-	std::cout << "HP = " << bob.getHitPoints() << "; ";
-	std::cout << "EP = " << bob.getEnergyPoints() << "; ";
-	std::cout << "AD = " << bob.getAttackDamage() << ".\n";
+	std::cout << CYAN <<  "\nStarting points for ClapTrap\n" << RESET;
+	std::cout << GREEN << davin.getName() << ":\n";
+	std::cout << RED << "HP = " << davin.getHitPoints() <<  RESET << "; ";
+	std::cout << BLUE << "EP = " << davin.getEnergyPoints() << RESET << "; ";
+	std::cout << MAGENTA << "AD = " << davin.getAttackDamage() << RESET << ".\n";
 	std::cout << std::endl;
 
 	// Creating ScavTrap objects
-	ScavTrap sonie("Sonie");
 	ScavTrap bonie("Bonie");
 
-	std::cout << "\nStarting points for ScavTrap\n";
-	std::cout << sonie.getName() << ":\n";
-	std::cout << "HP = " << sonie.getHitPoints() << "; ";
-	std::cout << "EP = " << sonie.getEnergyPoints() << "; ";
-	std::cout << "AD = " << sonie.getAttackDamage() << ".\n";
-	std::cout << bonie.getName() << ":\n";
-	std::cout << "HP = " << bonie.getHitPoints() << "; ";
-	std::cout << "EP = " << bonie.getEnergyPoints() << "; ";
-	std::cout << "AD = " << bonie.getAttackDamage() << ".\n";
+	std::cout << CYAN <<  "\nStarting points for ScavTrap\n";
+	std::cout << GREEN << bonie.getName() << ":\n";
+	std::cout << RED << "HP = " << bonie.getHitPoints() <<  RESET << "; ";
+	std::cout << BLUE << "EP = " << bonie.getEnergyPoints() << RESET << "; ";
+	std::cout << MAGENTA << "AD = " << bonie.getAttackDamage() << RESET << ".\n";
 	std::cout << std::endl;
 
 	// Creating FragTrap objects
 	FragTrap alice("Alice");
-	FragTrap mavic("Mavic");
 
-	std::cout << "\nStarting points for FragTrap\n";
-	std::cout << alice.getName() << ":\n";
-	std::cout << "HP = " << alice.getHitPoints() << "; ";
-	std::cout << "EP = " << alice.getEnergyPoints() << "; ";
-	std::cout << "AD = " << alice.getAttackDamage() << ".\n";
-	std::cout << mavic.getName() << ":\n";
-	std::cout << "HP = " << mavic.getHitPoints() << "; ";
-	std::cout << "EP = " << mavic.getEnergyPoints() << "; ";
-	std::cout << "AD = " << mavic.getAttackDamage() << ".\n";
+	std::cout << CYAN <<  "\nStarting points for FragTrap\n";
+	std::cout << GREEN << alice.getName() << ":\n";
+	std::cout << RED << "HP = " << alice.getHitPoints() <<  RESET << "; ";
+	std::cout << BLUE << "EP = " << alice.getEnergyPoints() << RESET << "; ";
+	std::cout << MAGENTA << "AD = " << alice.getAttackDamage() << RESET << ".\n";
 	std::cout << std::endl;
 
+	std::cout << '\n' <<  BG_BRIGHT_BLACK << "Personal messages" << RESET << std::endl;;
 	// Calling High Five! in FragTrap
 	alice.highFivesGuys();
-	mavic.highFivesGuys();
+
+	// Bonie get Gate Keeper mode
+	bonie.guardGate();
 
 	// Set damage points
 	davin.setAttackDamage(10);
-	bob.setAttackDamage(15);
-	sonie.setAttackDamage(20);
 	bonie.setAttackDamage(25);
 
 	// Attacks ClapTrap and ScavTrap
-	davin.attack("Bob");
-	bob.takeDamage(10);
-	bob.beRepaired(10);
-
-	sonie.attack("Bonie");
+	std::cout << '\n' <<  BG_BRIGHT_BLACK << "Action:" << RESET << std::endl;
+	alice.attack("Bonie");
 	bonie.takeDamage(20);
 	bonie.beRepaired(20);
 
-	// Sonie get Gate Keeper mode
-	sonie.guardGate();
 
-	std::cout << "\nDemonstrating multiple attacks to exhaust Davin's energy points:\n";
+	std::cout << '\n' <<  BG_BRIGHT_BLACK << "Demonstrating multiple attacks to exhaust Davin's energy points:" << RESET << std::endl;
 	for (int i = 0; i < 10; i++) {
-		davin.attack("Bob");
+		davin.attack("Bonie");
 	}
 
-	std::cout << "\nScavTrap Bonie trying to attack ClapTrap Davin:\n";
+	std::cout << '\n' <<  BG_BRIGHT_BLACK <<  "Bonie takes massive damage and tries to repair:" << RESET << std::endl;
+	bonie.beRepaired(23);
+
+	std::cout << '\n' <<  BG_BRIGHT_BLACK << "ScavTrap Bonie trying to attack ClapTrap Davin:" << RESET << std::endl;
 	bonie.attack("Davin");
 	davin.takeDamage(bonie.getAttackDamage());
 
-	std::cout << "\nBob takes massive damage and tries to repair:\n";
-	bob.takeDamage(100);
-	bob.beRepaired(10);
 
-	std::cout << "\nFinal status\n";
-	std::cout << davin.getName() << ":\n";
-	std::cout << "HP = " << davin.getHitPoints() << "; ";
-	std::cout << "EP = " << davin.getEnergyPoints() << "; ";
-	std::cout << "AD = " << davin.getAttackDamage() << ".\n";
-	std::cout << sonie.getName() << ":\n";
-	std::cout << "HP = " << sonie.getHitPoints() << "; ";
-	std::cout << "EP = " << sonie.getEnergyPoints() << "; ";
-	std::cout << "AD = " << sonie.getAttackDamage() << ".\n";
+	std::cout << '\n' <<  BG_BRIGHT_BLACK << "Final status:" << RESET << '\n';;
+	std::cout << GREEN << davin.getName() << ":\n";
+	std::cout << RED << "HP = " << davin.getHitPoints() <<  RESET << "; ";
+	std::cout << BLUE << "EP = " << davin.getEnergyPoints() << RESET << "; ";
+	std::cout << MAGENTA << "AD = " << davin.getAttackDamage() << RESET << ".\n";
+	std::cout << GREEN << bonie.getName() << ":\n";
+	std::cout << RED << "HP = " << bonie.getHitPoints() <<  RESET << "; ";
+	std::cout << BLUE << "EP = " << bonie.getEnergyPoints() << RESET << "; ";
+	std::cout << MAGENTA << "AD = " << bonie.getAttackDamage() << RESET << ".\n";
+	std::cout << GREEN << alice.getName() << ":\n";
+	std::cout << RED << "HP = " << alice.getHitPoints() <<  RESET << "; ";
+	std::cout << BLUE << "EP = " << alice.getEnergyPoints() << RESET << "; ";
+	std::cout << MAGENTA << "AD = " << alice.getAttackDamage() << RESET << ".\n";
 	std::cout << std::endl;
+	std::cout << '\n' <<  BG_BRIGHT_BLACK << "Destructors" << RESET << std::endl;
 
 	return 0;
 }
