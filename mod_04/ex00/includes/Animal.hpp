@@ -18,20 +18,20 @@
 #define BRIGHT_CYAN    "\033[96m"
 #define BRIGHT_WHITE   "\033[97m"
 
+
 #include <iostream>
 
 class Animal {
 public:
-	Animal(void); // default constructor with default name
-	Animal(std::string name);
+	Animal(void);
+	Animal(std::string type);
 	Animal &operator=(const Animal& other);
 	Animal(const Animal &other);
 	virtual ~Animal();
 
-	void setAnimalType(std::string type);
-	const std::string getAnimalType(void) const;
+	const std::string getType(void) const;
 
-	virtual void makeSound() const = 0;
+	virtual void makeSound() const;
 
 protected:
 	std::string _type;
