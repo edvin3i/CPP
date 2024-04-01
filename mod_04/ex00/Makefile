@@ -25,9 +25,9 @@ MOBJS       :=  $(addprefix $(OBJDIR), $(notdir $(MOBJS)))
 #                            Compiler settings                              #
 #############################################################################
 
-CC          =   c++
-CFLAGS      =   -Wall -Werror -Wextra -std=c++98 -MMD -MP # -g
-CFLAGS      +=  -I$(INCDIR)
+CXX					=   c++
+CXXFLAGS		=   -Wall -Werror -Wextra -std=c++98 -MMD -MP # -g
+CXXFLAGS		+=  -I$(INCDIR)
 
 #############################################################################
 #                            Makefile Dependency                            #
@@ -51,11 +51,11 @@ all:            $(NAME)
 
 $(OBJDIR)%.o:   %.cpp
 				@mkdir -p $(OBJDIR)
-				@$(CC) $(CFLAGS) -c $< -o $@
+				@$(CXX) $(CXXFLAGS) -c $< -o $@
 
 $(NAME):        $(MOBJS) $(MKFL)
 				@echo "\e[35mCompiling\e[0m $(*F)"
-				@$(CC) $(MOBJS) -o $(NAME)
+				@$(CXX) $(MOBJS) -o $(NAME)
 				@echo "\e[32mDone!\e[0m"
 
 clean:
