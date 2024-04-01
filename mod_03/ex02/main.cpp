@@ -33,7 +33,7 @@ int main() {
 	std::cout << MAGENTA << "AD = " << alice.getAttackDamage() << RESET << ".\n";
 	std::cout << std::endl;
 
-	std::cout << '\n' <<  BG_BRIGHT_BLACK << "Personal messages" << RESET << std::endl;;
+	std::cout << '\n' <<  BG_BRIGHT_BLACK << "Personal messages:" << RESET << std::endl;;
 	// Calling High Five! in FragTrap
 	alice.highFivesGuys();
 
@@ -47,19 +47,22 @@ int main() {
 	// Attacks ClapTrap and ScavTrap
 	std::cout << '\n' <<  BG_BRIGHT_BLACK << "Action:" << RESET << std::endl;
 	alice.attack("Bonie");
-	bonie.takeDamage(20);
-	bonie.beRepaired(20);
+	bonie.takeDamage(davin.getAttackDamage());
+	bonie.beRepaired(davin.getAttackDamage());
 
 
 	std::cout << '\n' <<  BG_BRIGHT_BLACK << "Demonstrating multiple attacks to exhaust Davin's energy points:" << RESET << std::endl;
-	for (int i = 0; i < 10; i++) {
+	int j = 0;
+	for (int i = 0; i < 11; i++) {
 		davin.attack("Bonie");
+		j++;
 	}
+	bonie.takeDamage(j * davin.getAttackDamage());
 
 	std::cout << '\n' <<  BG_BRIGHT_BLACK <<  "Bonie takes massive damage and tries to repair:" << RESET << std::endl;
 	bonie.beRepaired(23);
 
-	std::cout << '\n' <<  BG_BRIGHT_BLACK << "ScavTrap Bonie trying to attack ClapTrap Davin:" << RESET << std::endl;
+	std::cout << '\n' <<  BG_BRIGHT_BLACK << "Bonie trying to attack ClapTrap Davin:" << RESET << std::endl;
 	bonie.attack("Davin");
 	davin.takeDamage(bonie.getAttackDamage());
 
@@ -78,7 +81,7 @@ int main() {
 	std::cout << BLUE << "EP = " << alice.getEnergyPoints() << RESET << "; ";
 	std::cout << MAGENTA << "AD = " << alice.getAttackDamage() << RESET << ".\n";
 	std::cout << std::endl;
-	std::cout << '\n' <<  BG_BRIGHT_BLACK << "Destructors" << RESET << std::endl;
+	std::cout << '\n' <<  BG_BRIGHT_BLACK << "Destructors:" << RESET << std::endl;
 
 	return 0;
 }

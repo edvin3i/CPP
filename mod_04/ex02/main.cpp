@@ -1,20 +1,21 @@
-#include "includes/Animal.hpp"
+#include "includes/AAnimal.hpp"
 #include "includes/WrongAnimal.hpp"
 #include "includes/Dog.hpp"
 #include "includes/Cat.hpp"
+#include <cstdlib>
 
 
 int main() {
 
 	std::cout << '\n' <<  BG_BRIGHT_BLACK << "Tests from subject:" << RESET << '\n';;
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
+	const AAnimal* j = new Dog();
+	const AAnimal* i = new Cat();
 	delete j;//should not create a leak
 	delete i;
 
 	std::cout << '\n' <<  BG_BRIGHT_BLACK << "Animals array test:" << RESET << '\n';
 	const int animal_cnt = 4;
-	Animal *animals[animal_cnt];
+	AAnimal *animals[animal_cnt];
 
 	for (int i = 0; i < animal_cnt / 2; ++i)
 	{
@@ -38,7 +39,7 @@ int main() {
 
 	std::cout << '\n' <<  BG_BRIGHT_BLACK << "Wrong classes tests:" << RESET << '\n';
 	const WrongAnimal *dog_cat = new WrongAnimal();
-	dog_cat->makeSound(); // Will be called method from WrongAnimal instead WrongCat*/
+	dog_cat->makeSound(); // Will be called method from WrongAnimal instead WrongCat
 	delete dog_cat;
 
 	std::cout << '\n' <<  BG_BRIGHT_BLACK << "Class copy test:" << RESET << '\n';
@@ -63,6 +64,7 @@ int main() {
 	std::cout << BRIGHT_GREEN << "Green" <<  MAGENTA << " cat wants to " << RESET;
 	std::cout << BLUE << green_cat->getBrain()->ideas[0] << '\n' << RESET;
 	std::cout << std::endl;
+
 
 	delete white_cat;
 	delete green_cat;

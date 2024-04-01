@@ -22,7 +22,7 @@ int main() {
 	std::cout << MAGENTA << "AD = " << bonie.getAttackDamage() << RESET << ".\n";
 	std::cout << std::endl;
 
-	std::cout << '\n' <<  BG_BRIGHT_BLACK << "Personal messages" << RESET << std::endl;;
+	std::cout << '\n' <<  BG_BRIGHT_BLACK << "Personal messages:" << RESET << std::endl;;
 
 	// Bonie get Gate Keeper mode
 	bonie.guardGate();
@@ -34,19 +34,21 @@ int main() {
 	// Attacks ClapTrap and ScavTrap
 	std::cout << '\n' <<  BG_BRIGHT_BLACK << "Action:" << RESET << std::endl;
 	davin.attack("Bonie");
-	bonie.takeDamage(20);
-	bonie.beRepaired(20);
+	bonie.takeDamage(davin.getAttackDamage());
 
 
 	std::cout << '\n' <<  BG_BRIGHT_BLACK << "Demonstrating multiple attacks to exhaust Davin's energy points:" << RESET << std::endl;
+	int j = 0;
 	for (int i = 0; i < 10; i++) {
 		davin.attack("Bonie");
+		j++;
 	}
+	bonie.takeDamage(j * davin.getAttackDamage());
 
 	std::cout << '\n' <<  BG_BRIGHT_BLACK <<  "Bonie takes massive damage and tries to repair:" << RESET << std::endl;
 	bonie.beRepaired(23);
 
-	std::cout << '\n' <<  BG_BRIGHT_BLACK << "ScavTrap Bonie trying to attack ClapTrap Davin:" << RESET << std::endl;
+	std::cout << '\n' <<  BG_BRIGHT_BLACK << "Bonie trying to attack ClapTrap Davin:" << RESET << std::endl;
 	bonie.attack("Davin");
 	davin.takeDamage(bonie.getAttackDamage());
 
@@ -62,7 +64,7 @@ int main() {
 	std::cout << MAGENTA << "AD = " << bonie.getAttackDamage() << RESET << ".\n";
 	std::cout << std::endl;
 
-	std::cout << '\n' <<  BG_BRIGHT_BLACK << "Destructors" << RESET << std::endl;
+	std::cout << '\n' <<  BG_BRIGHT_BLACK << "Destructors:" << RESET << std::endl;
 
 	return 0;
 }

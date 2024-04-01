@@ -1,10 +1,10 @@
 #ifndef DOG_HPP
 #define DOG_HPP
 
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 #include "Brain.hpp"
 
-class Dog : public Animal {
+class Dog : public AAnimal {
 public:
 	Dog(void);
 	//Dog(std::string type);
@@ -12,7 +12,9 @@ public:
 	Dog(const Dog &other);
 	~Dog();
 
-	void makeSound() const;
+	const std::string getType(void) const;
+	const void makeSound(void) const;
+	const void readThought(const int num) const;
 
 private:
 	Brain *brain;

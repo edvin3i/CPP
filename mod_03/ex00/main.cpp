@@ -54,12 +54,12 @@ int main() {
 	bob.beRepaired(1);
 
 	std::cout << '\n' <<  BG_BRIGHT_BLACK << "Final status:" << RESET << '\n';;
-	std::cout << CYAN <<  "\nStarting points for ClapTrap\n" << RESET;
+	std::cout << CYAN <<  "\nFinal points for ClapTrap\n" << RESET;
 	std::cout << GREEN << davin.getName() << ":\n";
 	std::cout << RED << "HP = " << davin.getHitPoints() <<  RESET << "; ";
 	std::cout << BLUE << "EP = " << davin.getEnergyPoints() << RESET << "; ";
 	std::cout << MAGENTA << "AD = " << davin.getAttackDamage() << RESET << ".\n";
-	std::cout << CYAN <<  "\nStarting points for ClapTrap\n" << RESET;
+	std::cout << CYAN <<  "\nFinal points for ClapTrap\n" << RESET;
 	std::cout << GREEN << bob.getName() << ":\n";
 	std::cout << RED << "HP = " << bob.getHitPoints() <<  RESET << "; ";
 	std::cout << BLUE << "EP = " << bob.getEnergyPoints() << RESET << "; ";

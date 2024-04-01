@@ -76,8 +76,10 @@ int main() {
 	std::cout << '\n' <<  BG_BRIGHT_BLACK << "ScavTrap Bonie trying to attack ClapTrap Davin:" << RESET << std::endl;
 	bonie.attack("Davin");
 	davin.takeDamage(bonie.getAttackDamage());
+	bonie.attack("Davin");
+	davin.takeDamage(bonie.getAttackDamage());
 
-
+	std::cout << '\n' <<  BG_BRIGHT_BLACK << "DiamondTrap Emile aka Emile_clap_name trying to attack ScavTrap Bonie:" << RESET << std::endl;
 	emile.attack("Bonie");
 	bonie.takeDamage(emile.getAttackDamage());
 

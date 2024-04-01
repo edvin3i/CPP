@@ -44,7 +44,7 @@ public:
 	unsigned int getEnergyPoints(void) const;
 	unsigned int getAttackDamage(void) const;
 
-private:
+protected:
 	std::string _nickName;
 	unsigned int _hitPoints;
 	unsigned int _energyPoints;

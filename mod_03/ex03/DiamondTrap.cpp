@@ -1,15 +1,23 @@
 #include "includes/DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap(void) {
+DiamondTrap::DiamondTrap(void) : ClapTrap("DefaultBot_clap_name"), \
+														ScavTrap(name), \
+														FragTrap(name), \
+														_nickName(name) {
+	this->_nickName = "DefaultBot_clap_name";
+	this->_hitPoints = FragTrap::_hitPoints;
+	this->_energyPoints = ScavTrap::_energyPoints;
+	this->_attackDamage = FragTrap::_attackDamage;
 }
 
 DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name+"_clap_name"), \
 																													ScavTrap(name), \
 																													FragTrap(name), \
 																													_nickName(name) {
-	this->setHitPoints(FragTrap::getHitPoints());
-	this->setEnergyPoints(ScavTrap::getEnergyPoints());
-	this->setAttackDamage(FragTrap::getAttackDamage());
+	this->_nickName = name;
+	this->_hitPoints = FragTrap::_hitPoints;
+	this->_energyPoints = ScavTrap::_energyPoints;
+	this->_attackDamage = FragTrap::_attackDamage;
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap &other) : ClapTrap(other), \
@@ -25,7 +33,7 @@ DiamondTrap &DiamondTrap::operator=(const DiamondTrap &other) {
 }
 
 DiamondTrap::~DiamondTrap() {
-	std::cout << BRIGHT_WHITE <<  "DiamondTrap " << RESET;
+	std::cout << BRIGHT_WHITE <<  "[ DiamondTrap ] " << RESET;
 	std::cout << BRIGHT_CYAN << this->getName() << RESET;
 	std::cout << BRIGHT_WHITE << " destructor is called" << RESET;
 	std::cout << std::endl;
