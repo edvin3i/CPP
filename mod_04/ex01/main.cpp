@@ -1,4 +1,5 @@
 #include "includes/Animal.hpp"
+#include "includes/WrongAnimal.hpp"
 #include "includes/Dog.hpp"
 #include "includes/Cat.hpp"
 
@@ -35,6 +36,10 @@ int main() {
 		delete animals[i];
 	}
 
+	std::cout << '\n' <<  BG_BRIGHT_BLACK << "Wrong classes tests:" << RESET << '\n';
+	const WrongAnimal *dog_cat = new WrongAnimal();
+	dog_cat->makeSound(); // Will be called method from WrongAnimal instead WrongCat*/
+	delete dog_cat;
 
 	std::cout << '\n' <<  BG_BRIGHT_BLACK << "Yet another tests:" << RESET << '\n';
 	Cat *white_cat = new Cat();

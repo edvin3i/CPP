@@ -37,7 +37,7 @@ const std::string WrongAnimal::getType(void) const {
 }
 
 void WrongAnimal::makeSound() const {
-	std::cout << BRIGHT_BLUE <<  "Abstract sound from " << RESET;
+	std::cout << BRIGHT_BLUE <<  "No sound from " << RESET;
 	std::cout << GREEN << this->getType() << RESET;
 	std::cout << std::endl;
 }

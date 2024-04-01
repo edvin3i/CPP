@@ -22,7 +22,7 @@ int main() {
 
 	std::cout << '\n' <<  BG_BRIGHT_BLACK << "Wrong classes tests:" << RESET << '\n';
 	const WrongAnimal *dog_cat = new WrongAnimal();
-	dog_cat->makeSound(); // Will be called method from WrongAnimal instead WrongCat*/
+	dog_cat->makeSound(); // Will be called method from WrongAnimal instead WrongCat
 	delete dog_cat;
 
 	std::cout << '\n' <<  BG_BRIGHT_BLACK << "Yet another tests:" << RESET << '\n';

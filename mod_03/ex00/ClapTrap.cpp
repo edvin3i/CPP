@@ -4,7 +4,7 @@ ClapTrap::ClapTrap() : _nickName("DefaultBot"), \
 						_hitPoints(100), \
 						_energyPoints(10), \
 						_attackDamage(0) {
-	std::cout << "Default constructor is called (w/o name)" << std::endl;
+	std::cout << YELLOW << "Default constructor is called (w/o name)" << RESET << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name) : _nickName(name), \
