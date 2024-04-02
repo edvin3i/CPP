@@ -69,11 +69,3 @@ void ScavTrap::attack(const std::string &target) {
 		std::cout << std::endl;
 	}
 }
-
-void ScavTrap::setEnergyPoints(unsigned int pts) {
-	this->_energyPoints = pts;
-}
-
-unsigned int ScavTrap::getEnergyPoints() const {
-	return this->_energyPoints;
-}

@@ -50,6 +50,7 @@ protected:
 	unsigned int _energyPoints;
 	unsigned int _attackDamage;
 
+
 };
 
 

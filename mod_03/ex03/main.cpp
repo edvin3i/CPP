@@ -56,7 +56,7 @@ int main() {
 
 	// Set damage points
 	davin.setAttackDamage(10);
-	bonie.setAttackDamage(25);
+	//bonie.setAttackDamage(25);
 
 	// Attacks ClapTrap and ScavTrap
 	std::cout << '\n' <<  BG_BRIGHT_BLACK << "Action:" << RESET << std::endl;

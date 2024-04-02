@@ -34,6 +34,7 @@ public:
 	void takeDamage(unsigned int amount);
 	void beRepaired(unsigned int amount);
 
+	// set of functions for tests
 	void setName(std::string name);
 	void setHitPoints(unsigned int pts);
 	void setEnergyPoints(unsigned int pts);

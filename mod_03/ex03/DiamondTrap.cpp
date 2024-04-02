@@ -1,22 +1,20 @@
 #include "includes/DiamondTrap.hpp"
 
 DiamondTrap::DiamondTrap(void) : ClapTrap("DefaultBot_clap_name"), \
-														ScavTrap(name), \
-														FragTrap(name), \
-														_nickName(name) {
+														ScavTrap("DefaultBot_clap_name"), \
+														FragTrap("DefaultBot_clap_name") {
 	this->_nickName = "DefaultBot_clap_name";
 	this->_hitPoints = FragTrap::_hitPoints;
 	this->_energyPoints = ScavTrap::_energyPoints;
 	this->_attackDamage = FragTrap::_attackDamage;
 }
 
-DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name+"_clap_name"), \
-																													ScavTrap(name), \
-																													FragTrap(name), \
-																													_nickName(name) {
+DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name+"_clap_name") {
+	ClapTrap::_nickName = name+"_clap_name";
 	this->_nickName = name;
 	this->_hitPoints = FragTrap::_hitPoints;
-	this->_energyPoints = ScavTrap::_energyPoints;
+	std::cout << "ST EP = " << ScavTrap::_energyPoints << std::endl;
+	this->_energyPoints = ScavTrap::getEnergyPoints();
 	this->_attackDamage = FragTrap::_attackDamage;
 }
 
@@ -41,10 +39,10 @@ DiamondTrap::~DiamondTrap() {
 }
 
 void DiamondTrap::whoAmI() {
-	std::cout << BRIGHT_BLUE <<  "I am a DiamondTrap!\n";
-	std::cout << "My original name is " << RESET;
+	std::cout << BRIGHT_BLUE <<  "[ DiamondTrap ] I am a DiamondTrap!\n";
+	std::cout << "[ DiamondTrap ] My original name is " << RESET;
 	std::cout << BRIGHT_CYAN << this->_nickName << RESET;
-	std::cout << BRIGHT_BLUE <<  "\nMy ClapTrap name is " << RESET;
+	std::cout << BRIGHT_BLUE <<  "\n[ DiamondTrap ] My ClapTrap name is " << RESET;
 	std::cout << BRIGHT_CYAN << ClapTrap::getName() << RESET << '\n';
 	std::cout << std::endl;
 }
