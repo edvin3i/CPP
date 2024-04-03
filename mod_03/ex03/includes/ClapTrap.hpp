@@ -49,7 +49,6 @@ protected:
 	unsigned int _hitPoints;
 	unsigned int _energyPoints;
 	unsigned int _attackDamage;
-
 };
 
 

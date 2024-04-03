@@ -12,7 +12,7 @@ FragTrap::FragTrap() : ClapTrap() {
 FragTrap::FragTrap(std::string name) : ClapTrap(name) {
 	this->_nickName = name;
 	this->_hitPoints = ClapTrap::_hitPoints;
-	this->_energyPoints = 11;
+	this->_energyPoints = 100;
 	this->_attackDamage = 30;
 
 	std::cout << YELLOW <<  "[ FragTrap ] Constructor is called with name " << RESET;
