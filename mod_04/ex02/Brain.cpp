@@ -6,7 +6,7 @@ Brain::Brain(void) {
 
 Brain::Brain(const Brain &other) {
 	std::cout << YELLOW <<  "[ Brain class ] Copy constructor is called" << RESET << std::endl;
-	for (int i = 0; i < 5; ++i)
+	for (int i = 0; i < BRAIN_VOL; ++i)
 	{
 		this->ideas[i] = other.ideas[i];
 	}
@@ -17,7 +17,7 @@ Brain &Brain::operator=(const Brain &other) {
 	std::cout << RESET << std::endl;
 
 	if (this != &other) {
-		for (int i = 0; i < 5; ++i)
+		for (int i = 0; i < BRAIN_VOL; ++i)
 		{
 			this->ideas[i] = other.ideas[i];
 		}

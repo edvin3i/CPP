@@ -29,9 +29,10 @@ public:
 	AAnimal(const AAnimal &other);
 	virtual ~AAnimal();
 
-	virtual const std::string getType(void) const;
-	virtual const void makeSound(void) const;
-	virtual const void readThought(const int num) const;
+	virtual const std::string getType(void) const = 0;
+	virtual void makeSound(void) const = 0;
+	// more one virtual function to be more abstract
+	virtual void readThought(const int num) const = 0;
 
 protected:
 	std::string _type;

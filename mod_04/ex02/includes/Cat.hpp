@@ -13,9 +13,10 @@ public:
 	~Cat();
 
 	const std::string getType(void) const;
-	const void makeSound(void) const;
-	const void readThought(const int num) const;
+	virtual void makeSound(void) const;
 	Brain *getBrain(void);
+	// more one virtual function to be more abstract
+	virtual void readThought(const int num) const;
 
 private:
 	Brain *brain;

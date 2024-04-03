@@ -4,13 +4,14 @@
 #include "includes/Cat.hpp"
 #include <cstdlib>
 
+#include <ctime>
 
 int main() {
 
 	std::cout << '\n' <<  BG_BRIGHT_BLACK << "Tests from subject:" << RESET << '\n';;
 	const AAnimal* j = new Dog();
 	const AAnimal* i = new Cat();
-	delete j;//should not create a leak
+	delete j; //should not create a leak
 	delete i;
 
 	std::cout << '\n' <<  BG_BRIGHT_BLACK << "Animals array test:" << RESET << '\n';
@@ -36,7 +37,7 @@ int main() {
 	{
 		delete animals[i];
 	}
-
+/*
 	std::cout << '\n' <<  BG_BRIGHT_BLACK << "Wrong classes tests:" << RESET << '\n';
 	const WrongAnimal *dog_cat = new WrongAnimal();
 	dog_cat->makeSound(); // Will be called method from WrongAnimal instead WrongCat
@@ -64,10 +65,22 @@ int main() {
 	std::cout << BRIGHT_GREEN << "Green" <<  MAGENTA << " cat wants to " << RESET;
 	std::cout << BLUE << green_cat->getBrain()->ideas[0] << '\n' << RESET;
 	std::cout << std::endl;
+*/
 
+	std::cout << '\n' <<  BG_BRIGHT_BLACK << "Just another one test with additional function:" << RESET << '\n';
+	std::srand((unsigned int)(std::time(NULL)));
 
-	delete white_cat;
-	delete green_cat;
+	Cat *murzie = new Cat();
+	Dog *lucky = new Dog();
+
+	int num = std::rand() % (BRAIN_VOL ) ;
+
+	murzie->readThought(num);
+	lucky->readThought(num);
+
+	delete murzie;
+	delete lucky;
+
 
 	return 0;
 }

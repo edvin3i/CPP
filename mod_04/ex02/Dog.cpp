@@ -38,21 +38,28 @@ const std::string Dog::getType(void) const {
 	return this->_type;
 }
 
-const void Dog::makeSound() const {
+void Dog::makeSound() const {
 	std::cout << BRIGHT_BLUE <<  "Dog says: " << RESET;
 	std::cout << GREEN << "woof! woof! woof!" << RESET;
 	std::cout << std::endl;
 }
 
-const void Dog::readThought(const int num) const {
-	if (num < 0 || num > 4) {
+void Dog::readThought(const int num) const {
+	std::string dog_thoughts[BRAIN_VOL] = {"Eat", "Run away", "Bite a cat", "Play with cat", "Sleep"};
+	for (int i = 0; i < BRAIN_VOL; ++i)
+	{
+		this->brain->ideas[i] = dog_thoughts[i];
+	}
+
+	if (num < 0 || num >= BRAIN_VOL) {
 		std::cout << BRIGHT_BLUE <<  "Dog says: " << RESET;
 		std::cout << GREEN << "Woof, my brain has only 5 thoughts... woof!" << RESET;
 		std::cout << std::endl;
 	}
 	else {
+
 		std::cout << BRIGHT_BLUE <<  "Dog thinks: " << RESET;
-		std::cout << GREEN << "I want to " << this->brain->ideas[num] << " ,woof..." << RESET;
+		std::cout << GREEN << "I want to " << this->brain->ideas[num] << ", woof..." << RESET;
 		std::cout << std::endl;
 	}
 }

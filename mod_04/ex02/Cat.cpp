@@ -38,7 +38,7 @@ const std::string Cat::getType(void) const {
 	return this->_type;
 }
 
-const void Cat::makeSound() const {
+void Cat::makeSound() const {
 	std::cout << BRIGHT_BLUE <<  "Cat says: " << RESET;
 	std::cout << GREEN << "mew! mew! meeeewww..." << RESET;
 	std::cout << std::endl;
@@ -48,10 +48,21 @@ Brain *Cat::getBrain(void) {
 	return brain;
 }
 
-const void Cat::readThought(const int num) const {
-	if (num < 0 || num > 4) {
+void Cat::readThought(const int num) const {
+	std::string cat_thoughts[BRAIN_VOL] = {"Sleep", "Bite a dog", "Run away", "Play with dog", "Eat"};
+	for (int i = 0; i < BRAIN_VOL; ++i)
+	{
+		this->brain->ideas[i] = cat_thoughts[i];
+	}
+
+	if (num < 0 || num >= BRAIN_VOL) {
 		std::cout << BRIGHT_BLUE <<  "Cat says: " << RESET;
 		std::cout << GREEN << "Mew, my brain has only 5 thoughts... mew!" << RESET;
+		std::cout << std::endl;
+	}
+	else {
+		std::cout << BRIGHT_BLUE <<  "Cat thinks: " << RESET;
+		std::cout << GREEN << "I want to " << this->brain->ideas[num] << ", mew..." << RESET;
 		std::cout << std::endl;
 	}
 }
