@@ -4,14 +4,14 @@
 	std::cout << YELLOW << "Default constructor is called for Cat" << RESET << std::endl;
 }*/
 
-Cat::Cat() : Animal("Cat") {
+Cat::Cat() : AAnimal("Cat") {
 	std::cout << YELLOW <<  "[ Cat class ] Constructor is called with type " << RESET;
 	std::cout << GREEN << this->getType() << RESET;
 	std::cout << std::endl;
 	this->brain = new Brain;
 }
 
-Cat::Cat(const Cat &other) : Animal(other) {
+Cat::Cat(const Cat &other) : AAnimal(other) {
 	std::cout << YELLOW <<  "[ Cat class ] Copy constructor is called" << RESET << std::endl;
 	this->brain = new Brain(*other.brain);
 }

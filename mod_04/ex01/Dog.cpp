@@ -36,6 +36,6 @@ Dog::~Dog() {
 
 void Dog::makeSound() const {
 	std::cout << BRIGHT_BLUE <<  "Dog says: " << RESET;
-	std::cout << GREEN << "wow! wow! wow!" << RESET;
+	std::cout << GREEN << "woof! woof! woof!" << RESET;
 	std::cout << std::endl;
 }
