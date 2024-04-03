@@ -37,6 +37,7 @@ int main() {
 	// Creating DiamondTrap objects
 	DiamondTrap emile("Emile");
 
+	emile.setEnergyPoints(bonie.getEnergyPoints());
 	std::cout << CYAN <<  "\nStarting points for DiamondTrap\n";
 	std::cout << GREEN << emile.getName() << ":\n";
 	std::cout << RED << "HP = " << emile.getHitPoints() <<  RESET << "; ";

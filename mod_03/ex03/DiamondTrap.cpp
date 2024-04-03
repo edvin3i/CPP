@@ -9,12 +9,13 @@ DiamondTrap::DiamondTrap(void) : ClapTrap("DefaultBot_clap_name"), \
 	this->_attackDamage = FragTrap::_attackDamage;
 }
 
-DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name+"_clap_name") {
+DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name+"_clap_name"),
+																					 ScavTrap(name), \
+																					 FragTrap(name) {
 	ClapTrap::_nickName = name+"_clap_name";
 	this->_nickName = name;
 	this->_hitPoints = FragTrap::_hitPoints;
-	std::cout << "ST EP = " << ScavTrap::_energyPoints << std::endl;
-	this->_energyPoints = ScavTrap::getEnergyPoints();
+	this->_energyPoints = ScavTrap::_energyPoints;
 	this->_attackDamage = FragTrap::_attackDamage;
 }
 
