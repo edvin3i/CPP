@@ -16,7 +16,7 @@ OBJDIR      =   .obj/
 #                            Files                                           #
 #############################################################################
 
-MFLS        =   AMateria.cpp ICharacter.cpp main.cpp
+MFLS        =   AMateria.cpp Cure.cpp Ice.cpp MateriaSource.cpp 	Character.cpp   main.cpp
 MSRC        =   $(addprefix $(MDIR), $(MFLS))
 MOBJS       =   $(MSRC:.cpp=.o)
 MOBJS       :=  $(addprefix $(OBJDIR), $(notdir $(MOBJS)))
@@ -26,7 +26,7 @@ MOBJS       :=  $(addprefix $(OBJDIR), $(notdir $(MOBJS)))
 #############################################################################
 
 CXX					=   c++
-CXXFLAGS		=   -Wall -Werror -Wextra -std=c++98 -MMD -MP # -g
+CXXFLAGS		=   -Wall -Werror -Wextra -std=c++98 -MMD -MP -g
 CXXFLAGS		+=  -I$(INCDIR)
 
 #############################################################################
