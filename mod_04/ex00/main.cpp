@@ -22,6 +22,7 @@ int main() {
 
 	std::cout << '\n' <<  BG_BRIGHT_BLACK << "Wrong classes tests:" << RESET << '\n';
 	const WrongAnimal *dog_cat = new WrongAnimal();
+	std::cout <<  BRIGHT_BLACK << "Called method from WrongAnimal instead WrongCat" << RESET << '\n';
 	dog_cat->makeSound(); // Will be called method from WrongAnimal instead WrongCat
 	delete dog_cat;
 

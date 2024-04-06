@@ -4,6 +4,7 @@
 #include "includes/Cat.hpp"
 #include <cstdlib>
 #include <ctime>
+#include <iomanip>
 
 int main() {
 
@@ -42,31 +43,59 @@ int main() {
 	dog_cat->makeSound(); // Will be called method from WrongAnimal instead WrongCat
 	delete dog_cat;
 
-	std::cout << '\n' <<  BG_BRIGHT_BLACK << "Class copy test:" << RESET << '\n';
+	std::cout << '\n' << BG_BRIGHT_BLACK << "Class copy test:" << RESET << '\n';
 	Cat *white_cat = new Cat();
 	white_cat->getBrain()->ideas[0] = "Play";
-	std::cout << BRIGHT_WHITE << "White" <<  MAGENTA << " cat wants to " << RESET;
-	std::cout << BLUE << white_cat->getBrain()->ideas[0] << '\n' << RESET;
+	std::cout << BRIGHT_WHITE << "White" << MAGENTA << " cat wants to " << RESET;
+	std::cout << BLUE << white_cat->getBrain()->ideas[0];
+	std::cout <<  std::setw(10) << CYAN"[ADDR]: " << &white_cat->getBrain()->ideas[0] << RESET;
 	std::cout << std::endl;
 
 	Cat *green_cat = new Cat(*white_cat);
 	green_cat->getBrain()->ideas[0] = "Play";
-	std::cout << BRIGHT_GREEN << "Green" <<  MAGENTA << " cat wants to " << RESET;
-	std::cout << BLUE << green_cat->getBrain()->ideas[0] << '\n' << RESET;
+	std::cout << BRIGHT_GREEN << "Green" << MAGENTA << " cat wants to " << RESET;
+	std::cout << BLUE << green_cat->getBrain()->ideas[0];
+	std::cout <<  std::setw(10) << CYAN"[ADDR]: " << &green_cat->getBrain()->ideas[0] << RESET;
 	std::cout << std::endl;
 
 	white_cat->getBrain()->ideas[0] = "Sleep";
 
-	std::cout << BRIGHT_WHITE << "White" <<  MAGENTA << " cat wants to " << RESET;
-	std::cout << BLUE << white_cat->getBrain()->ideas[0] << '\n' << RESET;
+	std::cout << BRIGHT_WHITE << "White" << MAGENTA << " cat's new idea is " << RESET;
+	std::cout << BLUE << white_cat->getBrain()->ideas[0];
+	std::cout <<  std::setw(10) << CYAN"[ADDR]: " << &white_cat->getBrain()->ideas[0] << RESET;
 	std::cout << std::endl;
 
-	std::cout << BRIGHT_GREEN << "Green" <<  MAGENTA << " cat wants to " << RESET;
-	std::cout << BLUE << green_cat->getBrain()->ideas[0] << '\n' << RESET;
+	std::cout << BRIGHT_GREEN << "Green" << MAGENTA << " cat still wants to " << RESET;
+	std::cout << BLUE << green_cat->getBrain()->ideas[0];
+	std::cout <<  std::setw(10)<< CYAN"[ADDR]: " << &green_cat->getBrain()->ideas[0] << RESET;
+	std::cout << std::endl;
+
+	// Creating a third cat for the assignment operator test
+	Cat *blue_cat = new Cat();
+	*blue_cat = *white_cat; // Using assignment operator
+	blue_cat->getBrain()->ideas[0] = "Jump";
+
+	std::cout << BRIGHT_BLUE << "Blue" << MAGENTA << " cat wants to " << RESET;
+	std::cout << BLUE << blue_cat->getBrain()->ideas[0];
+	std::cout <<  std::setw(10) << CYAN"[ADDR]: " << &blue_cat->getBrain()->ideas[0] << RESET;
+	std::cout << std::endl;
+
+	// Now change white_cat's first idea again to see if it affects blue_cat
+	white_cat->getBrain()->ideas[0] = "Climb";
+
+	std::cout << BRIGHT_WHITE << "White" << MAGENTA << " cat's new idea is " << RESET;
+	std::cout << BLUE << white_cat->getBrain()->ideas[0];
+	std::cout <<  std::setw(10)<< CYAN"[ADDR]: " << &white_cat->getBrain()->ideas[0] << RESET;
+	std::cout << std::endl;
+
+	std::cout << BRIGHT_BLUE << "Blue" << MAGENTA << " cat still wants to " << RESET;
+	std::cout << BLUE << blue_cat->getBrain()->ideas[0];
+	std::cout <<  std::setw(10)<< CYAN"[ADDR]: " << &blue_cat->getBrain()->ideas[0] << RESET;
 	std::cout << std::endl;
 
 	delete white_cat;
 	delete green_cat;
+	delete blue_cat;
 
 	std::cout << '\n' <<  BG_BRIGHT_BLACK << "Just another one test with additional function:" << RESET << '\n';
 	std::srand((unsigned int)(std::time(NULL)));
