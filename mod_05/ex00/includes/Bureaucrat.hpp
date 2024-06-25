@@ -1,6 +1,9 @@
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
 
+#include <string>
+#include <iostream>
+
 #define GREEN "\033[32m"
 #define RED "\033[31m"
 #define YELLOW "\033[33m"
@@ -18,6 +21,36 @@
 #define BRIGHT_CYAN    "\033[96m"
 #define BRIGHT_WHITE   "\033[97m"
 
+class Bureaucrat {
 
+private:
+	const std::string name;
+	int	grade;
+
+public:
+	Bureaucrat(void);
+	Bureaucrat(std::string name);
+	Bureaucrat &operator=(const Bureaucrat& other);
+	Bureaucrat(const Bureaucrat &operator);
+	~Bureaucrat();
+
+	void incGrade(void);
+	void decGrade(void);
+
+	std::string getName(void) const;
+	std::string getGrade(void) const;
+
+	class GradeTooHighException: public std::exception {
+	public:
+		const char *what() const throw();
+	};
+
+	class GradeTooLowException {
+	public:
+		const char *what() const throw();
+	};
+};
+
+std::ostream &operator<<(std::ostream &out, const Bureaucrat &obj);
 
 #endif
