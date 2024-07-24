@@ -10,17 +10,20 @@ void print_bureaucrat(Bureaucrat &bureaucrat) {
 	return ;
 }
 
-int main() {
+int main(void) {
 	try {
 		Bureaucrat alice("Alice", 3);
 		print_bureaucrat(alice);
-		std::cout << BRIGHT_CYAN << "First try to increment grade for " << RESET << alice.getName() << std::endl;
+		std::cout << BRIGHT_CYAN"First try to increment grade for "BRIGHT_BLUE \
+					<< alice.getName() << RESET << std::endl;
 		alice.incGrade();
 		print_bureaucrat(alice);
-		std::cout << BRIGHT_CYAN << "Second try to increment grade for " << RESET << alice.getName() << std::endl;
+		std::cout << BRIGHT_CYAN"Second try to increment grade for "BRIGHT_BLUE \
+					<< alice.getName() << RESET << std::endl;
 		alice.incGrade();
 		print_bureaucrat(alice);
-		std::cout << BRIGHT_CYAN << "Third try to increment grade for " << RESET << alice.getName() << std::endl;
+		std::cout << BRIGHT_CYAN"Third try to increment grade for "BRIGHT_BLUE \
+					<< alice.getName() << RESET << std::endl;
 		alice.incGrade();
 		print_bureaucrat(alice);
 	}
@@ -31,19 +34,22 @@ int main() {
 	try {
 		Bureaucrat bob("Bob", 148);
 		print_bureaucrat(bob);
-		std::cout << BRIGHT_CYAN << "First try to decrement grade for " << RESET << bob.getName() << std::endl;
+		std::cout << BRIGHT_CYAN"First try to decrement grade for "BRIGHT_BLUE \
+					<< bob.getName() << RESET << std::endl;
 		bob.decGrade();
 		print_bureaucrat(bob);
-		std::cout << BRIGHT_CYAN << "Second try to decrement grade for " << RESET << bob.getName() << std::endl;
+		std::cout << BRIGHT_CYAN"Second try to decrement grade for "BRIGHT_BLUE \
+					<< bob.getName() << RESET << std::endl;
 		bob.decGrade();
 		print_bureaucrat(bob);
-		std::cout << BRIGHT_CYAN << "Third try to decrement grade for " << RESET << bob.getName() << std::endl;
+		std::cout << BRIGHT_CYAN"Third try to decrement grade for "BRIGHT_BLUE \
+					<< bob.getName() << RESET << std::endl;
 		bob.decGrade();
 		print_bureaucrat(bob);
 	}
 	catch (const Bureaucrat::GradeTooHighException &e) {
 		std::cerr << BG_BRIGHT_BLACK << BRIGHT_RED << e.what() << RESET << std::endl;
 	}
-	
+
 	return 0;
 }

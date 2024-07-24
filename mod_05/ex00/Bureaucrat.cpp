@@ -8,8 +8,9 @@ Bureaucrat::Bureaucrat(std::string name, int grade) {
 	this->name = name;
 	this->grade = grade;
 	std::cout << "\nBureaucrat " \
-				<< BRIGHT_BLUE << this->name << BRIGHT_WHITE \
-				<< " with grade " << BRIGHT_MAGENTA << this->grade \
+				<< BRIGHT_BLUE << this->name \
+				<< BRIGHT_WHITE" with grade " \
+				<< BRIGHT_MAGENTA << this->grade \
 				<< RESET" is created!" << std::endl;
 }
 
