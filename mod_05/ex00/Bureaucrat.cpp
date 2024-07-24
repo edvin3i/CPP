@@ -7,6 +7,10 @@ Bureaucrat::Bureaucrat(std::string name, int grade) {
 		throw Bureaucrat::GradeTooHighException();
 	this->name = name;
 	this->grade = grade;
+	std::cout << "\nBureaucrat " \
+				<< BRIGHT_BLUE << this->name << BRIGHT_WHITE \
+				<< " with grade " << BRIGHT_MAGENTA << this->grade \
+				<< RESET" is created!" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &other) {
@@ -23,7 +27,7 @@ std::string Bureaucrat::getName() const {
 	return this->name;
 }
 
-std::string Bureaucrat::getGrade() const {
+int Bureaucrat::getGrade() const {
 	return this->grade;
 }
 
@@ -47,16 +51,16 @@ Bureaucrat::~Bureaucrat() {
 }
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &obj) {
-	out << obj.getName() << ", bureaucrat grade " << \
+	out << "\n" << obj.getName() << ", bureaucrat grade " << \
 			obj.getGrade() << "." << std::endl;
 	return (out);
 }
 
-const char Bureaucrat::GradeTooLowException::what() const throw() {
+const char *Bureaucrat::GradeTooLowException::what() const throw() {
 	return "Grade Too Low Exception is raised";
 }
 
-const char Bureaucrat::GradeTooHighException::what() const throw() {
+const char *Bureaucrat::GradeTooHighException::what() const throw() {
 	return "Grade Too High Exception is raised";
 }
 
