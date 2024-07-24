@@ -49,6 +49,8 @@ void Bureaucrat::decGrade() {
 }
 
 Bureaucrat::~Bureaucrat() {
+	std::cout << "\nBureaucrat "BRIGHT_BLUE << this->name \
+				<< RESET" was "BRIGHT_RED << "FIRED!!!11"RESET << std::endl;
 }
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &obj) {
