@@ -11,6 +11,10 @@ void print_bureaucrat(Bureaucrat &bureaucrat) {
 }
 
 int main(void) {
+
+	/* Check the edges	*/
+	/* 1. Bottom edge		*/
+	std::cout << "\n" << BG_BLUE"=============== 1. Bottom edge ==============="RESET << std::endl;
 	try {
 		Bureaucrat alice("Alice", 3);
 		print_bureaucrat(alice);
@@ -27,10 +31,12 @@ int main(void) {
 		alice.incGrade();
 		print_bureaucrat(alice);
 	}
-	catch (const Bureaucrat::GradeTooLowException &e) {
-		std::cerr << BG_BRIGHT_BLACK << BRIGHT_RED << e.what() << RESET << std::endl;
+	catch (const std::exception &e) {
+		std::cerr << BG_BRIGHT_RED << BRIGHT_YELLOW << e.what() << RESET << std::endl;
 	}
 
+	/* 2. Top edge	*/
+	std::cout << "\n" << BG_BLUE"=============== 2. Top edge ==============="RESET << std::endl;
 	try {
 		Bureaucrat bob("Bob", 148);
 		print_bureaucrat(bob);
@@ -47,8 +53,26 @@ int main(void) {
 		bob.decGrade();
 		print_bureaucrat(bob);
 	}
-	catch (const Bureaucrat::GradeTooHighException &e) {
-		std::cerr << BG_BRIGHT_BLACK << BRIGHT_RED << e.what() << RESET << std::endl;
+	catch (const std::exception &e) {
+		std::cerr << BG_BRIGHT_RED << BRIGHT_YELLOW << e.what() << RESET << std::endl;
+	}
+
+	/* 3. Create the class instance with a wrong init value (LOW)	*/
+	std::cout << "\n" << BG_BLUE"=============== 3. Wrong class instance (LOW) ==============="RESET << std::endl;
+	try {
+		Bureaucrat wolfgang("Wolfgang", 0);
+	}
+	catch (const std::exception &e){
+		std::cerr << BG_BRIGHT_RED << BRIGHT_YELLOW << e.what() << RESET << std::endl;
+	}
+
+	/* 4. Create the class instance with a wrong init value (HIGH)	*/
+	std::cout << "\n" << BG_BLUE"=============== 4. Wrong class instance (HIGH) ==============="RESET << std::endl;
+	try {
+		Bureaucrat zaphod("Zaphod", 1000);
+	}
+	catch (const std::exception &e){
+		std::cerr << BG_BRIGHT_RED << BRIGHT_YELLOW << e.what() << RESET << std::endl;
 	}
 
 	return 0;
