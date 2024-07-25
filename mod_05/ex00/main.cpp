@@ -7,21 +7,20 @@ void print_bureaucrat(Bureaucrat &bureaucrat) {
 	else {
 		std::cout << GREEN << bureaucrat << RESET << std::endl;
 	}
-	return ;
 }
 
 void test_bottom_edge(void) {
 	Bureaucrat alice("Alice", 3);
 	print_bureaucrat(alice);
-	std::cout << BRIGHT_CYAN"First try to increment _grade for "BRIGHT_BLUE \
+	std::cout << BRIGHT_CYAN"First try to increment grade for "BRIGHT_BLUE \
 					<< alice.getName() << RESET << std::endl;
 	alice.incGrade();
 	print_bureaucrat(alice);
-	std::cout << BRIGHT_CYAN"Second try to increment _grade for "BRIGHT_BLUE \
+	std::cout << BRIGHT_CYAN"Second try to increment grade for "BRIGHT_BLUE \
 					<< alice.getName() << RESET << std::endl;
 	alice.incGrade();
 	print_bureaucrat(alice);
-	std::cout << BRIGHT_CYAN"Third try to increment _grade for "BRIGHT_BLUE \
+	std::cout << BRIGHT_CYAN"Third try to increment grade for "BRIGHT_BLUE \
 					<< alice.getName() << RESET << std::endl;
 	alice.incGrade();
 	print_bureaucrat(alice);
@@ -30,15 +29,15 @@ void test_bottom_edge(void) {
 void test_top_edge(void) {
 	Bureaucrat bob("Bob", 148);
 	print_bureaucrat(bob);
-	std::cout << BRIGHT_CYAN"First try to decrement _grade for "BRIGHT_BLUE \
+	std::cout << BRIGHT_CYAN"First try to decrement grade for "BRIGHT_BLUE \
 					<< bob.getName() << RESET << std::endl;
 	bob.decGrade();
 	print_bureaucrat(bob);
-	std::cout << BRIGHT_CYAN"Second try to decrement _grade for "BRIGHT_BLUE \
+	std::cout << BRIGHT_CYAN"Second try to decrement grade for "BRIGHT_BLUE \
 					<< bob.getName() << RESET << std::endl;
 	bob.decGrade();
 	print_bureaucrat(bob);
-	std::cout << BRIGHT_CYAN"Third try to decrement _grade for "BRIGHT_BLUE \
+	std::cout << BRIGHT_CYAN"Third try to decrement grade for "BRIGHT_BLUE \
 					<< bob.getName() << RESET << std::endl;
 	bob.decGrade();
 	print_bureaucrat(bob);
@@ -50,8 +49,8 @@ void test_wrong_instance(std::string init_name, int init_grade) {
 
 void test_others(void) {
 	Bureaucrat b1("Firsty", 10);
-	Bureaucrat b2(b1);
-	Bureaucrat b3 = b2;
+	Bureaucrat b2;
+	Bureaucrat b3(b1);
 
 	std::cout << "B1 address: " << &b1 << std::endl;
 	std::cout << b1 << std::endl;

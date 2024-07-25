@@ -4,9 +4,9 @@
 Bureaucrat::Bureaucrat(): _name("NameLess"), _grade(75) {
 
 	std::cout << "\nNameless bureaucrat " \
- << BRIGHT_WHITE" with grade " \
- << BRIGHT_MAGENTA << this->_grade \
- << RESET" is created!" << std::endl;
+ 				<< BRIGHT_WHITE" with grade " \
+ 				<< BRIGHT_MAGENTA << this->_grade \
+ 				<< RESET" is created!" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(std::string name, int grade): _name(name) {
@@ -16,14 +16,13 @@ Bureaucrat::Bureaucrat(std::string name, int grade): _name(name) {
 		throw Bureaucrat::GradeTooHighException();
 	this->_grade = grade;
 	std::cout << "\nBureaucrat " \
- << BRIGHT_BLUE << this->_name \
- << BRIGHT_WHITE" with grade " \
- << BRIGHT_MAGENTA << this->_grade \
- << RESET" is created!" << std::endl;
+ 				<< BRIGHT_BLUE << this->_name \
+ 				<< BRIGHT_WHITE" with grade " \
+ 				<< BRIGHT_MAGENTA << this->_grade \
+ 				<< RESET" is created!" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &other) {
-	*this = other;
+Bureaucrat::Bureaucrat(const Bureaucrat &other): _name(other.getName()), _grade(other.getGrade()) {
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat &other) {
@@ -62,7 +61,7 @@ Bureaucrat::~Bureaucrat() {
 }
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &obj) {
-	out << "\n" << obj.getName() << ", bureaucrat _grade " << \
+	out << "\n" << obj.getName() << ", bureaucrat grade " << \
 			obj.getGrade() << "." << std::endl;
 	return (out);
 }
