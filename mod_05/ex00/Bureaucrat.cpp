@@ -1,17 +1,25 @@
 #include "includes/Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat(std::string name, int grade) {
+
+Bureaucrat::Bureaucrat(): _name("NameLess"), _grade(75) {
+
+	std::cout << "\nNameless bureaucrat " \
+ << BRIGHT_WHITE" with grade " \
+ << BRIGHT_MAGENTA << this->_grade \
+ << RESET" is created!" << std::endl;
+}
+
+Bureaucrat::Bureaucrat(std::string name, int grade): _name(name) {
 	if (grade < 1)
 		throw Bureaucrat::GradeTooLowException();
 	else if (grade > 150)
 		throw Bureaucrat::GradeTooHighException();
-	this->name = name;
-	this->grade = grade;
+	this->_grade = grade;
 	std::cout << "\nBureaucrat " \
-				<< BRIGHT_BLUE << this->name \
-				<< BRIGHT_WHITE" with grade " \
-				<< BRIGHT_MAGENTA << this->grade \
-				<< RESET" is created!" << std::endl;
+ << BRIGHT_BLUE << this->_name \
+ << BRIGHT_WHITE" with grade " \
+ << BRIGHT_MAGENTA << this->_grade \
+ << RESET" is created!" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &other) {
@@ -19,42 +27,42 @@ Bureaucrat::Bureaucrat(const Bureaucrat &other) {
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat &other) {
-	this->name = other.getName();
-	this->grade = other.getGrade();
+	if (this != &other)
+		this->_grade = other.getGrade();
 	return *this;
 }
 
 std::string Bureaucrat::getName() const {
-	return this->name;
+	return this->_name;
 }
 
 int Bureaucrat::getGrade() const {
-	return this->grade;
+	return this->_grade;
 }
 
 void Bureaucrat::incGrade() {
-	if (this->grade <= 1)
+	if (this->_grade <= 1)
 		throw Bureaucrat::GradeTooLowException();
-	this->grade--;
-	std::cout << this->name << "'s grade has been incremented to the " << \
-								this->grade << "." << std::endl;
+	this->_grade--;
+	std::cout << this->_name << "'s grade has been incremented to the " << \
+								this->_grade << "." << std::endl;
 }
 
 void Bureaucrat::decGrade() {
-	if (this->grade >= 150)
+	if (this->_grade >= 150)
 		throw Bureaucrat::GradeTooHighException();
-	this->grade++;
-	std::cout << this->name << "'s grade has been decremented to the " << \
-								this->grade << "." << std::endl;
+	this->_grade++;
+	std::cout << this->_name << "'s grade has been decremented to the " << \
+								this->_grade << "." << std::endl;
 }
 
 Bureaucrat::~Bureaucrat() {
-	std::cout << "\nBureaucrat "BRIGHT_BLUE << this->name \
-				<< RESET" was "BRIGHT_RED << "FIRED!!!11"RESET << std::endl;
+	std::cout << "\nBureaucrat "BRIGHT_BLUE << this->_name \
+ << RESET" was "BRIGHT_RED << "FIRED!!!11"RESET << std::endl;
 }
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &obj) {
-	out << "\n" << obj.getName() << ", bureaucrat grade " << \
+	out << "\n" << obj.getName() << ", bureaucrat _grade " << \
 			obj.getGrade() << "." << std::endl;
 	return (out);
 }

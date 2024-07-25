@@ -13,15 +13,15 @@ void print_bureaucrat(Bureaucrat &bureaucrat) {
 void test_bottom_edge(void) {
 	Bureaucrat alice("Alice", 3);
 	print_bureaucrat(alice);
-	std::cout << BRIGHT_CYAN"First try to increment grade for "BRIGHT_BLUE \
+	std::cout << BRIGHT_CYAN"First try to increment _grade for "BRIGHT_BLUE \
 					<< alice.getName() << RESET << std::endl;
 	alice.incGrade();
 	print_bureaucrat(alice);
-	std::cout << BRIGHT_CYAN"Second try to increment grade for "BRIGHT_BLUE \
+	std::cout << BRIGHT_CYAN"Second try to increment _grade for "BRIGHT_BLUE \
 					<< alice.getName() << RESET << std::endl;
 	alice.incGrade();
 	print_bureaucrat(alice);
-	std::cout << BRIGHT_CYAN"Third try to increment grade for "BRIGHT_BLUE \
+	std::cout << BRIGHT_CYAN"Third try to increment _grade for "BRIGHT_BLUE \
 					<< alice.getName() << RESET << std::endl;
 	alice.incGrade();
 	print_bureaucrat(alice);
@@ -30,15 +30,15 @@ void test_bottom_edge(void) {
 void test_top_edge(void) {
 	Bureaucrat bob("Bob", 148);
 	print_bureaucrat(bob);
-	std::cout << BRIGHT_CYAN"First try to decrement grade for "BRIGHT_BLUE \
+	std::cout << BRIGHT_CYAN"First try to decrement _grade for "BRIGHT_BLUE \
 					<< bob.getName() << RESET << std::endl;
 	bob.decGrade();
 	print_bureaucrat(bob);
-	std::cout << BRIGHT_CYAN"Second try to decrement grade for "BRIGHT_BLUE \
+	std::cout << BRIGHT_CYAN"Second try to decrement _grade for "BRIGHT_BLUE \
 					<< bob.getName() << RESET << std::endl;
 	bob.decGrade();
 	print_bureaucrat(bob);
-	std::cout << BRIGHT_CYAN"Third try to decrement grade for "BRIGHT_BLUE \
+	std::cout << BRIGHT_CYAN"Third try to decrement _grade for "BRIGHT_BLUE \
 					<< bob.getName() << RESET << std::endl;
 	bob.decGrade();
 	print_bureaucrat(bob);
