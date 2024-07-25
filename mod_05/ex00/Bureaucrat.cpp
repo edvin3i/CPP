@@ -6,7 +6,7 @@ Bureaucrat::Bureaucrat(): _name("NameLess"), _grade(75) {
 	std::cout << "\nNameless bureaucrat " \
  				<< BRIGHT_WHITE" with grade " \
  				<< BRIGHT_MAGENTA << this->_grade \
- 				<< RESET" is created!" << std::endl;
+ 				<< RESET" is created!\n" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(std::string name, int grade): _name(name) {
@@ -19,7 +19,7 @@ Bureaucrat::Bureaucrat(std::string name, int grade): _name(name) {
  				<< BRIGHT_BLUE << this->_name \
  				<< BRIGHT_WHITE" with grade " \
  				<< BRIGHT_MAGENTA << this->_grade \
- 				<< RESET" is created!" << std::endl;
+ 				<< RESET" is created!\n" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &other): _name(other.getName()), _grade(other.getGrade()) {

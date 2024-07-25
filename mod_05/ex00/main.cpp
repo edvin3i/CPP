@@ -49,26 +49,26 @@ void test_wrong_instance(std::string init_name, int init_grade) {
 
 void test_others(void) {
 	Bureaucrat b1("Firsty", 10);
-	Bureaucrat b2;
+	Bureaucrat b2("Secondly", 20);
 	Bureaucrat b3(b1);
 
 	std::cout << "B1 address: " << &b1 << std::endl;
-	std::cout << b1 << std::endl;
+	print_bureaucrat(b1);
 	std::cout << "B2 address: " << &b2 << std::endl;
-	std::cout << b2 << std::endl;
+	print_bureaucrat(b2);
 	std::cout << "B3 address: " << &b3 << std::endl;
-	std::cout << b3 << std::endl;
+	print_bureaucrat(b3);
 
 	std::cout << BG_BRIGHT_BLACK"Lets increase and decrease grades!"RESET << std::endl;
 	b2.incGrade();
-	std::cout << b2 << std::endl;
+	print_bureaucrat(b2);
 	b3.decGrade();
-	std::cout << b3 << std::endl;
+	print_bureaucrat(b3);
 
 	std::cout << BG_BRIGHT_BLACK"Check final states"RESET << std::endl;
-	std::cout << b1 << std::endl;
-	std::cout << b2 << std::endl;
-	std::cout << b3 << std::endl;
+	print_bureaucrat(b1);
+	print_bureaucrat(b2);
+	print_bureaucrat(b3);
 }
 
 int main(void) {
