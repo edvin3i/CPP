@@ -12,68 +12,66 @@ void print_bureaucrat(Bureaucrat &bureaucrat) {
 
 void test_sign_low() {
 	Bureaucrat alice("Alice", 80);
-	print_bureaucrat(alice);
-	std::cout << BRIGHT_CYAN"First try to increment grade for "BRIGHT_BLUE \
-					<< alice.getName() << RESET << std::endl;
-	alice.incGrade();
-	print_bureaucrat(alice);
-	std::cout << BRIGHT_CYAN"Second try to increment grade for "BRIGHT_BLUE \
-					<< alice.getName() << RESET << std::endl;
 	Form d163("Anketa", 50, 75);
+	std::cout << d163;
 	alice.signForm(d163);
 }
 
+void test_sign() {
+	Bureaucrat bob("Bob", 9);
+	Form f028b("F-028B", 15, 30);
+	std::cout << f028b;
+	bob.signForm(f028b);
+	std::cout << f028b;
+}
 
+void test_deep_copy() {
+	Form f1("F0-001", 10, 50);
+	Form f2("F1-002", 15, 60);
+	Form f3(f1);
 
-void test_others() {
-	Bureaucrat b1("Firsty", 10);
-	Bureaucrat b2("Secondly", 20);
-	Bureaucrat b3(b1);
+	std::cout << "Form 1 address: " << &f1 << std::endl;
+	std::cout << f1;
+	std::cout << "Form 2 address: " << &f2 << std::endl;
+	std::cout << f2;
+	std::cout << "Form 3 address: " << &f3 << std::endl;
+	std::cout << f3;
+}
+void test_equal_operator() {
+	Bureaucrat john("John", 5);
 
-	std::cout << "B1 address: " << &b1 << std::endl;
-	print_bureaucrat(b1);
-	std::cout << "B2 address: " << &b2 << std::endl;
-	print_bureaucrat(b2);
-	std::cout << "B3 address: " << &b3 << std::endl;
-	print_bureaucrat(b3);
+	Form f1("Source form", 10, 20);
+	std::cout << f1;
+	john.signForm(f1);
+	std::cout << f1;
 
-	std::cout << BG_BRIGHT_BLACK"Lets increase and decrease grades!"RESET << std::endl;
-	b2.incGrade();
-	print_bureaucrat(b2);
-	b3.decGrade();
-	print_bureaucrat(b3);
+	Form f2("Destination form", 1, 3);
+	std::cout << f2;
 
-	std::cout << BG_BRIGHT_BLACK"Check final states"RESET << std::endl;
-	print_bureaucrat(b1);
-	print_bureaucrat(b2);
-	print_bureaucrat(b3);
+	std::cout << BG_BRIGHT_BLACK"Desination = Source:"RESET << std::endl;
+	f2 = f1;
+	std::cout << f2;
+
 }
 
 int main() {
 
 	/* Check the edges	*/
-	/* 1. Bottom edge		*/
-	std::cout << "\n" << BG_BLUE"=============== 1. Bottom edge ==============="RESET << std::endl;
+	/* 1. Try to sign with low grade	*/
+	std::cout << "\n" << BG_BLUE"=============== 1. Test low grade sign ==============="RESET << std::endl;
 	test_sign_low();
 
-	/* 2. Top edge	*/
-	std::cout << "\n" << BG_BLUE"=============== 2. Top edge ==============="RESET << std::endl;
+	/* 2. Try to sign with grade enough	*/
+	std::cout << "\n" << BG_BLUE"=============== 2. Test sign ==============="RESET << std::endl;
+	test_sign();
 
+	/* 3. Deep copy test */
+	std::cout << "\n" << BG_BLUE"=============== 3. Deep copy test. ==============="RESET << std::endl;
+	test_deep_copy();
 
-	/* 3. Create the class instance with a wrong init value (LOW)	*/
-	std::cout << "\n" << BG_BLUE"=============== 3. Wrong class instance (LOW) ==============="RESET << std::endl;
-
-	/* 4. Create the class instance with a wrong init value (HIGH)	*/
-	std::cout << "\n" << BG_BLUE"=============== 4. Wrong class instance (HIGH) ==============="RESET << std::endl;
-
-	/* 5. Other tests */
-	std::cout << "\n" << BG_BLUE"=============== 5. Other tests. ==============="RESET << std::endl;
-	/*try {
-		test_others();
-	}
-	catch (std::exception &e) {
-		std::cerr << BG_BRIGHT_RED << BRIGHT_YELLOW << e.what() << RESET << std::endl;
-	}*/
+	/* 4. Equal test */
+	std::cout << "\n" << BG_BLUE"=============== 4. Equal test. ==============="RESET << std::endl;
+	test_equal_operator();
 
 	return 0;
 }

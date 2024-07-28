@@ -45,10 +45,29 @@ void Form::beSigned(Bureaucrat &bureaucrat) {
 	this->_isSigned = true;
 }
 
+Form::Form(const Form &other): _name(other.getName()), \
+								_isSigned(other.getSignedAttr()), \
+								_reqGradeToSign(other.getGradeToSign()), \
+								_reqGradeToExec(other.getGradeToExec()) {
+}
+
 const char *Form::GradeTooHighException::what() const throw() {
 	return "FORM: Grade Too High Exception is raised";
 }
 
 const char *Form::GradeTooLowException::what() const throw() {
 	return "FORM: Grade Too Low Exception is raised";
+}
+
+std::ostream &operator<<(std::ostream &out, const Form &obj) {
+	out << "\nForm named " << BRIGHT_CYAN << obj.getName() << RESET \
+			<< ".\nSign grade = " \
+			<< BRIGHT_GREEN << obj.getGradeToSign() << RESET".\n" \
+			<< "Exec grade = " \
+			<< BRIGHT_MAGENTA << obj.getGradeToExec() << RESET".\n" << std::endl;
+			if (obj.getSignedAttr())
+				std::cout << BRIGHT_GREEN"SIGNED\n"RESET << RESET << std::endl;
+			else
+				std::cout << BRIGHT_RED"NOT SIGNED\n"RESET << RESET << std::endl;
+	return (out);
 }
