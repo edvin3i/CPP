@@ -63,8 +63,18 @@ Bureaucrat::~Bureaucrat() {
 }
 
 void Bureaucrat::signForm(Form &form) {
-
-
+	try {
+		form.beSigned(*this);
+		std::cout << BRIGHT_BLUE << this->_name << BRIGHT_GREEN" signed " \
+		<< BRIGHT_MAGENTA << form.getName() << RESET << std::endl;
+	}
+	catch(std::exception &e) {
+		std::cout << BRIGHT_BLUE << this->_name << BRIGHT_RED" couldn’t sign " \
+		<< BRIGHT_MAGENTA << form.getName() \
+		<< BRIGHT_WHITE" because his(her) grade is lower than "RESET \
+		<< form.getGradeToSign() << "." << std::endl;
+		std::cerr << BG_BRIGHT_RED << BRIGHT_YELLOW << e.what() << RESET << std::endl;
+	}
 }
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &obj) {

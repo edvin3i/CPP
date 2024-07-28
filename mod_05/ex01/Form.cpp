@@ -18,7 +18,8 @@ Form& Form::operator=(const Form &other) {
 }
 
 Form::~Form() {
-	std::cout << "Form " << this->getName() << " was destroyed!" << std::endl;
+	std::cout << "\nForm "BRIGHT_BLUE << this->_name \
+ 				<< RESET" was "BRIGHT_RED << "destroyed!"RESET << std::endl;
 }
 
 std::string Form::getName() const {
@@ -38,8 +39,10 @@ int Form::getGradeToExec() const {
 }
 
 void Form::beSigned(Bureaucrat &bureaucrat) {
-	if (bureaucrat.getGrade() <= this->_reqGradeToSign)
-		this->_isSigned = true;
+	if (bureaucrat.getGrade() >= this->_reqGradeToSign)
+		throw Form::GradeTooLowException();
+	else if (bureaucrat.getGrade() < this->_reqGradeToSign)
+	this->_isSigned = true;
 }
 
 const char *Form::GradeTooHighException::what() const throw() {
