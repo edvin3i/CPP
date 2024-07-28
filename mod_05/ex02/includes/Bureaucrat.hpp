@@ -3,7 +3,7 @@
 
 #include <string>
 #include <iostream>
-#include "Form.hpp"
+#include "AForm.hpp"
 
 #define GREEN "\033[32m"
 #define RED "\033[31m"
@@ -25,7 +25,7 @@
 #define BG_YELLOW "\033[43m"
 #define BG_BRIGHT_RED "\033[101m"
 
-class Form;
+class AForm;
 
 class Bureaucrat {
 
@@ -38,7 +38,7 @@ public:
 
 	void incGrade();
 	void decGrade();
-	void signForm(Form &form);
+	void signForm(AForm &form);
 
 	std::string getName() const;
 	int getGrade() const;

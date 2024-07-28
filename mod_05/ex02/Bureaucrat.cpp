@@ -1,6 +1,6 @@
 #include "includes/Bureaucrat.hpp"
 
-class Form;
+class AForm;
 
 Bureaucrat::Bureaucrat(): _name("NameLess"), _grade(75) {
 
@@ -62,7 +62,7 @@ Bureaucrat::~Bureaucrat() {
  << RESET" was "BRIGHT_RED << "FIRED!!!11"RESET << std::endl;
 }
 
-void Bureaucrat::signForm(Form &form) {
+void Bureaucrat::signForm(AForm &form) {
 	try {
 		form.beSigned(*this);
 		std::cout << BRIGHT_BLUE << this->_name << BRIGHT_GREEN" signed " \

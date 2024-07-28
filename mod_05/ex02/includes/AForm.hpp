@@ -5,13 +5,13 @@
 
 class Bureaucrat;
 
-class Form {
+class AForm {
 public:
-	Form();
-	Form(std::string name, int reqGradeToSign, int reqGradeToExec);
-	Form &operator=(const Form &other);
-	Form(const Form &other);
-	~Form();
+	AForm();
+	AForm(std::string name, int reqGradeToSign, int reqGradeToExec);
+	AForm &operator=(const AForm &other);
+	AForm(const AForm &other);
+	~AForm();
 
 	void beSigned(Bureaucrat &bureaucrat);
 
@@ -39,6 +39,6 @@ private:
 
 };
 
-std::ostream &operator<<(std::ostream &out, const Form &other);
+std::ostream &operator<<(std::ostream &out, const AForm &other);
 
 #endif

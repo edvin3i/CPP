@@ -1,5 +1,5 @@
 #include "includes/Bureaucrat.hpp"
-#include "includes/Form.hpp"
+#include "includes/AForm.hpp"
 
 void print_bureaucrat(Bureaucrat &bureaucrat) {
 	if (bureaucrat.getGrade() > 75) {
@@ -12,40 +12,40 @@ void print_bureaucrat(Bureaucrat &bureaucrat) {
 
 void test_sign_low() {
 	Bureaucrat alice("Alice", 80);
-	Form d163("Anketa", 50, 75);
+	AForm d163("Anketa", 50, 75);
 	std::cout << d163;
 	alice.signForm(d163);
 }
 
 void test_sign() {
 	Bureaucrat bob("Bob", 9);
-	Form f028b("F-028B", 15, 30);
+	AForm f028b("F-028B", 15, 30);
 	std::cout << f028b;
 	bob.signForm(f028b);
 	std::cout << f028b;
 }
 
 void test_deep_copy() {
-	Form f1("F0-001", 10, 50);
-	Form f2("F1-002", 15, 60);
-	Form f3(f1);
+	AForm f1("F0-001", 10, 50);
+	AForm f2("F1-002", 15, 60);
+	AForm f3(f1);
 
-	std::cout << "Form 1 address: " << &f1 << std::endl;
+	std::cout << "AForm 1 address: " << &f1 << std::endl;
 	std::cout << f1;
-	std::cout << "Form 2 address: " << &f2 << std::endl;
+	std::cout << "AForm 2 address: " << &f2 << std::endl;
 	std::cout << f2;
-	std::cout << "Form 3 address: " << &f3 << std::endl;
+	std::cout << "AForm 3 address: " << &f3 << std::endl;
 	std::cout << f3;
 }
 void test_equal_operator() {
 	Bureaucrat john("John", 5);
 
-	Form f1("Source form", 10, 20);
+	AForm f1("Source form", 10, 20);
 	std::cout << f1;
 	john.signForm(f1);
 	std::cout << f1;
 
-	Form f2("Destination form", 1, 3);
+	AForm f2("Destination form", 1, 3);
 	std::cout << f2;
 
 	std::cout << BG_BRIGHT_BLACK"Desination = Source:"RESET << std::endl;
