@@ -60,10 +60,10 @@ const char *Form::GradeTooLowException::what() const throw() {
 }
 
 std::ostream &operator<<(std::ostream &out, const Form &obj) {
-	out << "\nForm named " << BRIGHT_CYAN << obj.getName() << RESET \
-			<< ".\nSign grade = " \
+	out << "\nForm name: " << BRIGHT_CYAN << obj.getName() << RESET \
+			<< ".\nSign grade: " \
 			<< BRIGHT_GREEN << obj.getGradeToSign() << RESET".\n" \
-			<< "Exec grade = " \
+			<< "Exec grade: " \
 			<< BRIGHT_MAGENTA << obj.getGradeToExec() << RESET".\n" << std::endl;
 			if (obj.getSignedAttr())
 				std::cout << BRIGHT_GREEN"SIGNED\n"RESET << RESET << std::endl;

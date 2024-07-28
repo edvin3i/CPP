@@ -72,7 +72,7 @@ void Bureaucrat::signForm(Form &form) {
 		std::cout << BRIGHT_BLUE << this->_name << BRIGHT_RED" couldn’t sign " \
 		<< BRIGHT_MAGENTA << form.getName() \
 		<< BRIGHT_WHITE" because his(her) grade is lower than "RESET \
-		<< form.getGradeToSign() << "." << std::endl;
+		<< BRIGHT_GREEN << form.getGradeToSign() << RESET << "." << std::endl;
 		std::cerr << BG_BRIGHT_RED << BRIGHT_YELLOW << e.what() << RESET << std::endl;
 	}
 }
