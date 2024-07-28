@@ -16,8 +16,7 @@ OBJDIR      =   .obj/
 #                            Files                                           #
 #############################################################################
 
-MFLS        =   Bureaucrat.cpp Form.cpp AForm.cpp PresidentialPardonForm.cpp \
-				RobotomyRequestForm.cpp ShrubberyCreationForm.cpp main.cpp
+MFLS        =   Bureaucrat.cpp Form.cpp main.cpp
 MSRC        =   $(addprefix $(MDIR), $(MFLS))
 MOBJS       =   $(MSRC:.cpp=.o)
 MOBJS       :=  $(addprefix $(OBJDIR), $(notdir $(MOBJS)))

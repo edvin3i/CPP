@@ -1,5 +1,5 @@
-#ifndef FORM_HPP
-#define FORM_HPP
+#ifndef AFORM_HPP
+#define AFORM_HPP
 
 #include "Bureaucrat.hpp"
 
@@ -11,9 +11,10 @@ public:
 	AForm(std::string name, int reqGradeToSign, int reqGradeToExec);
 	AForm &operator=(const AForm &other);
 	AForm(const AForm &other);
-	~AForm();
+	virtual ~AForm();
 
 	void beSigned(Bureaucrat &bureaucrat);
+	virtual void execute(Bureaucrat const &executor) const = 0;
 
 	std::string getName() const;
 	bool getSignedAttr() const;
@@ -35,7 +36,6 @@ private:
 	bool _isSigned;
 	const int _reqGradeToSign;
 	const int _reqGradeToExec;
-
 
 };
 

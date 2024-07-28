@@ -58,8 +58,8 @@ void Bureaucrat::decGrade() {
 }
 
 Bureaucrat::~Bureaucrat() {
-	std::cout << "\nBureaucrat "BRIGHT_BLUE << this->_name \
- << RESET" was "BRIGHT_RED << "FIRED!!!11"RESET << std::endl;
+	std::cout << "\nBureaucrat " << BRIGHT_BLUE << this->_name \
+ 				<< RESET" was " << BRIGHT_RED"FIRED!!!11"RESET << std::endl;
 }
 
 void Bureaucrat::signForm(Form &form) {

@@ -9,6 +9,10 @@ Form::Form(): _name("NameLess"), _isSigned(false), \
 Form::Form(std::string name, int reqGradeToSign, int reqGradeToExec): \
 			_name(name), _isSigned(false), \
 			_reqGradeToSign(reqGradeToSign), _reqGradeToExec(reqGradeToExec) {
+	if (_reqGradeToSign < 1 || _reqGradeToExec < 1)
+		throw GradeTooLowException();
+	if (_reqGradeToSign > 150 || _reqGradeToExec > 150)
+		throw GradeTooHighException();
 }
 
 Form& Form::operator=(const Form &other) {
