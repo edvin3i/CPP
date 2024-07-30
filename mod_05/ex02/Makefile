@@ -2,7 +2,7 @@
 #                            Name                                            #
 #############################################################################
 
-NAME        =   form
+NAME        =   forms
 
 #############################################################################
 #                            Directories                                     #
@@ -16,7 +16,8 @@ OBJDIR      =   .obj/
 #                            Files                                           #
 #############################################################################
 
-MFLS        =   Bureaucrat.cpp Form.cpp main.cpp
+MFLS        =   Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp \
+				RobotomyRequestForm.cpp PresidentialPardonForm.cpp main.cpp
 MSRC        =   $(addprefix $(MDIR), $(MFLS))
 MOBJS       =   $(MSRC:.cpp=.o)
 MOBJS       :=  $(addprefix $(OBJDIR), $(notdir $(MOBJS)))

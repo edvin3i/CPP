@@ -39,6 +39,6 @@ private:
 
 };
 
-std::ostream &operator<<(std::ostream &out, const AForm &other);
+std::ostream &operator<<(std::ostream &out, const AForm &obj);
 
 #endif

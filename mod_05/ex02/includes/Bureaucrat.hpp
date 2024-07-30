@@ -59,6 +59,6 @@ private:
 	int	_grade;
 };
 
-std::ostream &operator<<(std::ostream &out, const Bureaucrat &other);
+std::ostream &operator<<(std::ostream &out, const Bureaucrat &obj);
 
 #endif
