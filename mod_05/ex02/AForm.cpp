@@ -9,6 +9,13 @@ AForm::AForm(): _name("NameLess"), _isSigned(false), \
 AForm::AForm(std::string name, int reqGradeToSign, int reqGradeToExec): \
 			_name(name), _isSigned(false), \
 			_reqGradeToSign(reqGradeToSign), _reqGradeToExec(reqGradeToExec) {
+	std::cout << "\nForm " \
+ 				<< BRIGHT_BLUE << this->_name \
+ 				<< BRIGHT_WHITE" with SIGN grade " \
+ 				<< BRIGHT_MAGENTA << this->_reqGradeToSign \
+				<< BRIGHT_WHITE" with EXEC grade " \
+ 				<< BRIGHT_MAGENTA << this->_reqGradeToExec \
+ 				<< RESET" is created!\n" << std::endl;
 }
 
 AForm& AForm::operator=(const AForm &other) {
@@ -51,12 +58,30 @@ AForm::AForm(const AForm &other): _name(other.getName()), \
 								_reqGradeToExec(other.getGradeToExec()) {
 }
 
+void AForm::execute(const Bureaucrat &exc) const {
+	if (exc.getGrade() > this->_reqGradeToExec) {
+		throw AForm::GradeTooLowException();
+	}
+	else if (!this->_isSigned) {
+		throw AForm::FormIsNotSigned();
+	}
+	std::cout << "Bureaucrat " << BRIGHT_BLUE << exc.getName() \
+	<< RESET" executed "BRIGHT_MAGENTA << this->getName() \
+	<< RESET" form."<< std::endl;
+	/* Calling the specified func in the derived class: */
+	doAction();
+}
+
 const char *AForm::GradeTooHighException::what() const throw() {
 	return "FORM: Grade Too High Exception is raised";
 }
 
 const char *AForm::GradeTooLowException::what() const throw() {
 	return "FORM: Grade Too Low Exception is raised";
+}
+
+const char *AForm::FormIsNotSigned::what() const throw() {
+	return "FORM: This form is not signed!";
 }
 
 std::ostream &operator<<(std::ostream &out, const AForm &obj) {
@@ -71,3 +96,4 @@ std::ostream &operator<<(std::ostream &out, const AForm &obj) {
 				std::cout << BRIGHT_RED"NOT SIGNED\n"RESET << RESET << std::endl;
 	return (out);
 }
+

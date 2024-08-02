@@ -66,7 +66,7 @@ void Bureaucrat::signForm(AForm &form) {
 	try {
 		form.beSigned(*this);
 		std::cout << BRIGHT_BLUE << this->_name << BRIGHT_GREEN" signed " \
-		<< BRIGHT_MAGENTA << form.getName() << RESET << std::endl;
+		<< BRIGHT_MAGENTA << form.getName() << RESET" form." << std::endl;
 	}
 	catch(std::exception &e) {
 		std::cout << BRIGHT_BLUE << this->_name << BRIGHT_RED" couldn’t sign " \
@@ -77,18 +77,13 @@ void Bureaucrat::signForm(AForm &form) {
 	}
 }
 
-void Bureaucrat::executeForm(const AForm &form) {
+void Bureaucrat::executeForm(const AForm &form) const {
 	try {
 		form.execute(*this);
-		std::cout << BRIGHT_BLUE << this->_name << BRIGHT_GREEN" executed " \
-		<< BRIGHT_MAGENTA << form.getName() << RESET << std::endl;
 	}
 	catch(std::exception &e) {
-		std::cout << BRIGHT_BLUE << this->_name << BRIGHT_RED" couldn’t execute " \
-		<< BRIGHT_MAGENTA << form.getName() \
-		<< BRIGHT_WHITE" because his(her) grade is lower than "RESET \
-		<< BRIGHT_GREEN << form.getGradeToExec() << RESET << "." << std::endl;
-		std::cerr << BG_BRIGHT_RED << BRIGHT_YELLOW << e.what() << RESET << std::endl;
+		std::cerr << BG_BRIGHT_RED << BRIGHT_YELLOW << e.what() << RESET
+				  << std::endl;
 	}
 }
 

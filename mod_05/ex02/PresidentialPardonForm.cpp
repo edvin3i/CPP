@@ -14,18 +14,23 @@ PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &oth
 										AForm(other), _target(other.getTarget()) {
 }
 
+PresidentialPardonForm::~PresidentialPardonForm() {
+	std::cout << "\nPresidentialPardonForm "BRIGHT_BLUE << this->getName() \
+ 				<< RESET" was "BRIGHT_RED << "destroyed!"RESET << std::endl;
+}
+
 PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPardonForm &other) {
-	if (this != other)
+	if (this != &other)
 		this->_target = other.getTarget();
 	return *this;
 }
 
-void PresidentialPardonForm::execute(const Bureaucrat &executor) const {
-	try {
-		executor.executeF
-	}
-}
-
-PresidentialPardonForm::getTarget() {
+std::string PresidentialPardonForm::getTarget() const {
 	return this->_target;
 }
+
+void PresidentialPardonForm::doAction() const {
+	std::cout << BRIGHT_MAGENTA << this->_target \
+	<< RESET" has been pardoned by Zaphod Beeblebrox." << std::endl;
+}
+

@@ -2,6 +2,7 @@
 #define SHRUBBERYCREATIONFORM_HPP
 
 #include "AForm.hpp"
+#include <fstream>
 
 class ShrubberyCreationForm : public AForm {
 public:
@@ -9,14 +10,17 @@ public:
 	ShrubberyCreationForm(std::string target);
 	ShrubberyCreationForm &operator=(const ShrubberyCreationForm &other);
 	ShrubberyCreationForm(const ShrubberyCreationForm &other);
+	~ShrubberyCreationForm();
 
 	std::string getTarget() const;
-	void execute(Bureaucrat const &executor) const;
+	void doAction() const;
+
+	class FileOpenError : public std::exception {
+		const char *what() const throw();
+	};
 
 private:
 	std::string _target;
 };
-
-std::ostream &operator<<(std::ostream &out, ShrubberyCreationForm const &obj);
 
 #endif
