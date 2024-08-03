@@ -110,27 +110,55 @@ int main() {
 
 	/* 1. Try to exec with low grade	*/
 	std::cout << "\n" << BG_BLUE"=============== 1. Test low grade execution of RobotomyRequestForm ==============="RESET << std::endl;
-	test_exec_low_robot();
+	try {
+		test_exec_low_robot();
+	}
+	catch(std::exception &e) {
+		std::cerr << BG_BRIGHT_RED << BRIGHT_YELLOW << e.what() << RESET << std::endl;
+	}
 
 	/* 2. Try to sign and execute with grades enough	*/
 	std::cout << "\n" << BG_BLUE"=============== 2. Test execution RobotomyRequestForm with enough grade ==============="RESET << std::endl;
-	test_sign_robot();
+	try {
+		test_sign_robot();
+	}
+	catch(std::exception &e) {
+		std::cerr << BG_BRIGHT_RED << BRIGHT_YELLOW << e.what() << RESET << std::endl;
+	}
 
 	/* 3. Try to sign and execute with grades enough	*/
 	std::cout << "\n" << BG_BLUE"=============== 2. Test execution ShrubberyCreationForm with enough grade ==============="RESET << std::endl;
-	test_sign_shrub();
+	try {
+		test_sign_shrub();
+	}
+	catch(std::exception &e) {
+		std::cerr << BG_BRIGHT_RED << BRIGHT_YELLOW << e.what() << RESET << std::endl;
+	}
 
 	/* 4. Try to exec with low grade	*/
 	std::cout << "\n" << BG_BLUE"=============== 4. Test low grade execution of ShrubberyCreationForm ==============="RESET << std::endl;
-	test_exec_low_shrub();
-
+	try {
+		test_exec_low_shrub();
+	}
+	catch(std::exception &e) {
+	std::cerr << BG_BRIGHT_RED << BRIGHT_YELLOW << e.what() << RESET << std::endl;
+}
 	/* 5. Try to exec with low grade	*/
 	std::cout << "\n" << BG_BLUE"=============== 5. Test low grade execution of PresidentialPardonForm ==============="RESET << std::endl;
-	test_exec_low_pres();
-
+	try {
+		test_exec_low_pres();
+	}
+	catch(std::exception &e) {
+	std::cerr << BG_BRIGHT_RED << BRIGHT_YELLOW << e.what() << RESET << std::endl;
+}
 	/* 6. Try to sign and execute with grades enough	*/
 	std::cout << "\n" << BG_BLUE"=============== 6. Test execution PresidentialPardonForm with enough grade ==============="RESET << std::endl;
-	test_sign_pres();
+	try {
+		test_sign_pres();
+	}
+	catch(std::exception &e) {
+		std::cerr << BG_BRIGHT_RED << BRIGHT_YELLOW << e.what() << RESET << std::endl;
+	}
 
 	return 0;
 }

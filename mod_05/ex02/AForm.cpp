@@ -60,16 +60,30 @@ AForm::AForm(const AForm &other): _name(other.getName()), \
 
 void AForm::execute(const Bureaucrat &exc) const {
 	if (exc.getGrade() > this->_reqGradeToExec) {
+	/* Error message */
+		std::cout << "\n" << BG_BRIGHT_YELLOW"ERROR: " << exc.getName() \
+		<< " does not executed the " \
+		<< this->_name << " form."RESET << "\n" << std::endl;
+
 		throw AForm::GradeTooLowException();
 	}
 	else if (!this->_isSigned) {
+		/* Error message */
+		std::cout << "\n" << BG_BRIGHT_YELLOW"ERROR: " << exc.getName() \
+		<< " does not executed the " \
+		<< this->_name << " form."RESET << "\n" << std::endl;
 		throw AForm::FormIsNotSigned();
 	}
 	std::cout << "Bureaucrat " << BRIGHT_BLUE << exc.getName() \
-	<< RESET" executed "BRIGHT_MAGENTA << this->getName() \
+	<< RESET" executed the "BRIGHT_MAGENTA << this->getName() \
 	<< RESET" form."<< std::endl;
+
 	/* Calling the specified func in the derived class: */
 	doAction();
+
+	/* Additional message according the subject */
+	std::cout << "\n" << BG_BRIGHT_GREEN << exc.getName() << " executed " \
+	<< this->_name << " form."RESET << std::endl;
 }
 
 const char *AForm::GradeTooHighException::what() const throw() {

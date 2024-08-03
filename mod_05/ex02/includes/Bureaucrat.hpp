@@ -24,6 +24,8 @@
 #define BG_BLUE "\033[44m"
 #define BG_YELLOW "\033[43m"
 #define BG_BRIGHT_RED "\033[101m"
+#define BG_BRIGHT_YELLOW "\033[103m"
+#define BG_BRIGHT_GREEN "\033[102m"
 
 class AForm;
 
