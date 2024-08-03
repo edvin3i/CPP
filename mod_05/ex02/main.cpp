@@ -21,7 +21,7 @@ void test_exec_low_robot() {
 	std::cout << BG_BRIGHT_BLACK"\n-=== Destructors ===-"RESET << std::endl;
 }
 
-void test_sign_robot() {
+void test_exec_robot() {
 	std::cout << BG_BRIGHT_BLACK"-=== Create bureaucrats ===-"RESET << std::endl;
 	Bureaucrat alice("Alice", 8);
 	Bureaucrat john("John", 5);
@@ -55,7 +55,7 @@ void test_exec_low_shrub() {
 	std::cout << "\n" << BG_BRIGHT_BLACK"-=== Destructors ===-"RESET << std::endl;
 }
 
-void test_sign_shrub() {
+void test_exec_shrub() {
 	std::cout << BG_BRIGHT_BLACK"-=== Create bureaucrats ===-"RESET << std::endl;
 	Bureaucrat alice("Alice", 8);
 	Bureaucrat fleet("Vogon Constructor Fleet", 5);
@@ -89,7 +89,7 @@ void test_exec_low_pres() {
 	std::cout << "\n" << BG_BRIGHT_BLACK"-=== Destructors ===-"RESET << std::endl;
 }
 
-void test_sign_pres() {
+void test_exec_pres() {
 	std::cout << BG_BRIGHT_BLACK"-=== Create bureaucrats ===-"RESET << std::endl;
 	Bureaucrat kwaltz("Kwaltz", 8);
 	Bureaucrat jeltz("Prostetnic Vogon Jeltz", 5);
@@ -120,7 +120,7 @@ int main() {
 	/* 2. Try to sign and execute with grades enough	*/
 	std::cout << "\n" << BG_BLUE"=============== 2. Test execution RobotomyRequestForm with enough grade ==============="RESET << std::endl;
 	try {
-		test_sign_robot();
+		test_exec_robot();
 	}
 	catch(std::exception &e) {
 		std::cerr << BG_BRIGHT_RED << BRIGHT_YELLOW << e.what() << RESET << std::endl;
@@ -129,7 +129,7 @@ int main() {
 	/* 3. Try to sign and execute with grades enough	*/
 	std::cout << "\n" << BG_BLUE"=============== 2. Test execution ShrubberyCreationForm with enough grade ==============="RESET << std::endl;
 	try {
-		test_sign_shrub();
+		test_exec_shrub();
 	}
 	catch(std::exception &e) {
 		std::cerr << BG_BRIGHT_RED << BRIGHT_YELLOW << e.what() << RESET << std::endl;
@@ -154,7 +154,7 @@ int main() {
 	/* 6. Try to sign and execute with grades enough	*/
 	std::cout << "\n" << BG_BLUE"=============== 6. Test execution PresidentialPardonForm with enough grade ==============="RESET << std::endl;
 	try {
-		test_sign_pres();
+		test_exec_pres();
 	}
 	catch(std::exception &e) {
 		std::cerr << BG_BRIGHT_RED << BRIGHT_YELLOW << e.what() << RESET << std::endl;
