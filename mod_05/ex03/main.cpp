@@ -3,13 +3,23 @@
 
 void test_intern_form_robotomy() {
 	std::cout << BG_BRIGHT_BLACK"-=== Create bureaucrats ===-"RESET << std::endl;
-	Bureaucrat bob("Bob", 8);
-	Bureaucrat carry("Carry", 54);
+	Bureaucrat alice("Alice", 8);
+	Bureaucrat john("John", 5);
 
 	AForm *ffm;
 	Intern intern;
 
 	ffm = intern.makeForm("robotomy request", "Bender");
+
+	std::cout << BG_BRIGHT_BLACK"-=== Review form before signing ===-"RESET << std::endl;
+	std::cout << *ffm;
+	std::cout << BG_BRIGHT_BLACK"-=== Sign the form ===-"RESET << std::endl;
+	alice.signForm(*ffm);
+	std::cout << BG_BRIGHT_BLACK"\n-=== Review form after signing ===-"RESET << std::endl;
+	std::cout << *ffm;
+	std::cout << BG_BRIGHT_BLACK"-=== Try to execute the form ===-"RESET << std::endl;
+	john.executeForm(*ffm);
+	std::cout << BG_BRIGHT_BLACK"\n-=== Destructors ===-"RESET << std::endl;
 
 	delete ffm;
 
@@ -23,7 +33,17 @@ void test_intern_form_shrubbery() {
 	AForm *ffm;
 	Intern intern;
 
-	ffm = intern.makeForm("shrubbery creation", "opopopo");
+	ffm = intern.makeForm("shrubbery creation", "Garden");
+
+	std::cout << BG_BRIGHT_BLACK"-=== Review form before signing ===-"RESET << std::endl;
+	std::cout << *ffm;
+	std::cout << BG_BRIGHT_BLACK"-=== Sign the form ===-"RESET << std::endl;
+	bob.signForm(*ffm);
+	std::cout << "\n" << BG_BRIGHT_BLACK"-=== Review form after signing ===-"RESET << std::endl;
+	std::cout << *ffm;
+	std::cout << BG_BRIGHT_BLACK"-=== Try to execute the form ===-"RESET << std::endl;
+	carry.executeForm(*ffm);
+	std::cout << "\n" << BG_BRIGHT_BLACK"-=== Destructors ===-"RESET << std::endl;
 
 	delete ffm;
 
