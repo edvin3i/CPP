@@ -59,19 +59,41 @@ int main() {
 	/* Check the edges	*/
 	/* 1. Try to sign with low grade	*/
 	std::cout << "\n" << BG_BLUE"=============== 1. Test low grade sign ==============="RESET << std::endl;
-	test_sign_low();
+	try {
+		test_sign_low();
+	}
+	catch(std::exception &e) {
+		std::cerr << BG_BRIGHT_RED << BRIGHT_YELLOW << e.what() << RESET << std::endl;
+	}
+
 
 	/* 2. Try to sign with grade enough	*/
 	std::cout << "\n" << BG_BLUE"=============== 2. Test sign ==============="RESET << std::endl;
-	test_sign();
+	try {
+		test_sign();
+	}
+	catch(std::exception &e) {
+		std::cerr << BG_BRIGHT_RED << BRIGHT_YELLOW << e.what() << RESET << std::endl;
+	}
 
 	/* 3. Deep copy test */
 	std::cout << "\n" << BG_BLUE"=============== 3. Deep copy test. ==============="RESET << std::endl;
-	test_deep_copy();
+	try {
+		test_deep_copy();
+	}
+	catch(std::exception &e) {
+		std::cerr << BG_BRIGHT_RED << BRIGHT_YELLOW << e.what() << RESET << std::endl;
+	}
+
 
 	/* 4. Equal test */
 	std::cout << "\n" << BG_BLUE"=============== 4. Equal test. ==============="RESET << std::endl;
-	test_equal_operator();
+	try {
+		test_equal_operator();
+	}
+	catch(std::exception &e) {
+		std::cerr << BG_BRIGHT_RED << BRIGHT_YELLOW << e.what() << RESET << std::endl;
+	}
 
 	return 0;
 }
