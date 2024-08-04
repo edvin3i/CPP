@@ -19,12 +19,19 @@ Intern::~Intern() {
 
 AForm *Intern::makeForm(std::string form_name, std::string target) {
 
-	if (!target.length())
+	if (!target.length()) {
+		std::cout << BRIGHT_MAGENTA"Intern:"RESET" Hey! You should call me the target name!" \
+		<< std::endl;
 		throw Intern::TargetNameIsEmpty();
+	}
 
-	int form_num = 1 * (form_name == "robotomy request") \
-			     + 2 * (form_name == "presidential pardon") \
-				 + 3 * (form_name == "shrubbery creation");
+	std::string form_names[] = {"robotomy request", \
+								"presidential pardon",  \
+								"shrubbery creation"};
+
+	int form_num = 1 * (form_name == form_names[0]) \
+			     + 2 * (form_name == form_names[1]) \
+				 + 3 * (form_name == form_names[2]);
 
 	switch (form_num) {
 		case 1:
@@ -35,14 +42,15 @@ AForm *Intern::makeForm(std::string form_name, std::string target) {
 			return new ShrubberyCreationForm(target);
 		
 	}
-
+	std::cout << BRIGHT_MAGENTA"Intern:"RESET" I don't know form named " \
+	<< BRIGHT_CYAN << form_name << RESET << "!" << std::endl;
 	throw Intern::InternDoesntKnowThisForm();
 }
 
 const char *Intern::InternDoesntKnowThisForm::what() const throw() {
-	return "Intern: I don't know this form!";
+	return "Unknow Form Error!";
 }
 
 const char *Intern::TargetNameIsEmpty::what() const throw() {
-	return "Intern: Hey! You should call me the target name!";
+	return "Empty TargetName Error!";
 }

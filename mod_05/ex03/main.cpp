@@ -6,205 +6,123 @@ void test_intern_form_robotomy() {
 	Bureaucrat alice("Alice", 8);
 	Bureaucrat john("John", 5);
 
-	AForm *ffm;
+	AForm *ffm1;
 	Intern intern;
 
-	ffm = intern.makeForm("robotomy request", "Bender");
+	ffm1 = intern.makeForm("robotomy request", "Bender");
 
 	std::cout << BG_BRIGHT_BLACK"-=== Review form before signing ===-"RESET << std::endl;
-	std::cout << *ffm;
+	std::cout << *ffm1;
 	std::cout << BG_BRIGHT_BLACK"-=== Sign the form ===-"RESET << std::endl;
-	alice.signForm(*ffm);
+	alice.signForm(*ffm1);
 	std::cout << BG_BRIGHT_BLACK"\n-=== Review form after signing ===-"RESET << std::endl;
-	std::cout << *ffm;
+	std::cout << *ffm1;
 	std::cout << BG_BRIGHT_BLACK"-=== Try to execute the form ===-"RESET << std::endl;
-	john.executeForm(*ffm);
+	john.executeForm(*ffm1);
 	std::cout << BG_BRIGHT_BLACK"\n-=== Destructors ===-"RESET << std::endl;
 
-	delete ffm;
+	delete ffm1;
 
 }
 
 void test_intern_form_shrubbery() {
 	std::cout << BG_BRIGHT_BLACK"-=== Create bureaucrats ===-"RESET << std::endl;
-	Bureaucrat bob("Bob", 8);
-	Bureaucrat carry("Carry", 54);
+	Bureaucrat eric("Eric Bartlett", 95);
+	Bureaucrat fleet("Vogon Constructor Fleet", 15);
 
-	AForm *ffm;
+	AForm *ffm2;
 	Intern intern;
 
-	ffm = intern.makeForm("shrubbery creation", "Garden");
+	ffm2 = intern.makeForm("shrubbery creation", "Garden");
 
 	std::cout << BG_BRIGHT_BLACK"-=== Review form before signing ===-"RESET << std::endl;
-	std::cout << *ffm;
+	std::cout << *ffm2;
 	std::cout << BG_BRIGHT_BLACK"-=== Sign the form ===-"RESET << std::endl;
-	bob.signForm(*ffm);
+	eric.signForm(*ffm2);
 	std::cout << "\n" << BG_BRIGHT_BLACK"-=== Review form after signing ===-"RESET << std::endl;
-	std::cout << *ffm;
+	std::cout << *ffm2;
 	std::cout << BG_BRIGHT_BLACK"-=== Try to execute the form ===-"RESET << std::endl;
-	carry.executeForm(*ffm);
+	fleet.executeForm(*ffm2);
 	std::cout << "\n" << BG_BRIGHT_BLACK"-=== Destructors ===-"RESET << std::endl;
 
-	delete ffm;
-
+	delete ffm2;
 }
 
-void test_exec_low_robot() {
-	std::cout << BG_BRIGHT_BLACK"-=== Create bureaucrats ===-"RESET << std::endl;
-	Bureaucrat bob("Bob", 8);
-	Bureaucrat carry("Carry", 54);
-	std::cout << BG_BRIGHT_BLACK"-=== Create form ===-"RESET << std::endl;
-	RobotomyRequestForm wall("Concrete Wall");
-	std::cout << BG_BRIGHT_BLACK"-=== Review form before signing ===-"RESET << std::endl;
-	std::cout << wall;
-	std::cout << BG_BRIGHT_BLACK"-=== Sign the form ===-"RESET << std::endl;
-	bob.signForm(wall);
-	std::cout << BG_BRIGHT_BLACK"\n-=== Review form after signing ===-"RESET << std::endl;
-	std::cout << wall;
-	std::cout << BG_BRIGHT_BLACK"-=== Try to execute the form ===-"RESET << std::endl;
-	carry.executeForm(wall);
-	std::cout << BG_BRIGHT_BLACK"\n-=== Destructors ===-"RESET << std::endl;
-}
-
-void test_exec_robot() {
-	std::cout << BG_BRIGHT_BLACK"-=== Create bureaucrats ===-"RESET << std::endl;
-	Bureaucrat alice("Alice", 8);
-	Bureaucrat john("John", 5);
-	std::cout << BG_BRIGHT_BLACK"-=== Create form ===-"RESET << std::endl;
-	RobotomyRequestForm wall("Concrete Wall");
-	std::cout << BG_BRIGHT_BLACK"-=== Review form before signing ===-"RESET << std::endl;
-	std::cout << wall;
-	std::cout << BG_BRIGHT_BLACK"-=== Sign the form ===-"RESET << std::endl;
-	alice.signForm(wall);
-	std::cout << "\n" << BG_BRIGHT_BLACK"-=== Review form after signing ===-"RESET << std::endl;
-	std::cout << wall;
-	std::cout << BG_BRIGHT_BLACK"-=== Try to execute the form ===-"RESET << std::endl;
-	john.executeForm(wall);
-	std::cout << "\n" << BG_BRIGHT_BLACK"-=== Destructors ===-"RESET << std::endl;
-}
-
-void test_exec_low_shrub() {
-	std::cout << BG_BRIGHT_BLACK"-=== Create bureaucrats ===-"RESET << std::endl;
-	Bureaucrat jolie("Jolie", 111);
-	Bureaucrat mary("Mary", 146);
-	std::cout << BG_BRIGHT_BLACK"-=== Create form ===-"RESET << std::endl;
-	ShrubberyCreationForm back_yard("FrontYard");
-	std::cout << BG_BRIGHT_BLACK"-=== Review form before signing ===-"RESET << std::endl;
-	std::cout << back_yard;
-	std::cout << BG_BRIGHT_BLACK"-=== Sign the form ===-"RESET << std::endl;
-	jolie.signForm(back_yard);
-	std::cout << "\n" << BG_BRIGHT_BLACK"-=== Review form after signing ===-"RESET << std::endl;
-	std::cout << back_yard;
-	std::cout << BG_BRIGHT_BLACK"-=== Try to execute the form ===-"RESET << std::endl;
-	mary.executeForm(back_yard);
-	std::cout << "\n" << BG_BRIGHT_BLACK"-=== Destructors ===-"RESET << std::endl;
-}
-
-void test_exec_shrub() {
-	std::cout << BG_BRIGHT_BLACK"-=== Create bureaucrats ===-"RESET << std::endl;
-	Bureaucrat alice("Alice", 8);
-	Bureaucrat fleet("Vogon Constructor Fleet", 5);
-	std::cout << BG_BRIGHT_BLACK"-=== Create form ===-"RESET << std::endl;
-	ShrubberyCreationForm back_yard("BackYard");
-	std::cout << BG_BRIGHT_BLACK"-=== Review form before signing ===-"RESET << std::endl;
-	std::cout << back_yard;
-	std::cout << BG_BRIGHT_BLACK"-=== Sign the form ===-"RESET << std::endl;
-	alice.signForm(back_yard);
-	std::cout << "\n" << BG_BRIGHT_BLACK"-=== Review form after signing ===-"RESET << std::endl;
-	std::cout << back_yard;
-	std::cout << BG_BRIGHT_BLACK"-=== Try to execute the form ===-"RESET << std::endl;
-	fleet.executeForm(back_yard);
-	std::cout << "\n" << BG_BRIGHT_BLACK"-=== Destructors ===-"RESET << std::endl;
-}
-
-void test_exec_low_pres() {
-	std::cout << BG_BRIGHT_BLACK"-=== Create bureaucrats ===-"RESET << std::endl;
-	Bureaucrat jolie("Jolie", 111);
-	Bureaucrat mary("Mary", 146);
-	std::cout << BG_BRIGHT_BLACK"-=== Create form ===-"RESET << std::endl;
-	PresidentialPardonForm pardon_form("Ford Prefect");
-	std::cout << BG_BRIGHT_BLACK"-=== Review form before signing ===-"RESET << std::endl;
-	std::cout << pardon_form;
-	std::cout << BG_BRIGHT_BLACK"-=== Sign the form ===-"RESET << std::endl;
-	jolie.signForm(pardon_form);
-	std::cout << "\n" << BG_BRIGHT_BLACK"-=== Review form after signing ===-"RESET << std::endl;
-	std::cout << pardon_form;
-	std::cout << BG_BRIGHT_BLACK"-=== Try to execute the form ===-"RESET << std::endl;
-	mary.executeForm(pardon_form);
-	std::cout << "\n" << BG_BRIGHT_BLACK"-=== Destructors ===-"RESET << std::endl;
-}
-
-void test_exec_pres() {
+void test_intern_form_pres() {
 	std::cout << BG_BRIGHT_BLACK"-=== Create bureaucrats ===-"RESET << std::endl;
 	Bureaucrat kwaltz("Kwaltz", 8);
 	Bureaucrat jeltz("Prostetnic Vogon Jeltz", 5);
+
 	std::cout << BG_BRIGHT_BLACK"-=== Create form ===-"RESET << std::endl;
-	PresidentialPardonForm pardon_form("Arthur Dent");
+	AForm *ffm3;
+	Intern intern;
+
+	ffm3 = intern.makeForm("presidential pardon", "Ford Prefect");
+
 	std::cout << BG_BRIGHT_BLACK"-=== Review form before signing ===-"RESET << std::endl;
-	std::cout << pardon_form;
+	std::cout << *ffm3;
 	std::cout << BG_BRIGHT_BLACK"-=== Sign the form ===-"RESET << std::endl;
-	kwaltz.signForm(pardon_form);
+	kwaltz.signForm(*ffm3);
 	std::cout << "\n" << BG_BRIGHT_BLACK"-=== Review form after signing ===-"RESET << std::endl;
-	std::cout << pardon_form;
+	std::cout << *ffm3;
 	std::cout << BG_BRIGHT_BLACK"-=== Try to execute the form ===-"RESET << std::endl;
-	jeltz.executeForm(pardon_form);
+	jeltz.executeForm(*ffm3);
 	std::cout << "\n" << BG_BRIGHT_BLACK"-=== Destructors ===-"RESET << std::endl;
+
+	delete ffm3;
+}
+
+void test_intern_unknown_form() {
+	std::cout << BG_BRIGHT_BLACK"-=== Create bureaucrats ===-"RESET << std::endl;
+	Bureaucrat marvin("Marvin", 145);
+	Bureaucrat tricia("Tricia", 149);
+
+	std::cout << BG_BRIGHT_BLACK"-=== Create form ===-"RESET << std::endl;
+	AForm *some_form;
+	Intern intern;
+
+	some_form = intern.makeForm("some paper", "Some Target");
+
+	std::cout << BG_BRIGHT_BLACK"-=== Review form before signing ===-"RESET << std::endl;
+	std::cout << *some_form;
+	std::cout << BG_BRIGHT_BLACK"-=== Sign the form ===-"RESET << std::endl;
+	marvin.signForm(*some_form);
+	std::cout << BG_BRIGHT_BLACK"\n-=== Review form after signing ===-"RESET << std::endl;
+	std::cout << *some_form;
+	std::cout << BG_BRIGHT_BLACK"-=== Try to execute the form ===-"RESET << std::endl;
+	tricia.executeForm(*some_form);
+	std::cout << BG_BRIGHT_BLACK"\n-=== Destructors ===-"RESET << std::endl;
+
+	delete some_form;
+}
+
+void test_intern_empty_target_name() {
+	std::cout << BG_BRIGHT_BLACK"-=== Create bureaucrats ===-"RESET << std::endl;
+	Bureaucrat marvin("Marvin", 145);
+	Bureaucrat tricia("Tricia", 149);
+
+	std::cout << BG_BRIGHT_BLACK"-=== Create form ===-"RESET << std::endl;
+	AForm *ffm4;
+	Intern intern;
+
+	ffm4 = intern.makeForm("shrubbery creation", "");
+
+	std::cout << BG_BRIGHT_BLACK"-=== Review form before signing ===-"RESET << std::endl;
+	std::cout << *ffm4;
+	std::cout << BG_BRIGHT_BLACK"-=== Sign the form ===-"RESET << std::endl;
+	marvin.signForm(*ffm4);
+	std::cout << BG_BRIGHT_BLACK"\n-=== Review form after signing ===-"RESET << std::endl;
+	std::cout << *ffm4;
+	std::cout << BG_BRIGHT_BLACK"-=== Try to execute the form ===-"RESET << std::endl;
+	tricia.executeForm(*ffm4);
+	std::cout << BG_BRIGHT_BLACK"\n-=== Destructors ===-"RESET << std::endl;
+
+	delete ffm4;
 }
 
 int main() {
 
-	/* 1. Try to exec with low grade	*//*
-	std::cout << "\n" << BG_BLUE"=============== 1. Test low grade execution of RobotomyRequestForm ==============="RESET << std::endl;
-	try {
-		test_exec_low_robot();
-	}
-	catch(std::exception &e) {
-		std::cerr << BG_BRIGHT_RED << BRIGHT_YELLOW << e.what() << RESET << std::endl;
-	}
-
-	*//* 2. Try to sign and execute with grades enough	*//*
-	std::cout << "\n" << BG_BLUE"=============== 2. Test execution RobotomyRequestForm with enough grade ==============="RESET << std::endl;
-	try {
-		test_exec_robot();
-	}
-	catch(std::exception &e) {
-		std::cerr << BG_BRIGHT_RED << BRIGHT_YELLOW << e.what() << RESET << std::endl;
-	}
-
-	*//* 3. Try to sign and execute with grades enough	*//*
-	std::cout << "\n" << BG_BLUE"=============== 2. Test execution ShrubberyCreationForm with enough grade ==============="RESET << std::endl;
-	try {
-		test_exec_shrub();
-	}
-	catch(std::exception &e) {
-		std::cerr << BG_BRIGHT_RED << BRIGHT_YELLOW << e.what() << RESET << std::endl;
-	}
-
-	*//* 4. Try to exec with low grade	*//*
-	std::cout << "\n" << BG_BLUE"=============== 4. Test low grade execution of ShrubberyCreationForm ==============="RESET << std::endl;
-	try {
-		test_exec_low_shrub();
-	}
-	catch(std::exception &e) {
-	std::cerr << BG_BRIGHT_RED << BRIGHT_YELLOW << e.what() << RESET << std::endl;
-}
-	*//* 5. Try to exec with low grade	*//*
-	std::cout << "\n" << BG_BLUE"=============== 5. Test low grade execution of PresidentialPardonForm ==============="RESET << std::endl;
-	try {
-		test_exec_low_pres();
-	}
-	catch(std::exception &e) {
-	std::cerr << BG_BRIGHT_RED << BRIGHT_YELLOW << e.what() << RESET << std::endl;
-}
-	*//* 6. Try to sign and execute with grades enough	*//*
-	std::cout << "\n" << BG_BLUE"=============== 6. Test execution PresidentialPardonForm with enough grade ==============="RESET << std::endl;
-	try {
-		test_exec_pres();
-	}
-	catch(std::exception &e) {
-		std::cerr << BG_BRIGHT_RED << BRIGHT_YELLOW << e.what() << RESET << std::endl;
-	}*/
-
+	std::cout << "\n" << BG_BLUE"=============== 1. Test intern creation RobotomyRequestForm ==============="RESET << std::endl;
 	try {
 		test_intern_form_robotomy();
 	}
@@ -212,12 +130,38 @@ int main() {
 		std::cerr << BG_BRIGHT_RED << BRIGHT_YELLOW << e.what() << RESET << std::endl;
 	}
 
+	std::cout << "\n" << BG_BLUE"=============== 2. Test intern creation ShrubberyCreationForm ==============="RESET << std::endl;
 	try {
 		test_intern_form_shrubbery();
 	}
 	catch(std::exception &e) {
 		std::cerr << BG_BRIGHT_RED << BRIGHT_YELLOW << e.what() << RESET << std::endl;
 	}
+
+	std::cout << "\n" << BG_BLUE"=============== 3. Test intern creation PresidentialPardonForm ==============="RESET << std::endl;
+	try {
+		test_intern_form_pres();
+	}
+	catch(std::exception &e) {
+		std::cerr << BG_BRIGHT_RED << BRIGHT_YELLOW << e.what() << RESET << std::endl;
+	}
+
+	std::cout << "\n" << BG_BLUE"=============== 4. Test intern creation UnknownForm ==============="RESET << std::endl;
+	try {
+		test_intern_unknown_form();
+	}
+	catch(std::exception &e) {
+		std::cerr << BG_BRIGHT_RED << BRIGHT_YELLOW << e.what() << RESET << std::endl;
+	}
+
+	std::cout << "\n" << BG_BLUE"=============== 5. Test intern creation form with empty name ==============="RESET << std::endl;
+	try {
+		test_intern_empty_target_name();
+	}
+	catch(std::exception &e) {
+		std::cerr << BG_BRIGHT_RED << BRIGHT_YELLOW << e.what() << RESET << std::endl;
+	}
+
 
 	return 0;
 }

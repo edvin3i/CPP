@@ -57,14 +57,14 @@ void test_exec_low_shrub() {
 
 void test_exec_shrub() {
 	std::cout << BG_BRIGHT_BLACK"-=== Create bureaucrats ===-"RESET << std::endl;
-	Bureaucrat alice("Alice", 8);
-	Bureaucrat fleet("Vogon Constructor Fleet", 5);
+	Bureaucrat eric("Eric Bartlett", 95);
+	Bureaucrat fleet("Vogon Constructor Fleet", 15);
 	std::cout << BG_BRIGHT_BLACK"-=== Create form ===-"RESET << std::endl;
 	ShrubberyCreationForm back_yard("BackYard");
 	std::cout << BG_BRIGHT_BLACK"-=== Review form before signing ===-"RESET << std::endl;
 	std::cout << back_yard;
 	std::cout << BG_BRIGHT_BLACK"-=== Sign the form ===-"RESET << std::endl;
-	alice.signForm(back_yard);
+	eric.signForm(back_yard);
 	std::cout << "\n" << BG_BRIGHT_BLACK"-=== Review form after signing ===-"RESET << std::endl;
 	std::cout << back_yard;
 	std::cout << BG_BRIGHT_BLACK"-=== Try to execute the form ===-"RESET << std::endl;
