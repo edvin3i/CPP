@@ -41,7 +41,7 @@ int Bureaucrat::getGrade() const {
 
 void Bureaucrat::incGrade() {
 	if (this->_grade <= 1)
-		throw Bureaucrat::GradeTooLowException();
+		throw Bureaucrat::GradeTooHighException();
 	this->_grade--;
 	std::cout << this->_name << "'s grade has been incremented to the " << \
 								this->_grade << "." << std::endl;
@@ -49,7 +49,7 @@ void Bureaucrat::incGrade() {
 
 void Bureaucrat::decGrade() {
 	if (this->_grade >= 150)
-		throw Bureaucrat::GradeTooHighException();
+		throw Bureaucrat::GradeTooLowException();
 	this->_grade++;
 	std::cout << this->_name << "'s grade has been decremented to the " << \
 								this->_grade << "." << std::endl;
