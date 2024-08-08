@@ -89,10 +89,13 @@ void ScalarConverter::convert(std::string &num) {
 
 void ScalarConverter::printChar(long num) {
 	if (num < std::numeric_limits<char>::min() || \
-		num > std::numeric_limits<char>::max() || \
-		!isprint(static_cast<char>(num))) {
+		num > std::numeric_limits<char>::max()) {
+		std::cout << "char: impossible" << std::endl;
+	}
+	else if (!std::isprint(static_cast<char>(num))) {
 		std::cout << "char: Non displayable" << std::endl;
-	} else {
+	}
+	else {
 		std::cout << "char: '" << static_cast<char>(num) << "'" << std::endl;
 	}
 }
@@ -101,7 +104,8 @@ void ScalarConverter::printInt(long num) {
 	if (num < std::numeric_limits<int>::min() || \
 		num > std::numeric_limits<int>::max()) {
 		std::cout << "int: impossible" << std::endl;
-	} else {
+	}
+	else {
 		std::cout << "int: " << static_cast<int>(num) << std::endl;
 	}
 }
