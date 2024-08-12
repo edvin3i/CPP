@@ -27,9 +27,9 @@
 #include <string>
 #include <cstdlib>
 
-template <typename T1, typename T2, typename T3>
-void iter(T1 &arr_addr, T2 arr_len, T3 &func) {
-	for (T2 i = 0; i < arr_len; ++i) {
+template <typename T1, typename T2>
+void iter(T1 &arr_addr, size_t arr_len, T2 func) {
+	for (size_t i = 0; i < arr_len; ++i) {
 		func(arr_addr[i]);
 	}
 }
