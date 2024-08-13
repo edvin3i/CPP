@@ -4,10 +4,8 @@
 #include <iomanip>
 
 #define MAX_VAL 10
-int main(int, char**)
-{
 
-/* Tests from the subject */
+int test_subject() {
 	std::cout << BG_BRIGHT_BLACK"--=== Tests from the subject ===--"RESET << std::endl;
 
 	Array<int> numbers(MAX_VAL);
@@ -25,11 +23,11 @@ int main(int, char**)
 	}
 
 // Printing the values
-	std::cout << std::setw(10) << GREEN" NUMBERS "RESET << "     " << CYAN" MIRROR "RESET << std::endl;
+	std::cout << GREEN" NUMBERS "RESET << "       "  <<  CYAN" MIRROR "RESET << std::endl;
 	for (size_t i = 0; i < MAX_VAL; ++i) {
 		if (i + 1 != MAX_VAL)
 		{
-			std::cout << std::setw(0) << GREEN << numbers[i] << RESET << "     ";
+			std::cout << GREEN << numbers[i] << RESET << "     ";
 			std::cout << CYAN << mirror[i] << RESET;
 			std::cout << std::endl;
 			continue ;
@@ -80,6 +78,34 @@ int main(int, char**)
 	{
 		numbers[i] = rand();
 	}
-	delete [] mirror;//
+	delete [] mirror;
+
+	return (0);
+}
+
+void test_str() {
+	std::cout << "\n" << BG_BRIGHT_BLACK"--=== More string type test ===--"RESET << std::endl;
+	Array<std::string> words(5);
+	words[0] = "Hello, ";
+	words[1] = "world!\n";
+	words[3] = "Don't ";
+	words[4] = "panic!";
+
+	for (size_t i = 0; i < words.size(); ++i) {
+		std::cout << words[i];
+	}
+	std::cout << std::endl;
+}
+
+
+int main(int, char**)
+{
+
+	/* Tests from the subject */
+	test_subject();
+
+	/* My string test */
+	test_str();
+
 	return 0;
 }
