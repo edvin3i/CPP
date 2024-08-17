@@ -16,7 +16,7 @@ OBJDIR      =   .obj/
 #                            Files                                           #
 #############################################################################
 
-MFLS        =	main.cpp
+MFLS        =	BitcoinExchange.cpp main.cpp
 MSRC        =   $(addprefix $(MDIR), $(MFLS))
 MOBJS       =   $(MSRC:.cpp=.o)
 MOBJS       :=  $(addprefix $(OBJDIR), $(notdir $(MOBJS)))
