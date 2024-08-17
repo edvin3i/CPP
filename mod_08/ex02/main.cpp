@@ -1,15 +1,47 @@
 #include "MutantStack.hpp"
 
 
-void test_big() {
+void test_fw() {
+	std::cout << "\n" << BG_BRIGHT_BLACK"1. My forward test:"RESET << std::endl;
+	MutantStack<int> mstack;
 
-	std::cout << "\n" << BG_BRIGHT_BLACK"1. My test with big size of span:"RESET << std::endl;
 
+	int arr[5] = {21, 4, 1, 7,42};
+	mstack.addNumbers(arr, 5);
+
+	MutantStack<int>::iterator it = mstack.begin();
+	MutantStack<int>::iterator ite = mstack.end();
+
+	std::cout << GREEN"Print stack using forward iterator: "RESET << std::endl;
+	while(it != ite) {
+		std::cout << *it << " ";
+		++it;
+	}
+	std::cout << std::endl;
+}
+
+void test_rev() {
+	std::cout << "\n" << BG_BRIGHT_BLACK"2. My reverse test:"RESET << std::endl;
+	MutantStack<int> mstack;
+
+
+	int arr[5] = {21, 4, 1, 7,42};
+	mstack.addNumbers(arr, 5);
+
+	MutantStack<int>::reverse_iterator rit = mstack.rbegin();
+	MutantStack<int>::reverse_iterator rite = mstack.rend();
+
+	std::cout << CYAN"Print stack using reverse iterator: "RESET << std::endl;
+	while(rit != rite) {
+		std::cout << *rit << " ";
+		++rit;
+	}
+	std::cout << std::endl;
 }
 
 
 void test_subject() {
-	std::cout << "\n" << BG_BRIGHT_BLACK"2. Standard small test from the subject:"RESET << std::endl;
+	std::cout << "\n" << BG_BRIGHT_BLACK"3. Standard test from the subject:"RESET << std::endl;
 
 	MutantStack<int> mstack;
 
@@ -42,7 +74,9 @@ void test_subject() {
 
 int main() {
 
-	test_big();
+	test_fw();
+
+	test_rev();
 
 	test_subject();
 

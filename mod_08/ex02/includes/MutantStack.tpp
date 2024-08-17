@@ -22,6 +22,13 @@ MutantStack<T>::MutantStack(): std::stack<T>() {
 }
 
 template<typename T>
+void MutantStack<T>::addNumbers(const T *nums_arr, size_t size) {
+	for (size_t i = 0; i < size; ++i) {
+		this->push(nums_arr[i]);
+	}
+}
+
+template<typename T>
 typename MutantStack<T>::iterator MutantStack<T>::end() {
 	return this->c.end();
 }

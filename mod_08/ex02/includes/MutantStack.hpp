@@ -37,6 +37,8 @@ public:
 	MutantStack &operator=(const MutantStack<T> &other);
 	~MutantStack();
 
+	void addNumbers(const T *nums_arr, size_t size);
+
 	iterator begin();
 	iterator end();
 	reverse_iterator rbegin();
