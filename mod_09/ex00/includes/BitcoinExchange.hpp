@@ -43,6 +43,7 @@ private:
 	double getExchangeRate(const std::string &date) const;
 	bool isValidDate(const std::string &date) const;
 	bool isValidValue(const std::string &value) const;
+	static std::string ft_trim(std::string str);
 
 
 };
