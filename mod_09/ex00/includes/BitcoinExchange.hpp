@@ -24,6 +24,7 @@
 #define BG_BRIGHT_GREEN "\033[102m"
 
 #include <string>
+#include <cstdlib>
 #include <iostream>
 #include <fstream>
 #include <sstream>
