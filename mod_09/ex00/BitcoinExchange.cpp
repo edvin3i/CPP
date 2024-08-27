@@ -6,6 +6,7 @@ BitcoinExchange::BitcoinExchange(std::string &fileName) {
 	}
 	catch (std::exception &e) {
 		std::cerr << BRIGHT_RED << e.what() << RESET << std::endl;
+		throw ;
 	}
 }
 
