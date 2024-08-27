@@ -25,15 +25,18 @@
 
 #include <string>
 #include <cstdlib>
+#include <cctype>
 #include <iostream>
 #include <fstream>
 #include <sstream>
 #include <map>
+#include <algorithm>
+#include <stdexcept>
 #include <exception>
 
 class BitcoinExchange {
 public:
-	BitcoinExchange(std::string &fileName);
+	explicit BitcoinExchange(std::string &fileName);
 	void handleInputFile(const std::string &filename) const;
 	~BitcoinExchange();
 
@@ -41,9 +44,8 @@ private:
 	std::map<std::string, double> _inMemoryDB;
 
 	void loadDatabase(const std::string &filename);
-	double getExchangeRate(const std::string &date) const;
+	double getExchangeRate(std::string &date) const;
 	bool isValidDate(const std::string &date) const;
-	bool isValidValue(const std::string &value) const;
 	static std::string ft_trim(std::string str);
 
 
