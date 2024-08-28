@@ -2,7 +2,7 @@
 #                            Name                                            #
 #############################################################################
 
-NAME        =   RPN
+NAME        =   PmergeMe
 
 #############################################################################
 #                            Directories                                     #
@@ -16,7 +16,7 @@ OBJDIR      =   .obj/
 #                            Files                                           #
 #############################################################################
 
-MFLS        =	RPN.cpp main.cpp
+MFLS        =	PmergeMe.cpp main.cpp
 MSRC        =   $(addprefix $(MDIR), $(MFLS))
 MOBJS       =   $(MSRC:.cpp=.o)
 MOBJS       :=  $(addprefix $(OBJDIR), $(notdir $(MOBJS)))
