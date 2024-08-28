@@ -25,10 +25,28 @@
 
 
 #include <string>
+#include <sstream>
 #include <iostream>
+#include <stack>
+#include <cstdlib>
+#include <cctype>
+#include <exception>
 
 
-class RPN {
+class RevPolNot {
+public:
+	explicit RevPolNot(std::string &input);
+	int calculate();
+	~RevPolNot();
+
+
+private:
+	std::string _expression;
+
+	bool isValidOperator(std::string &token);
+	bool isValidOperand(std::string &token);
+	bool checkExpression(std::string &expression);
+
 
 };
 
