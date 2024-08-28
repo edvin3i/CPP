@@ -2,7 +2,7 @@
 
 RevPolNot::RevPolNot(std::string &input) {
 	if (!checkExpression(input)) {
-		throw std::invalid_argument("Error: Invalid RPN expression!");
+		throw std::invalid_argument("Invalid RPN expression!");
 	}
 }
 
@@ -44,24 +44,7 @@ int RevPolNot::calculate() {
 				default:
 					throw std::runtime_error("Error: Invalid operator!");
 			}
-/*
 
-			if (token == "+") {
-				result = operand1 + operand2;
-			}
-			else if (token == "-") {
-				result = operand1 - operand2;
-			}
-			else if (token == "*") {
-				result = operand1 * operand2;
-			}
-			else if (token == "/") {
-				result = operand1 / operand2;
-			}
-			else {
-				throw std::runtime_error("Error: Invalid operator!");
-			}
-*/
 			operands.push(result);
 		}
 		else {
@@ -107,12 +90,12 @@ bool RevPolNot::checkExpression(std::string &expression) {
 			++operatorsCnt;
 		}
 		else {
-			std::cerr << "Error: Invalid token: \"" << token << "\"!" << std::endl;
+			std::cerr << BRIGHT_RED "Error: Invalid token: " BRIGHT_MAGENTA "\"" << token << "\"" BRIGHT_RED "!" RESET << std::endl;
 			return (false);
 		}
 	}
 	if (operatorsCnt == 0 || operandsCnt == 0 || (operandsCnt - 1 != operatorsCnt)) {
-		std::cerr << "Error: Wrong number of operands or operators!" << std::endl;
+		std::cerr << BRIGHT_RED "Error: Wrong number of operands or operators!" RESET << std::endl;
 		return (false);
 	}
 
