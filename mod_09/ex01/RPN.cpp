@@ -30,6 +30,22 @@ int RevPolNot::calculate() {
 			int operand1 = operands.top();
 			operands.pop();
 
+			char ctok = token.c_str()[0];
+
+			switch (ctok) {
+				case '+':
+					result = operand1 + operand2; break;
+				case '-':
+					result = operand1 - operand2; break;
+				case '*':
+					result = operand1 * operand2; break;
+				case '/':
+					result = operand1 / operand2; break;
+				default:
+					throw std::runtime_error("Error: Invalid operator!");
+			}
+/*
+
 			if (token == "+") {
 				result = operand1 + operand2;
 			}
@@ -45,6 +61,7 @@ int RevPolNot::calculate() {
 			else {
 				throw std::runtime_error("Error: Invalid operator!");
 			}
+*/
 			operands.push(result);
 		}
 		else {
