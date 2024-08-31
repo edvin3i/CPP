@@ -29,21 +29,30 @@
 #include <ctime>
 #include <cstdlib>
 #include <climits>
+#include <deque>
 #include <list>
 #include <vector>
 
 
 class PmergeMe {
 public:
-	PmergeMe();
+	PmergeMe(int argc, char **argv);
 	~PmergeMe();
+
+	void printVector();
+	void printDeque();
+	void printList();
 
 private:
 	std::vector<int> _vec;
+	std::deque<int> _deq;
 	std::list<int> _lst;
 
 	bool pushValToContainers(const char *argv);
-	std::vector<int>::iterator getIsertPosition(std::vector<int> &vec, int value);
+	std::vector<int>::iterator getVecInsertPosition(std::vector<int> &vec, int value);
+	std::deque<int>::iterator getDeqInsertPosition(std::deque<int> &deq, int value);
+	std::list<int>::iterator getLstInsertPosition(std::list<int> &lst, int value);
+
 
 };
 
