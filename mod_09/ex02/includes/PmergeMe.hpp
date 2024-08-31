@@ -39,7 +39,7 @@ public:
 	~PmergeMe();
 
 private:
-	
+	bool pushValToContainers(const char *argv, std::vector<int> &vec, std::list<int> *lst);
 	std::vector<int>::iterator getIsertPosition(std::vector<int> &vec, int value);
 
 };
