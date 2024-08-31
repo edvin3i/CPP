@@ -35,11 +35,14 @@
 
 class PmergeMe {
 public:
-	PmergeMe(std::string numbers);
+	PmergeMe();
 	~PmergeMe();
 
 private:
-	bool pushValToContainers(const char *argv, std::vector<int> &vec, std::list<int> *lst);
+	std::vector<int> _vec;
+	std::list<int> _lst;
+
+	bool pushValToContainers(const char *argv);
 	std::vector<int>::iterator getIsertPosition(std::vector<int> &vec, int value);
 
 };

@@ -19,14 +19,13 @@ PmergeMe::getIsertPosition(std::vector<int> &vec, int value) {
 	return (vec.begin() + low);
 }
 
-bool PmergeMe::pushValToContainers(const char *argv, std::vector<int> &vec,
-								   std::list<int> *lst) {
+bool PmergeMe::pushValToContainers(const char *argv) {
 
 	char *end;
 	long value = std::strtol(argv, &end, 10);
 
 	if (end != 0 || end == argv) {
-		std::cout << BRIGHT_RED "Error: Wrong number in argument!" RESET << std::endl;
+		std::cout << BRIGHT_RED "Error: Wrong number: " << argv << "!" RESET << std::endl;
 		return (false);
 	}
 	if (value < INT_MIN || value > INT_MAX) {
@@ -35,8 +34,8 @@ bool PmergeMe::pushValToContainers(const char *argv, std::vector<int> &vec,
 	}
 
 	int intValue = static_cast<int>(value);
-	vec.push_back(intValue);
-	lst->push_back(intValue);
+	_vec.push_back(intValue);
+	_lst.push_back(intValue);
 
 	return (true);
 }
