@@ -27,16 +27,20 @@
 #include <iostream>
 #include <exception>
 #include <ctime>
+#include <cstdlib>
+#include <climits>
 #include <list>
-#include <deque>
+#include <vector>
 
 
 class PmergeMe {
 public:
-	PmergeMe();
+	PmergeMe(std::string numbers);
 	~PmergeMe();
 
 private:
+	
+	std::vector<int>::iterator getIsertPosition(std::vector<int> &vec, int value);
 
 };
 
