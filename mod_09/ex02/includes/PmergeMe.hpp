@@ -25,6 +25,7 @@
 
 #include <string>
 #include <iostream>
+#include <algorithm>
 #include <exception>
 #include <ctime>
 #include <cstdlib>
@@ -39,20 +40,27 @@ public:
 	PmergeMe(int argc, char **argv);
 	~PmergeMe();
 
-	void printVector();
+	void printVector(const std::vector<int> &vec);
 	void printDeque();
-	void printList();
+
+
+	const std::vector<int> getVector();
 
 private:
 	int _odd_member;
 	std::vector<int> _vec;
 	std::deque<int> _deq;
-	std::list<int> _lst;
+
 
 	bool pushValToContainers(const char *argv);
 	std::vector<int>::iterator getVecInsertPosition(std::vector<int> &vec, int value);
 	std::deque<int>::iterator getDeqInsertPosition(std::deque<int> &deq, int value);
-	std::list<int>::iterator getLstInsertPosition(std::list<int> &lst, int value);
+
+	std::vector<std::pair<int, int> > createVecPairs(std::vector<int> &vec);
+	std::deque<std::pair<int, int> > createDeqPairs(std::deque<int> &deq);
+
+	std::vector<int> mergeToVector(std::vector<std::pair<int, int> > &pairs);
+	std::deque<int> mergeToDeque(std::vector<std::pair<int, int> > &pair);
 
 
 };

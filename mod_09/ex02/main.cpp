@@ -8,9 +8,9 @@ int main(int argc, char **argv) {
 	}
 	try {
 	PmergeMe pm(argc, argv);
-	pm.printVector();
-	pm.printList();
-	pm.printDeque();
+	pm.printVector(pm.getVector());
+/*	pm.printList();
+	pm.printDeque();*/
 	}
 	catch (std::exception &e) {
 		std::cout << e.what() << std::endl;
