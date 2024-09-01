@@ -1,8 +1,21 @@
 #include "includes/PmergeMe.hpp"
 
 
-PmergeMe::PmergeMe(int argc, char **argv) {
-	for (int i = 1; i < argc; ++i) {
+PmergeMe::PmergeMe(int argc, char **argv): _odd_member(-1) {
+		int last = argc - 1;
+
+		if ((argc - 1) % 2 != 0){
+			if (!pushValToContainers(argv[last])) {
+				throw std::invalid_argument("Exit.");
+			}
+			_odd_member = _vec.back();
+			_vec.pop_back();
+			_lst.pop_back();
+			_deq.pop_back();
+			last--;
+		}
+
+		for (int i = 1; i <= last; ++i) {
 		if (!pushValToContainers(argv[i])){
 			throw std::invalid_argument("Exit.");
 		}
@@ -54,21 +67,14 @@ PmergeMe::getDeqInsertPosition(std::deque<int> &deq, int value) {
 
 std::list<int>::iterator
 PmergeMe::getLstInsertPosition(std::list<int> &lst, int value) {
-	int low = 0;
-	int high = lst.size();
+	std::list<int>::iterator it = lst.begin();
 
-	while (low < high) {
-		int mid = (low + high) / 2;
-
-		if (std::lower_bound(lst.begin(), lst.end(), mid) < value) {
-			low = mid + 1;
-		}
-		else {
-			high = mid;
+	for (; it != lst.end(); ++it) {
+		if (*it >= value) {
+			break ;
 		}
 	}
-
-	return (lst.begin() + low);
+	return (it);
 }
 
 
@@ -115,10 +121,12 @@ void PmergeMe::printDeque() {
 
 void PmergeMe::printList() {
 	std::cout << "List: ";
-	for (size_t i = 0; i < _vec.size(); ++i) {
-		std::cout << _vec[i] << " ";
+	std::list<int>::iterator it = _lst.begin();
+	for (; it != _lst.end(); ++it) {
+		std::cout << *it << " ";
 	}
 	std::cout << std::endl;
+	std::cout  << _odd_member << std::endl;
 }
 
 

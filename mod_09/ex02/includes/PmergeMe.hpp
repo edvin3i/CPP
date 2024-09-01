@@ -44,6 +44,7 @@ public:
 	void printList();
 
 private:
+	int _odd_member;
 	std::vector<int> _vec;
 	std::deque<int> _deq;
 	std::list<int> _lst;
