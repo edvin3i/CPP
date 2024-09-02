@@ -65,22 +65,6 @@ PmergeMe::getDeqInsertPosition(std::deque<int> &deq, int value) {
 }
 
 
-/*
-std::list<int>::iterator
-PmergeMe::getLstInsertPosition(std::list<int> &lst, int value) {
-	std::list<int>::iterator it = lst.begin();
-
-	for (; it != lst.end(); ++it) {
-		if (*it >= value) {
-			break ;
-		}
-	}
-	return (it);
-}
-*/
-
-
-
 bool PmergeMe::pushValToContainers(const char *argv) {
 
 	char *end;
@@ -126,7 +110,9 @@ std::vector<std::pair<int, int> >
 	PmergeMe::createVecPairs(std::vector<int> &vec) {
 	std::vector<std::pair<int, int> > vec_pairs;
 
-	for(size_t i = 0; i < vec.size(); ++i) {
+	std::cout << "VECTOR: ";	for (size_t i = 0; i < vec.size(); ++i) { std::cout << vec[i] << " ";	} std::cout << std::endl;
+
+	for(size_t i = 0; i < vec.size(); i += 2) {
 		if (vec[i + 1] < vec[i]) {
 			vec_pairs.push_back(std::make_pair(vec[i + 1], vec[i]));
 		}
@@ -134,6 +120,8 @@ std::vector<std::pair<int, int> >
 			vec_pairs.push_back(std::make_pair(vec[i], vec[i + 1]));
 		}
 	}
+
+	std::cout << "PAIRS: ";	for (size_t i = 0; i < vec_pairs.size(); ++i) { std::cout << "(" << vec_pairs[i].first << ", " << vec_pairs[i].second << ")" << " ";	} std::cout << std::endl;
 
 	return (vec_pairs);
 }
@@ -164,12 +152,20 @@ PmergeMe::mergeToVector(std::vector<std::pair<int, int> > &pairs) {
 		big_nums.push_back(pairs[i].second);
 	}
 
+	std::cout << "TEST1: ";	for (size_t i = 0; i < small_nums.size(); ++i) { std::cout << small_nums[i] << " ";	} std::cout << std::endl;
+
 	std::sort(small_nums.begin(), small_nums.end());
+
+	std::cout << "TEST2: ";	for (size_t i = 0; i < small_nums.size(); ++i) { std::cout << small_nums[i] << " "; } std::cout << std::endl;
+	std::cout << "TEST 2.5: ";	for (size_t i = 0; i < big_nums.size(); ++i) { std::cout << big_nums[i] << " ";	} std::cout << std::endl;
 
 	for (size_t i = 0; i < big_nums.size(); ++i) {
 		std::vector<int>::iterator pos = getVecInsertPosition(small_nums, big_nums[i]);
 		small_nums.insert(pos, big_nums[i]);
 	}
+
+	std::cout << "TEST3: ";	for (size_t i = 0; i < small_nums.size(); ++i) { std::cout << small_nums[i] << " ";	} std::cout << std::endl;
+
 
 	return (small_nums);
 }
