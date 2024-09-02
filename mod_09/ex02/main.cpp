@@ -9,8 +9,7 @@ int main(int argc, char **argv) {
 	try {
 	PmergeMe pm(argc, argv);
 	pm.printVector(pm.getVector());
-/*	pm.printList();
-	pm.printDeque();*/
+	pm.printDeque(pm.getDeque());
 	}
 	catch (std::exception &e) {
 		std::cout << e.what() << std::endl;

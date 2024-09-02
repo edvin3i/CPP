@@ -41,10 +41,11 @@ public:
 	~PmergeMe();
 
 	void printVector(const std::vector<int> &vec);
-	void printDeque();
+	void printDeque(const std::deque<int> &deq);
 
 
 	const std::vector<int> getVector();
+	const std::deque<int> getDeque();
 
 private:
 	int _odd_member;
@@ -60,7 +61,7 @@ private:
 	std::deque<std::pair<int, int> > createDeqPairs(std::deque<int> &deq);
 
 	std::vector<int> mergeToVector(std::vector<std::pair<int, int> > &pairs);
-	std::deque<int> mergeToDeque(std::vector<std::pair<int, int> > &pair);
+	std::deque<int> mergeToDeque(std::deque<std::pair<int, int> > &pairs);
 
 
 };
