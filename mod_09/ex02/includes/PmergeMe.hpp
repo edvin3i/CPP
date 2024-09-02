@@ -27,7 +27,8 @@
 #include <iostream>
 #include <algorithm>
 #include <exception>
-#include <ctime>
+#include <iomanip>
+#include <sys/time.h>
 #include <cstdlib>
 #include <climits>
 #include <deque>
@@ -44,8 +45,8 @@ public:
 	void printDeque(const std::deque<int> &deq);
 
 
-	const std::vector<int> getVector();
-	const std::deque<int> getDeque();
+	const std::vector<int> sortVector();
+	const std::deque<int> sortDeque();
 
 private:
 	int _odd_member;

@@ -4,6 +4,7 @@
 PmergeMe::PmergeMe(int argc, char **argv): _odd_member(-1) {
 		int last = argc - 1;
 
+		std::cout << "Before: ";
 
 		if ((argc - 1) % 2 != 0){
 			if (!pushValToContainers(argv[last])) {
@@ -15,12 +16,13 @@ PmergeMe::PmergeMe(int argc, char **argv): _odd_member(-1) {
 			last--;
 		}
 
-		std::cout << "Before: ";
+
 
 		for (int i = 1; i <= last; ++i) {
 			if (!pushValToContainers(argv[i]))	{
 				throw std::invalid_argument("Exit.");
 			}
+			std::cout << _vec.back() << std::endl;
 		}
 		if (_odd_member != -1) {
 			std::cout << _odd_member << std::endl;
@@ -90,7 +92,11 @@ bool PmergeMe::pushValToContainers(const char *argv) {
 	int intValue = static_cast<int>(value);
 	_vec.push_back(intValue);
 	_deq.push_back(intValue);
+
 	if (_odd_member != intValue && _odd_member != -1) {
+		std::cout << intValue << " ";
+	}
+	else if (_odd_member == intValue && _vec.size() > 0) {
 		std::cout << intValue << " ";
 	}
 
@@ -106,6 +112,7 @@ void PmergeMe::printVector(const std::vector<int> &vec) {
 	std::cout << std::endl;
 }
 
+
 void PmergeMe::printDeque(const std::deque<int> &deq) {
 
 	std::cout << "Deque: ";
@@ -114,7 +121,6 @@ void PmergeMe::printDeque(const std::deque<int> &deq) {
 	}
 	std::cout << std::endl;
 }
-
 
 
 std::vector<std::pair<int, int> >
@@ -132,6 +138,7 @@ std::vector<std::pair<int, int> >
 
 	return (vec_pairs);
 }
+
 
 std::deque<std::pair<int, int> > PmergeMe::createDeqPairs(std::deque<int> &deq) {
 	std::deque<std::pair<int, int> > deq_pairs;
@@ -198,23 +205,47 @@ std::deque<int> PmergeMe::mergeToDeque(std::deque<std::pair<int, int> > &pairs) 
 	return (small_nums);
 }
 
-const std::vector<int> PmergeMe::getVector() {
+const std::vector<int> PmergeMe::sortVector() {
 	std::vector<int> vec;
 	std::vector<std::pair<int, int> > pairs;
+
+	struct timeval start, stop;
+	gettimeofday(&start, NULL);
 
 	pairs = createVecPairs(_vec);
 	vec = mergeToVector(pairs);
 
+	gettimeofday(&stop, NULL);
+
+	double elapsed_time = (stop.tv_sec - stop.tv_sec) * 1000000.0 + (stop.tv_usec - start.tv_usec);
+	elapsed_time = elapsed_time / 1000.0;
+
+	std::cout << "Time to process a range of " << vec.size() << \
+					" elements with std::vector: " << \
+					std::fixed << std::setprecision(6) << \
+					elapsed_time << " ms" << std::endl;
 	return (vec);
 }
 
-const std::deque<int> PmergeMe::getDeque() {
+const std::deque<int> PmergeMe::sortDeque() {
 	std::deque<int> deq;
 	std::deque<std::pair<int, int> > pairs;
+
+	struct timeval start, stop;
+	gettimeofday(&start, NULL);
 
 	pairs = createDeqPairs(_deq);
 	deq = mergeToDeque(pairs);
 
+	gettimeofday(&stop, NULL);
+
+	double elapsed_time = (stop.tv_sec - stop.tv_sec) * 1000000.0 + (stop.tv_usec - start.tv_usec) ;
+	elapsed_time = elapsed_time / 1000.0;
+
+	std::cout << "Time to process a range of " << deq.size() << \
+					" elements with std::deque: " << \
+					std::fixed << std::setprecision(6) << \
+					elapsed_time << " ms" << std::endl;
 	return (deq);
 }
 

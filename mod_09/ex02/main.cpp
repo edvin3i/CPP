@@ -8,8 +8,10 @@ int main(int argc, char **argv) {
 	}
 	try {
 	PmergeMe pm(argc, argv);
-	pm.printVector(pm.getVector());
-	pm.printDeque(pm.getDeque());
+/*	pm.printVector(pm.sortVector());
+	pm.printDeque(pm.sortDeque());*/
+	pm.sortVector();
+	pm.sortDeque();
 	}
 	catch (std::exception &e) {
 		std::cout << e.what() << std::endl;
