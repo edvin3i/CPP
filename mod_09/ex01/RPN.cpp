@@ -40,7 +40,12 @@ int RevPolNot::calculate() {
 				case '*':
 					result = operand1 * operand2; break;
 				case '/':
-					result = operand1 / operand2; break;
+					if (operand2 == 0) {
+						throw std::runtime_error("Error: Division by zero!");
+					}
+					else {
+						result = operand1 / operand2; break;
+					}
 				default:
 					throw std::runtime_error("Error: Invalid operator!");
 			}
