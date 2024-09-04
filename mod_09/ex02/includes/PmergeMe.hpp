@@ -41,17 +41,24 @@ public:
 	PmergeMe(int argc, char **argv);
 	~PmergeMe();
 
-	void printVector(const std::vector<int> &vec);
-	void printDeque(const std::deque<int> &deq);
+	std::vector<int> getVector();
+	void printBefore(int inp_cnt, char **inp);
+	void printAfter();
 
 
 	const std::vector<int> sortVector();
 	const std::deque<int> sortDeque();
 
+	std::vector<int> sorted_vec;
+
 private:
 	int _odd_member;
+
 	std::vector<int> _vec;
 	std::deque<int> _deq;
+
+	double _el_time_vec;
+	double _el_time_deq;
 
 
 	bool pushValToContainers(const char *argv);

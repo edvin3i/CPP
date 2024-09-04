@@ -1,10 +1,9 @@
 #include "includes/PmergeMe.hpp"
 
 
-PmergeMe::PmergeMe(int argc, char **argv): _odd_member(-1) {
+PmergeMe::PmergeMe(int argc, char **argv): _odd_member(-1), _el_time_vec(0), _el_time_deq(0) {
 		int last = argc - 1;
 
-		std::cout << "Before: ";
 
 		if ((argc - 1) % 2 != 0){
 			if (!pushValToContainers(argv[last])) {
@@ -16,19 +15,10 @@ PmergeMe::PmergeMe(int argc, char **argv): _odd_member(-1) {
 			last--;
 		}
 
-
-
 		for (int i = 1; i <= last; ++i) {
-			if (!pushValToContainers(argv[i]))	{
+			if (!pushValToContainers(argv[i])) {
 				throw std::invalid_argument("Exit.");
 			}
-			std::cout << _vec.back() << std::endl;
-		}
-		if (_odd_member != -1) {
-			std::cout << _odd_member << std::endl;
-		}
-		else {
-			std::cout << std::endl;
 		}
 }
 
@@ -90,36 +80,29 @@ bool PmergeMe::pushValToContainers(const char *argv) {
 	}
 
 	int intValue = static_cast<int>(value);
-	_vec.push_back(intValue);
-	_deq.push_back(intValue);
 
-	if (_odd_member != intValue && _odd_member != -1) {
-		std::cout << intValue << " ";
-	}
-	else if (_odd_member == intValue && _vec.size() > 0) {
-		std::cout << intValue << " ";
-	}
+	struct timeval vec_start, vec_stop;
+	struct timeval deq_start, deq_stop;
+
+	gettimeofday(&vec_start, NULL);
+	_vec.push_back(intValue);
+	gettimeofday(&vec_stop, NULL);
+
+	gettimeofday(&deq_start, NULL);
+	_deq.push_back(intValue);
+	gettimeofday(&deq_stop, NULL);
+
+	double vec_time = (vec_stop.tv_sec - vec_stop.tv_sec) * 1000000.0 + (vec_stop.tv_usec - vec_start.tv_usec);
+	vec_time = vec_time / 1000.0;
+	this->_el_time_vec += vec_time;
+
+
+	double deq_time = (deq_stop.tv_sec - deq_stop.tv_sec) * 1000000.0 + (deq_stop.tv_usec - deq_start.tv_usec);
+	deq_time = deq_time / 1000.0;
+	this->_el_time_deq += deq_time;
+
 
 	return (true);
-}
-
-void PmergeMe::printVector(const std::vector<int> &vec) {
-
-	std::cout << "Vector: ";
-	for (size_t i = 0; i < vec.size(); ++i) {
-		std::cout << vec[i] << " ";
-	}
-	std::cout << std::endl;
-}
-
-
-void PmergeMe::printDeque(const std::deque<int> &deq) {
-
-	std::cout << "Deque: ";
-	for (size_t i = 0; i < deq.size(); ++i) {
-		std::cout << deq[i] << " ";
-	}
-	std::cout << std::endl;
 }
 
 
@@ -217,13 +200,11 @@ const std::vector<int> PmergeMe::sortVector() {
 
 	gettimeofday(&stop, NULL);
 
-	double elapsed_time = (stop.tv_sec - stop.tv_sec) * 1000000.0 + (stop.tv_usec - start.tv_usec);
-	elapsed_time = elapsed_time / 1000.0;
+	double el_time_vec = (stop.tv_sec - stop.tv_sec) * 1000000.0 + (stop.tv_usec - start.tv_usec);
+	el_time_vec = el_time_vec / 1000.0;
+	this->_el_time_vec += el_time_vec;
 
-	std::cout << "Time to process a range of " << vec.size() << \
-					" elements with std::vector: " << \
-					std::fixed << std::setprecision(6) << \
-					elapsed_time << " ms" << std::endl;
+
 	return (vec);
 }
 
@@ -239,13 +220,49 @@ const std::deque<int> PmergeMe::sortDeque() {
 
 	gettimeofday(&stop, NULL);
 
-	double elapsed_time = (stop.tv_sec - stop.tv_sec) * 1000000.0 + (stop.tv_usec - start.tv_usec) ;
-	elapsed_time = elapsed_time / 1000.0;
+	double el_time_deq = (stop.tv_sec - stop.tv_sec) * 1000000.0 + (stop.tv_usec - start.tv_usec) ;
+	el_time_deq = el_time_deq / 1000.0;
+	this->_el_time_deq += el_time_deq;
 
-	std::cout << "Time to process a range of " << deq.size() << \
-					" elements with std::deque: " << \
-					std::fixed << std::setprecision(6) << \
-					elapsed_time << " ms" << std::endl;
 	return (deq);
+}
+
+
+void PmergeMe::printBefore(int inp_cnt, char **inp) {
+
+	std::cout << "\n" << BG_BLUE BRIGHT_YELLOW "Before: " << RESET BRIGHT_YELLOW;
+	for (int i = 1; i < inp_cnt; i++) {
+		std::cout << inp[i] << " ";
+	}
+	std::cout << RESET << std::endl;
+
+}
+
+
+void PmergeMe::printAfter() {
+
+	std::cout << "\n" << BG_BLUE BRIGHT_GREEN "After: " RESET BRIGHT_GREEN;
+	for (size_t i = 0; i < sorted_vec.size(); ++i) {
+		std::cout << sorted_vec[i] << " ";
+	}
+	std::cout << RESET << "\n" << std::endl;
+
+	std::cout << "Time to process a range of " << BRIGHT_WHITE << _vec.size() << RESET \
+					" elements with " BRIGHT_MAGENTA "std::vector" RESET ": " << \
+					std::fixed << std::setprecision(6) << BRIGHT_MAGENTA << \
+					_el_time_vec << " ms" << RESET << std::endl;
+
+
+	std::cout << "Time to process a range of " << BRIGHT_WHITE << _deq.size() << RESET \
+					" elements with " BRIGHT_CYAN  "std::deque" RESET ": "  << \
+					std::fixed << std::setprecision(6) << BRIGHT_CYAN << \
+					_el_time_deq << " ms" << RESET << std::endl;
+
+}
+
+
+
+std::vector<int> PmergeMe::getVector() {
+	return (_vec);
 }
 
