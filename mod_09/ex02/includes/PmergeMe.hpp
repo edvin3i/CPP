@@ -71,6 +71,9 @@ private:
 	std::vector<int> mergeToVector(std::vector<std::pair<int, int> > &pairs);
 	std::deque<int> mergeToDeque(std::deque<std::pair<int, int> > &pairs);
 
+	std::vector<int> sortPairVec(std::vector<int> &vec);
+	std::deque<int> sortPairDeque(std::deque<int> &dec);
+
 
 };
 

@@ -266,3 +266,11 @@ std::vector<int> PmergeMe::getVector() {
 	return (_vec);
 }
 
+std::vector<int> PmergeMe::sortPairVec(std::vector<int> &vec) {
+	std::vector<int> result;
+
+	
+
+	return (result);
+}
+
