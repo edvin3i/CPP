@@ -32,7 +32,7 @@
 #include <cstdlib>
 #include <climits>
 #include <deque>
-#include <list>
+#include <set>
 #include <vector>
 
 
@@ -50,6 +50,7 @@ public:
 	const std::deque<int> sortDeque();
 
 	std::vector<int> sorted_vec;
+	std::deque<int> sorted_deq;
 
 private:
 	int _odd_member;
@@ -59,6 +60,10 @@ private:
 
 	double _el_time_vec;
 	double _el_time_deq;
+
+	std::vector<int> genJacobsthalVec(int n);
+	std::vector<int> mergeVectors(std::vector<int> &left, std::vector<int> &right);
+	std::vector<int> mergeSortVec(std::vector<int> &vec);
 
 
 	bool pushValToContainers(const char *argv);
@@ -70,9 +75,6 @@ private:
 
 	std::vector<int> mergeToVector(std::vector<std::pair<int, int> > &pairs);
 	std::deque<int> mergeToDeque(std::deque<std::pair<int, int> > &pairs);
-
-	std::vector<int> sortPairVec(std::vector<int> &vec);
-	std::deque<int> sortPairDeque(std::deque<int> &dec);
 
 
 };
